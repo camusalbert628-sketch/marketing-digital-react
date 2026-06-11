@@ -1210,3 +1210,13 @@
   padding: 16px !important;
 }
 
+/* ── Slide 13 : Retirer le rectangle blanc / bordures derrière la ligne de statistiques ── */
+#root .slide-13 .stats-row {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: 20px !important;
+}
+
+
