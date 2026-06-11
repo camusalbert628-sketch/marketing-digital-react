@@ -1,0 +1,527 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Google Search Console - Clés</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 24px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 24px;
+    flex: 1;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.card-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.card-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.card-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.card-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.metrics-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.metric-item {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 12px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-label {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.metric-value {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.metric-change {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.metric-change.positive {
+    color: #10B981;
+}
+
+.metric-change.negative {
+    color: #EF4444;
+}
+
+.chart-container {
+    flex: 1;
+    min-height: 180px;
+    position: relative;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.feature-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.feature-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.feature-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.feature-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-title {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.feature-desc {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-badge.active {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.status-badge.pending {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.progress-bar {
+    width: 350px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+    border-radius: 6px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper">< !-- Header --><div class="header"><div class="title-section"><div class="title-icon"><i class="fab fa-google"></i></div><div><div class="main-title">Google Search Console - Clés</div><div class="subtitle">Tableau de bord complet des fonctionnalités et métriques</div></div></div><div class="badge"><i class="fas fa-chart-line" style="margin-right: 8px;"></i>6 Fonctionnalités </div></div>< !-- Main Content --><div class="main-content"><div class="dashboard-grid">< !-- Left Panel --><div class="left-panel"><div class="card" style="flex: 2;"><div class="card-header"><div class="card-title"><div class="card-icon blue"><i class="fas fa-chart-line"></i></div>Rapport Performance </div><div class="status-badge active">En ligne</div></div><div class="metrics-row"><div class="metric-item"><div class="metric-label">Clics</div><div class="metric-value">12,
+847</div><div class="metric-change positive"><i class="fas fa-arrow-up"></i>+15.3% </div></div><div class="metric-item"><div class="metric-label">Impressions</div><div class="metric-value">1.2M</div><div class="metric-change positive"><i class="fas fa-arrow-up"></i>+8.7% </div></div><div class="metric-item"><div class="metric-label">CTR</div><div class="metric-value">1.07%</div><div class="metric-change negative"><i class="fas fa-arrow-down"></i>-0.2% </div></div><div class="metric-item"><div class="metric-label">Position moyenne</div><div class="metric-value">12.4</div><div class="metric-change positive"><i class="fas fa-arrow-up"></i>+1.2% </div></div></div><div class="chart-container"><canvas id="performanceChart"></canvas></div></div><div class="features-grid"><div class="feature-card"><div class="feature-icon blue"><i class="fas fa-sitemap"></i></div><div class="feature-content"><div class="feature-title">Sitemaps</div><div class="feature-desc">Soumission et suivi</div></div><div class="status-badge active">OK</div></div><div class="feature-card"><div class="feature-icon green"><i class="fas fa-file-alt"></i></div><div class="feature-content"><div class="feature-title">Pages indexées</div><div class="feature-desc">1,
+234 pages</div></div><div class="status-badge active">OK</div></div><div class="feature-card"><div class="feature-icon orange"><i class="fas fa-mobile-alt"></i></div><div class="feature-content"><div class="feature-title">Mobile</div><div class="feature-desc">Optimisation CWV</div></div><div class="status-badge pending">En cours</div></div><div class="feature-card"><div class="feature-icon purple"><i class="fas fa-link"></i></div><div class="feature-content"><div class="feature-title">Liens internes</div><div class="feature-desc">2,
+456 liens</div></div><div class="status-badge active">OK</div></div></div></div>< !-- Right Panel --><div class="right-panel"><div class="card" style="flex: 1.5;"><div class="card-header"><div class="card-title"><div class="card-icon green"><i class="fas fa-search"></i></div>Requêtes populaires </div></div><div class="metrics-row"><div class="metric-item"><div class="metric-label">Top requête</div><div class="metric-value">"seo france" </div><div class="metric-change positive">+45%</div></div></div><div class="chart-container" style="min-height: 220px;"><canvas id="queriesChart"></canvas></div></div><div class="card" style="flex: 1;"><div class="card-header"><div class="card-title"><div class="card-icon orange"><i class="fas fa-bug"></i></div>Issues </div></div><div class="metrics-row" style="margin-bottom: 0;"><div class="metric-item"><div class="metric-label">Errors</div><div class="metric-value" style="color: #EF4444;">3</div></div><div class="metric-item"><div class="metric-label">Warnings</div><div class="metric-value" style="color: #F97316;">12</div></div></div></div></div></div></div>< !-- Bottom Section --><div class="bottom-section"><div class="progress-info"><div>Progression: <span style="color: white; font-weight: 700;">85%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div><div style="color: #64748b; font-size: 13px;">Dernière mise à jour: Aujourd'hui</div>
+ </div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter</button><button class="action-btn primary"><i class="fas fa-sync"></i>Actualiser</button></div></div></div></div><script> // Performance Chart
+const performanceCtx=document.getElementById('performanceChart').getContext('2d');
+
+new Chart(performanceCtx, {
+
+    type: 'line',
+    data: {
+
+        labels: ['J-6', 'J-5', 'J-4', 'J-3', 'J-2', 'J-1', 'J'],
+        datasets: [ {
+            label: 'Clics',
+            data: [10800, 11200, 11500, 11800, 12200, 12500, 12847],
+            borderColor: '#3B82F6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: 4,
+            pointBackgroundColor: '#3B82F6'
+        }
+
+        , {
+        label: 'Impressions',
+        data: [1000000, 1050000, 1100000, 1150000, 1180000, 1200000, 1200000],
+        borderColor: '#10B981',
+        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 4,
+        pointBackgroundColor: '#10B981'
+    }
+
+    ]
+}
+
+,
+options: {
+
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        legend: {
+            display: false
+        }
+    }
+
+    ,
+    scales: {
+        x: {
+            grid: {
+                display: false
+            }
+
+            ,
+            ticks: {
+                color: '#94a3b8'
+            }
+        }
+
+        ,
+        y: {
+            grid: {
+                color: 'rgba(255,255,255,0.05)'
+            }
+
+            ,
+            ticks: {
+
+                color: '#94a3b8',
+                callback: function(value) {
+                    if (value >=1000000) return (value/1000000).toFixed(1) + 'M';
+                    if (value >=1000) return (value/1000).toFixed(0) + 'k';
+                    return value;
+                }
+            }
+        }
+    }
+}
+});
+
+// Queries Chart
+const queriesCtx=document.getElementById('queriesChart').getContext('2d');
+
+new Chart(queriesCtx, {
+
+    type: 'bar',
+    data: {
+
+        labels: ['seo', 'marketing', 'digital', 'formation', 'cours'],
+        datasets: [ {
+            label: 'Recherches',
+            data: [450, 380, 320, 280, 250],
+            backgroundColor: [ 'rgba(59, 130, 246, 0.8)',
+            'rgba(16, 185, 129, 0.8)',
+            'rgba(249, 115, 22, 0.8)',
+            'rgba(139, 92, 246, 0.8)',
+            'rgba(236, 72, 153, 0.8)'
+            ],
+            borderRadius: 6
+        }
+
+        ]
+    }
+
+    ,
+    options: {
+
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+
+        ,
+        scales: {
+            x: {
+                grid: {
+                    display: false
+                }
+
+                ,
+                ticks: {
+                    color: '#94a3b8', font: {
+                        size: 11
+                    }
+                }
+            }
+
+            ,
+            y: {
+                grid: {
+                    color: 'rgba(255,255,255,0.05)'
+                }
+
+                ,
+                ticks: {
+                    color: '#94a3b8'
+                }
+            }
+        }
+    }
+});
+
+</script></body></html>

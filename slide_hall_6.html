@@ -1,0 +1,372 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>SEO - Les 3 Piliers</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px 30px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+}
+
+.main-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.pillars-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    flex: 1;
+}
+
+.pillar-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    height: 480px;
+    /* Uniform fixed height for redistribution */
+}
+
+.pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+
+.pillar-card.technical::before {
+    background: linear-gradient(90deg, #3B82F6, #1d4ed8);
+}
+
+.pillar-card.content::before {
+    background: linear-gradient(90deg, #10B981, #059669);
+}
+
+.pillar-card.popularity::before {
+    background: linear-gradient(90deg, #F97316, #ea580c);
+}
+
+.pillar-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.pillar-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.pillar-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.pillar-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.pillar-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.pillar-info {
+    flex: 1;
+}
+
+.pillar-title {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.pillar-subtitle {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.pillar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    /* Increased gap to fill space */
+    flex: 1;
+}
+
+.pillar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 15px;
+    /* Increased padding */
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.item-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.item-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.item-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.item-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.item-content {
+    flex: 1;
+}
+
+.item-title {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.item-desc {
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.metrics-row {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+    /* Push to bottom of card content */
+    padding-top: 10px;
+}
+
+.metric-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+.metric-value {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.metric-label {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.progress-bar {
+    width: 350px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+    border-radius: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper"><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-search"></i></div><div><div class="main-title">SEO - Les 3 Piliers</div><div class="subtitle">Les fondamentaux du référencement naturel</div></div></div><div class="badge"><i class="fas fa-chart-line" style="margin-right: 8px;"></i>3 Piliers </div></div><div class="main-content"><div class="pillars-container">< !-- Technical SEO --><div class="pillar-card technical"><div class="pillar-header"><div class="pillar-icon blue"><i class="fas fa-cogs"></i></div><div class="pillar-info"><div class="pillar-title">SEO Technique</div><div class="pillar-subtitle">Crawl,
+vitesse,
+architecture</div></div></div><div class="pillar-content"><div class="pillar-item"><div class="item-icon blue"><i class="fas fa-robot"></i></div><div class="item-content"><div class="item-title">Crawl &amp;
+Indexation</div><div class="item-desc">Optimiser la capacité des bots à explorer et indexer votre site</div></div></div><div class="pillar-item"><div class="item-icon blue"><i class="fas fa-tachometer-alt"></i></div><div class="item-content"><div class="item-title">Vitesse de chargement</div><div class="item-desc">Core Web Vitals,
+LCP,
+FID,
+CLS optimisés</div></div></div><div class="pillar-item"><div class="item-icon blue"><i class="fas fa-sitemap"></i></div><div class="item-content"><div class="item-title">Architecture</div><div class="item-desc">Structure du site,
+URL,
+navigation</div></div></div><div class="metrics-row"><div class="metric-item"><div class="metric-value">98%</div><div class="metric-label">Crawl</div></div><div class="metric-item"><div class="metric-value">2.1s</div><div class="metric-label">LCP</div></div></div></div></div>< !-- Content SEO --><div class="pillar-card content"><div class="pillar-header"><div class="pillar-icon green"><i class="fas fa-file-alt"></i></div><div class="pillar-info"><div class="pillar-title">Contenu &amp;
+
+Qualité</div><div class="pillar-subtitle">Intention,
+qualité,
+EEAT</div></div></div><div class="pillar-content"><div class="pillar-item"><div class="item-icon green"><i class="fas fa-bullseye"></i></div><div class="item-content"><div class="item-title">Intention de recherche</div><div class="item-desc">Aligner le contenu avec l'intention utilisateur</div>
+ </div></div><div class="pillar-item"><div class="item-icon green"><i class="fas fa-star"></i></div><div class="item-content"><div class="item-title">Qualité du contenu</div><div class="item-desc">Contenu original,
+pertinent,
+mis à jour</div></div></div><div class="pillar-item"><div class="item-icon green"><i class="fas fa-user-check"></i></div><div class="item-content"><div class="item-title">EEAT</div><div class="item-desc">Expertise,
+Autorité,
+Confiance</div></div></div><div class="metrics-row"><div class="metric-item"><div class="metric-value">95%</div><div class="metric-label">Qualité</div></div><div class="metric-item"><div class="metric-value">4.8</div><div class="metric-label">EEAT</div></div></div></div></div>< !-- Off-Page SEO --><div class="pillar-card popularity"><div class="pillar-header"><div class="pillar-icon orange"><i class="fas fa-link"></i></div><div class="pillar-info"><div class="pillar-title">Popularité</div><div class="pillar-subtitle">Backlinks,
+mentions,
+autorité</div></div></div><div class="pillar-content"><div class="pillar-item"><div class="item-icon orange"><i class="fas fa-link"></i></div><div class="item-content"><div class="item-title">Backlinks</div><div class="item-desc">Liens entrants de qualité et pertinence</div></div></div><div class="pillar-item"><div class="item-icon orange"><i class="fas fa-share-alt"></i></div><div class="item-content"><div class="item-title">Mentions</div><div class="item-desc">Présence sur le web et réseaux sociaux</div></div></div><div class="pillar-item"><div class="item-icon orange"><i class="fas fa-trophy"></i></div><div class="item-content"><div class="item-title">Autorité</div><div class="item-desc">Domain Authority,
+Page Authority</div></div></div><div class="metrics-row"><div class="metric-item"><div class="metric-value">2.5K</div><div class="metric-label">Backlinks</div></div><div class="metric-item"><div class="metric-value">45</div><div class="metric-label">DA</div></div></div></div></div></div><div class="bottom-section"><div class="progress-info"><div>Progression: <span style="color: white; font-weight: 700;">85%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div></div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter </button><button class="action-btn primary"><i class="fas fa-play"></i>Optimiser </button></div></div></div></div></div></body></html>

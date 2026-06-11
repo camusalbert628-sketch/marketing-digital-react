@@ -1,0 +1,362 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Stack Technologique - Outils</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px 30px 50px;
+    /* Reduced bottom padding slightly */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+}
+
+.main-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.table-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    /* Reduced margin to prevent clipping */
+    overflow: hidden;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-title {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.table-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.tools-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 140px 1.8fr 2.5fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 10px 15px;
+    /* Tightened padding for better fit */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.table-row.header {
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: white;
+    border-bottom: none;
+}
+
+.table-cell {
+    color: #cbd5e1;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 10px;
+}
+
+.table-cell.header-cell {
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.category-badge.seo {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.category-badge.analytics {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.category-badge.ads {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.category-badge.social {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.category-badge.email {
+    background: rgba(236, 72, 153, 0.2);
+    color: #EC4899;
+}
+
+.category-badge.automation {
+    background: rgba(6, 182, 212, 0.2);
+    color: #06B6D4;
+}
+
+.tool-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tool-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.tool-name-text {
+    color: white;
+    font-weight: 600;
+}
+
+.cost-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.cost-badge.free {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.cost-badge.paid {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.cost-badge.premium {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.priority-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.priority-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.priority-dot.high {
+    background: #10B981;
+}
+
+.priority-dot.medium {
+    background: #F97316;
+}
+
+.priority-dot.low {
+    background: #64748B;
+}
+
+.priority-text {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.usage-text {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-grid {
+    display: flex;
+    gap: 25px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-value {
+    color: white;
+    font-weight: 700;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper"><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-layer-group"></i></div><div><div class="main-title">Stack Technologique</div><div class="subtitle">Outils et technologies essentiels pour le marketing digital</div></div></div><div class="badge"><i class="fas fa-tools" style="margin-right: 8px;"></i>15 outils </div></div><div class="main-content"><div class="table-container"><div class="table-header"><div class="table-title">Liste complète des outils</div><div class="table-actions"><button class="action-btn secondary"><i class="fas fa-filter"></i>Filtrer</button><button class="action-btn primary"><i class="fas fa-plus"></i>Ajouter</button></div></div><div class="tools-table"><div class="table-row header"><div class="table-cell header-cell">Catégorie</div><div class="table-cell header-cell">Outil</div><div class="table-cell header-cell">Usage</div><div class="table-cell header-cell">Coût</div><div class="table-cell header-cell">Priorité</div><div class="table-cell header-cell">Statut</div></div><div class="table-row"><div class="table-cell"><div class="category-badge seo"><i class="fas fa-search"></i>SEO</div></div><div class="table-cell"><div class="tool-name"><div class="tool-icon" style="background: rgba(16, 185, 129, 0.2); color: #10B981;"><i class="fas fa-search"></i></div><span class="tool-name-text">SEMrush</span></div></div><div class="table-cell"><div class="usage-text">Analyse SEO,
+mots-clés,
+backlinks</div></div><div class="table-cell"><div class="cost-badge premium">€119/mois</div></div><div class="table-cell"><div class="priority-indicator"><div class="priority-dot high"></div><span class="priority-text">Haute</span></div></div><div class="table-cell"><span style="color: #10B981;"><i class="fas fa-check-circle"></i>Actif</span></div></div><div class="table-row"><div class="table-cell"><div class="category-badge analytics"><i class="fas fa-chart-line"></i>Analytics</div></div><div class="table-cell"><div class="tool-name"><div class="tool-icon" style="background: rgba(37, 99, 235, 0.2); color: #3B82F6;"><i class="fas fa-chart-line"></i></div><span class="tool-name-text">Google Analytics 4</span></div></div><div class="table-cell"><div class="usage-text">Tracking,
+rapports,
+analyses</div></div><div class="table-cell"><div class="cost-badge free">Gratuit</div></div><div class="table-cell"><div class="priority-indicator"><div class="priority-dot high"></div><span class="priority-text">Haute</span></div></div><div class="table-cell"><span style="color: #10B981;"><i class="fas fa-check-circle"></i>Actif</span></div></div><div class="table-row"><div class="table-cell"><div class="category-badge ads"><i class="fas fa-bullhorn"></i>Ads</div></div><div class="table-cell"><div class="tool-name"><div class="tool-icon" style="background: rgba(249, 115, 22, 0.2); color: #F97316;"><i class="fas fa-bullhorn"></i></div><span class="tool-name-text">Google Ads</span></div></div><div class="table-cell"><div class="usage-text">Campagnes PPC,
+remarketing</div></div><div class="table-cell"><div class="cost-badge paid">Variable</div></div><div class="table-cell"><div class="priority-indicator"><div class="priority-dot high"></div><span class="priority-text">Haute</span></div></div><div class="table-cell"><span style="color: #10B981;"><i class="fas fa-check-circle"></i>Actif</span></div></div><div class="table-row"><div class="table-cell"><div class="category-badge social"><i class="fas fa-share-alt"></i>Social</div></div><div class="table-cell"><div class="tool-name"><div class="tool-icon" style="background: rgba(139, 92, 246, 0.2); color: #8B5CF6;"><i class="fas fa-share-alt"></i></div><span class="tool-name-text">Hootsuite</span></div></div><div class="table-cell"><div class="usage-text">Gestion réseaux sociaux</div></div><div class="table-cell"><div class="cost-badge premium">€99/mois</div></div><div class="table-cell"><div class="priority-indicator"><div class="priority-dot medium"></div><span class="priority-text">Moyenne</span></div></div><div class="table-cell"><span style="color: #F97316;"><i class="fas fa-clock"></i>En test</span></div></div><div class="table-row"><div class="table-cell"><div class="category-badge email"><i class="fas fa-envelope"></i>Email</div></div><div class="table-cell"><div class="tool-name"><div class="tool-icon" style="background: rgba(236, 72, 153, 0.2); color: #EC4899;"><i class="fas fa-envelope"></i></div><span class="tool-name-text">Mailchimp</span></div></div><div class="table-cell"><div class="usage-text">Email marketing,
+automation</div></div><div class="table-cell"><div class="cost-badge paid">€13/mois</div></div><div class="table-cell"><div class="priority-indicator"><div class="priority-dot medium"></div><span class="priority-text">Moyenne</span></div></div><div class="table-cell"><span style="color: #10B981;"><i class="fas fa-check-circle"></i>Actif</span></div></div><div class="table-row"><div class="table-cell"><div class="category-badge automation"><i class="fas fa-robot"></i>Auto</div></div><div class="table-cell"><div class="tool-name"><div class="tool-icon" style="background: rgba(6, 182, 212, 0.2); color: #06B6D4;"><i class="fas fa-robot"></i></div><span class="tool-name-text">Zapier</span></div></div><div class="table-cell"><div class="usage-text">Automatisation workflows</div></div><div class="table-cell"><div class="cost-badge paid">€20/mois</div></div><div class="table-cell"><div class="priority-indicator"><div class="priority-dot medium"></div><span class="priority-text">Moyenne</span></div></div><div class="table-cell"><span style="color: #10B981;"><i class="fas fa-check-circle"></i>Actif</span></div></div></div></div><div class="bottom-section"><div style="color: #94a3b8; font-size: 14px;">Total: 15 outils actifs | 8 gratuits | 7 payants </div><div class="stats-grid"><div class="stat-item"><i class="fas fa-check-circle" style="color: #10B981;"></i><span class="stat-value">12/15</span><span style="color: #94a3b8;">actifs</span></div><div class="stat-item"><i class="fas fa-euro-sign" style="color: #F97316;"></i><span class="stat-value">€312</span><span style="color: #94a3b8;">/mois</span></div></div></div></div></div></div></body></html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Étude de marché digitale</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #0f172a;
+        overflow: hidden;
+        width: 1280px;
+        height: 720px;
+    }
+
+    .slide-container {
+        width: 1280px;
+        height: 720px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .bg-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        z-index: 1;
+    }
+
+    .grid-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 1;
+    }
+
+    .content-wrapper {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 40px 50px 40px 50px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .title-section {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .title-icon {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, #2563EB, #1d4ed8);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 28px;
+    }
+
+    .main-title {
+        font-size: 42px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 4px;
+        line-height: 1.1;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        color: #94a3b8;
+    }
+
+    .badge {
+        background: rgba(249, 115, 22, 0.2);
+        color: #F97316;
+        padding: 10px 24px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        flex: 1;
+        margin-bottom: 20px;
+    }
+
+    .left-column, .right-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 24px;
+        padding: 30px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .section-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+
+    .section-icon.blue { background: rgba(37, 99, 235, 0.2); color: #3B82F6; }
+    .section-icon.green { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+
+    .section-title {
+        color: white;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .method-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        flex: 1;
+    }
+
+    .method-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 18px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.05);
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .method-number {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 800;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .method-number.blue { background: #3B82F6; }
+    .method-number.green { background: #10B981; }
+    .method-number.orange { background: #F97316; }
+    .method-number.purple { background: #8B5CF6; }
+
+    .method-content {
+        flex: 1;
+    }
+
+    .method-title {
+        color: white;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .method-desc {
+        color: #94a3b8;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .tools-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        flex: 1;
+    }
+
+    .tool-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 20px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .tool-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    .tool-icon.blue { background: rgba(37, 99, 235, 0.2); color: #3B82F6; }
+    .tool-icon.green { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+    .tool-icon.orange { background: rgba(249, 115, 22, 0.2); color: #F97316; }
+    .tool-icon.purple { background: rgba(139, 92, 246, 0.2); color: #8B5CF6; }
+
+    .tool-info {
+        flex: 1;
+    }
+
+    .tool-name {
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 2px;
+    }
+
+    .tool-desc {
+        color: #94a3b8;
+        font-size: 12px;
+    }
+
+    .status-badge {
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .status-badge.active { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+    .status-badge.pending { background: rgba(249, 115, 22, 0.2); color: #F97316; }
+
+    .bottom-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        margin-top: auto;
+    }
+
+    .progress-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: #94a3b8;
+        font-size: 15px;
+    }
+
+    .progress-bar {
+        width: 320px;
+        height: 10px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #3B82F6, #10B981);
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 15px;
+    }
+
+    .action-btn {
+        padding: 12px 28px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        transition: opacity 0.2s;
+    }
+
+    .action-btn.primary { background: #3B82F6; color: white; }
+    .action-btn.secondary { background: rgba(255,255,255,0.1); color: white; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<div class="bg-pattern"></div>
+<div class="grid-lines"></div>
+<div class="content-wrapper">
+<div class="header">
+<div class="title-section">
+<div class="title-icon">
+<i class="fas fa-search"></i>
+</div>
+<div>
+<div class="main-title">Étude de marché digitale</div>
+<div class="subtitle">Méthodologie et outils pour analyser le marché digital</div>
+</div>
+</div>
+<div class="badge">
+<i class="fas fa-chart-bar" style="margin-right: 8px;"></i>
+            Analyse
+        </div>
+</div>
+<div class="main-content">
+<div class="left-column">
+<div class="section-card">
+<div class="section-header">
+<div class="section-icon blue">
+<i class="fas fa-clipboard-list"></i>
+</div>
+<div class="section-title">Méthodologie</div>
+</div>
+<div class="method-list">
+<div class="method-item">
+<div class="method-number blue">1</div>
+<div class="method-content">
+<div class="method-title">Desk Research</div>
+<div class="method-desc">Analyse des sources existantes, rapports d'étude, données statistiques et publications sectorielles</div>
+</div>
+</div>
+<div class="method-item">
+<div class="method-number green">2</div>
+<div class="method-content">
+<div class="method-title">Social Listening</div>
+<div class="method-desc">Surveillance des conversations sur les réseaux sociaux et forums pour comprendre les tendances</div>
+</div>
+</div>
+<div class="method-item">
+<div class="method-number orange">3</div>
+<div class="method-content">
+<div class="method-title">Analyse SERP</div>
+<div class="method-desc">Étude des résultats de recherche pour identifier les opportunités SEO et les concurrents</div>
+</div>
+</div>
+<div class="method-item">
+<div class="method-number purple">4</div>
+<div class="method-content">
+<div class="method-title">Sondages &amp; Enquêtes</div>
+<div class="method-desc">Collecte de données qualitatives et quantitatives auprès des cibles</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="right-column">
+<div class="section-card">
+<div class="section-header">
+<div class="section-icon green">
+<i class="fas fa-tools"></i>
+</div>
+<div class="section-title">Outils d'analyse</div>
+</div>
+<div class="tools-grid">
+<div class="tool-item">
+<div class="tool-icon blue">
+<i class="fas fa-chart-line"></i>
+</div>
+<div class="tool-info">
+<div class="tool-name">Google Trends</div>
+<div class="tool-desc">Tendances de recherche</div>
+</div>
+<div class="status-badge active">Actif</div>
+</div>
+<div class="tool-item">
+<div class="tool-icon green">
+<i class="fas fa-search"></i>
+</div>
+<div class="tool-info">
+<div class="tool-name">GSC</div>
+<div class="tool-desc">Console de recherche</div>
+</div>
+<div class="status-badge active">Actif</div>
+</div>
+<div class="tool-item">
+<div class="tool-icon orange">
+<i class="fas fa-bolt"></i>
+</div>
+<div class="tool-info">
+<div class="tool-name">SEMrush</div>
+<div class="tool-desc">Analyse SEO/SEA</div>
+</div>
+<div class="status-badge pending">En test</div>
+</div>
+<div class="tool-item">
+<div class="tool-icon purple">
+<i class="fas fa-globe"></i>
+</div>
+<div class="tool-info">
+<div class="tool-name">Similarweb</div>
+<div class="tool-desc">Analyse trafic web</div>
+</div>
+<div class="status-badge active">Actif</div>
+</div>
+<div class="tool-item">
+<div class="tool-icon blue">
+<i class="fas fa-users"></i>
+</div>
+<div class="tool-info">
+<div class="tool-name">SparkToro</div>
+<div class="tool-desc">Analyse audience</div>
+</div>
+<div class="status-badge pending">En test</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom-section">
+<div class="progress-info">
+<div>Progression: <span style="color: white; font-weight: 700;">65%</span></div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 65%;"></div>
+</div>
+</div>
+<div class="action-buttons">
+<button class="action-btn secondary">
+<i class="fas fa-download" style="margin-right: 10px;"></i> Exporter
+            </button>
+<button class="action-btn primary">
+<i class="fas fa-play" style="margin-right: 10px;"></i> Démarrer
+            </button>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

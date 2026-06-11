@@ -1,0 +1,386 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Réseaux sociaux - Stratégie par plateforme</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.title-icon {
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.main-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 15px;
+}
+
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.platform-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.platform-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.platform-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.linkedin {
+    background: linear-gradient(135deg, #0A66C2, #0077B5);
+}
+
+.instagram {
+    background: linear-gradient(135deg, #E4405F, #F77737);
+}
+
+.tiktok {
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+}
+
+.youtube {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+}
+
+.facebook {
+    background: linear-gradient(135deg, #1877F2, #166fe5);
+}
+
+.twitter {
+    background: linear-gradient(135deg, #1DA1F2, #1a91da);
+}
+
+.platform-name {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.platform-type {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.platform-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+}
+
+.stat-value {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: #94a3b8;
+    font-size: 10px;
+}
+
+.platform-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.content-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.content-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.content-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.content-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.content-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.content-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.content-icon.red {
+    background: rgba(239, 68, 68, 0.2);
+    color: #EF4444;
+}
+
+.content-text {
+    color: white;
+    font-size: 12px;
+    flex: 1;
+}
+
+.content-value {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.objectives-section {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.objective-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.objective-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.objective-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.objective-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.objective-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.objective-title {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.objective-desc {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper"><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-share-alt"></i></div><div><div class="main-title">Réseaux sociaux - Par plateforme</div><div class="subtitle">Stratégie et objectifs par réseau social</div></div></div><div class="badge"><i class="fas fa-chart-line" style="margin-right: 8px;"></i>6 Plateformes </div></div><div class="main-content"><div class="platforms-grid">< !-- LinkedIn --><div class="platform-card"><div class="platform-header"><div class="platform-logo linkedin"><i class="fab fa-linkedin-in"></i></div><div><div class="platform-name">LinkedIn</div><div class="platform-type">B2B &amp;
+Professionnel</div></div></div><div class="platform-stats"><div class="stat-item"><div class="stat-value">2.4K</div><div class="stat-label">Followers</div></div><div class="stat-item"><div class="stat-value">8.5%</div><div class="stat-label">Engagement</div></div></div><div class="platform-content"><div class="content-item"><div class="content-icon blue"><i class="fas fa-briefcase"></i></div><div class="content-text">Posts B2B</div><div class="content-value">3/semaine</div></div><div class="content-item"><div class="content-icon green"><i class="fas fa-image"></i></div><div class="content-text">Carrousels</div><div class="content-value">2/semaine</div></div></div></div>< !-- Instagram --><div class="platform-card"><div class="platform-header"><div class="platform-logo instagram"><i class="fab fa-instagram"></i></div><div><div class="platform-name">Instagram</div><div class="platform-type">Visuel &amp;
+Lifestyle</div></div></div><div class="platform-stats"><div class="stat-item"><div class="stat-value">15.2K</div><div class="stat-label">Followers</div></div><div class="stat-item"><div class="stat-value">6.2%</div><div class="stat-label">Engagement</div></div></div><div class="platform-content"><div class="content-item"><div class="content-icon purple"><i class="fas fa-video"></i></div><div class="content-text">Reels</div><div class="content-value">5/semaine</div></div><div class="content-item"><div class="content-icon orange"><i class="fas fa-image"></i></div><div class="content-text">Stories</div><div class="content-value">Daily</div></div></div></div>< !-- TikTok --><div class="platform-card"><div class="platform-header"><div class="platform-logo tiktok"><i class="fab fa-tiktok"></i></div><div><div class="platform-name">TikTok</div><div class="platform-type">UGC &amp;
+Viral</div></div></div><div class="platform-stats"><div class="stat-item"><div class="stat-value">45K</div><div class="stat-label">Followers</div></div><div class="stat-item"><div class="stat-value">12.8%</div><div class="stat-label">Engagement</div></div></div><div class="platform-content"><div class="content-item"><div class="content-icon green"><i class="fas fa-video"></i></div><div class="content-text">Vidéos courtes</div><div class="content-value">7/semaine</div></div><div class="content-item"><div class="content-icon blue"><i class="fas fa-hashtag"></i></div><div class="content-text">Trends</div><div class="content-value">3/semaine</div></div></div></div>< !-- YouTube --><div class="platform-card"><div class="platform-header"><div class="platform-logo youtube"><i class="fab fa-youtube"></i></div><div><div class="platform-name">YouTube</div><div class="platform-type">Vidéo longue</div></div></div><div class="platform-stats"><div class="stat-item"><div class="stat-value">8.5K</div><div class="stat-label">Abonnés</div></div><div class="stat-item"><div class="stat-value">4.2%</div><div class="stat-label">CTR</div></div></div><div class="platform-content"><div class="content-item"><div class="content-icon red"><i class="fas fa-play"></i></div><div class="content-text">Vidéos longues</div><div class="content-value">2/semaine</div></div><div class="content-item"><div class="content-icon orange"><i class="fas fa-clock"></i></div><div class="content-text">Watch time</div><div class="content-value">45min</div></div></div></div>< !-- Facebook --><div class="platform-card"><div class="platform-header"><div class="platform-logo facebook"><i class="fab fa-facebook-f"></i></div><div><div class="platform-name">Facebook</div><div class="platform-type">Communauté</div></div></div><div class="platform-stats"><div class="stat-item"><div class="stat-value">32K</div><div class="stat-label">Likes</div></div><div class="stat-item"><div class="stat-value">3.8%</div><div class="stat-label">Engagement</div></div></div><div class="platform-content"><div class="content-item"><div class="content-icon blue"><i class="fas fa-users"></i></div><div class="content-text">Communauté</div><div class="content-value">4/semaine</div></div><div class="content-item"><div class="content-icon green"><i class="fas fa-calendar"></i></div><div class="content-text">Events</div><div class="content-value">1/mois</div></div></div></div>< !-- X (Twitter) --><div class="platform-card"><div class="platform-header"><div class="platform-logo twitter"><i class="fab fa-x-twitter"></i></div><div><div class="platform-name">X (Twitter)</div><div class="platform-type">Actualité</div></div></div><div class="platform-stats"><div class="stat-item"><div class="stat-value">18K</div><div class="stat-label">Followers</div></div><div class="stat-item"><div class="stat-value">5.1%</div><div class="stat-label">Engagement</div></div></div><div class="platform-content"><div class="content-item"><div class="content-icon blue"><i class="fas fa-newspaper"></i></div><div class="content-text">Tweets</div><div class="content-value">10/jour</div></div><div class="content-item"><div class="content-icon purple"><i class="fas fa-retweet"></i></div><div class="content-text">Retweets</div><div class="content-value">5/jour</div></div></div></div></div><div class="objectives-section"><div class="objective-card"><div class="objective-icon blue"><i class="fas fa-eye"></i></div><div><div class="objective-title">Visibilité</div><div class="objective-desc">Augmenter la portée de 25%</div></div></div><div class="objective-card"><div class="objective-icon green"><i class="fas fa-users"></i></div><div><div class="objective-title">Engagement</div><div class="objective-desc">+15% d'interactions</div></div>
+ </div><div class="objective-card"><div class="objective-icon orange"><i class="fas fa-chart-line"></i></div><div><div class="objective-title">Conversion</div><div class="objective-desc">+10% de leads</div></div></div></div><div class="bottom-section"><div class="progress-info"><div>Progression: <span style="color: white; font-weight: 700;">82%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 82%;"></div></div><div style="color: #64748b; font-size: 11px;">Dernière mise à jour: Aujourd'hui</div>
+ </div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter</button><button class="action-btn primary"><i class="fas fa-play"></i>Démarrer</button></div></div></div></div></div></body></html>

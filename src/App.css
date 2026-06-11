@@ -1,0 +1,1312 @@
+.presentation-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hide grid pattern from all slides */
+.grid-lines { display: none !important; }
+
+.slide-wrapper {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Slide Transition Animations (fade-in / fade-out or slide) */
+.slide-animation-enter {
+  opacity: 0;
+  transform: scale(0.98);
+}
+.slide-animation-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+/* Floating Navigation Controls */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.presentation-container:hover .nav-btn {
+  opacity: 0.8;
+}
+
+.nav-btn:hover {
+  background-color: rgba(30, 41, 59, 0.8);
+  opacity: 1 !important;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-btn.prev {
+  left: 24px;
+}
+
+.nav-btn.next {
+  right: 24px;
+}
+
+/* Bottom status / index bar */
+.controls-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.presentation-container:hover .controls-overlay {
+  opacity: 1;
+}
+
+.slide-indicator {
+  color: #94a3b8;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mini-nav-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.mini-nav-btn:hover {
+  color: white;
+}
+
+.mini-nav-btn:disabled {
+  color: #475569;
+  cursor: not-allowed;
+}
+
+/* Key tips overlay */
+.keyboard-tips {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #64748b;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.presentation-container:hover .keyboard-tips {
+  opacity: 1;
+}
+
+/* Custom premium scrollbar globally */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  border: 2px solid rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) rgba(15, 23, 42, 0.5);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Global overrides — ALL slides (1-40) fill the screen
+   with vertical scrolling when content overflows.
+   ────────────────────────────────────────────────────────────── */
+.slide-1,  .slide-2,  .slide-3,  .slide-4,  .slide-5,
+.slide-6,  .slide-7,  .slide-8,  .slide-9,  .slide-10,
+.slide-11, .slide-12, .slide-13, .slide-14, .slide-15,
+.slide-16, .slide-17, .slide-18, .slide-19, .slide-20,
+.slide-21, .slide-22, .slide-23, .slide-24, .slide-25,
+.slide-26, .slide-27, .slide-28, .slide-29, .slide-30,
+.slide-31, .slide-32, .slide-33, .slide-34, .slide-35,
+.slide-36, .slide-37, .slide-38, .slide-39, .slide-40 {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.slide-1  .content-wrapper, .slide-2  .content-wrapper, .slide-3  .content-wrapper,
+.slide-4  .content-wrapper, .slide-5  .content-wrapper, .slide-6  .content-wrapper,
+.slide-7  .content-wrapper, .slide-8  .content-wrapper, .slide-9  .content-wrapper,
+.slide-10 .content-wrapper, .slide-11 .content-wrapper, .slide-12 .content-wrapper,
+.slide-13 .content-wrapper, .slide-14 .content-wrapper, .slide-15 .content-wrapper,
+.slide-16 .content-wrapper, .slide-17 .content-wrapper, .slide-18 .content-wrapper,
+.slide-19 .content-wrapper, .slide-20 .content-wrapper, .slide-21 .content-wrapper,
+.slide-22 .content-wrapper, .slide-23 .content-wrapper, .slide-24 .content-wrapper,
+.slide-25 .content-wrapper, .slide-26 .content-wrapper, .slide-27 .content-wrapper,
+.slide-28 .content-wrapper, .slide-29 .content-wrapper, .slide-30 .content-wrapper,
+.slide-31 .content-wrapper, .slide-32 .content-wrapper, .slide-33 .content-wrapper,
+.slide-34 .content-wrapper, .slide-35 .content-wrapper, .slide-36 .content-wrapper,
+.slide-37 .content-wrapper, .slide-38 .content-wrapper, .slide-39 .content-wrapper,
+.slide-40 .content-wrapper {
+  height: auto !important;
+  min-height: 100% !important;
+  padding-bottom: 110px !important;
+  box-sizing: border-box !important;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Fix background glow limits and grid line cutoffs when scrolling
+   ────────────────────────────────────────────────────────────── */
+.bg-pattern,
+.grid-lines {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.floating-shape,
+.shape-1,
+.shape-2,
+.shape-3 {
+  position: fixed !important;
+  z-index: 2 !important;
+}
+
+/* Make all slide containers transparent to show presentation background gradient */
+.slide-1,  .slide-2,  .slide-3,  .slide-4,  .slide-5,
+.slide-6,  .slide-7,  .slide-8,  .slide-9,  .slide-10,
+.slide-11, .slide-12, .slide-13, .slide-14, .slide-15,
+.slide-16, .slide-17, .slide-18, .slide-19, .slide-20,
+.slide-21, .slide-22, .slide-23, .slide-24, .slide-25,
+.slide-26, .slide-27, .slide-28, .slide-29, .slide-30,
+.slide-31, .slide-32, .slide-33, .slide-34, .slide-35,
+.slide-36, .slide-37, .slide-38, .slide-39, .slide-40 {
+  background: transparent !important;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Fix layout overlaps globally inside all slides
+   ────────────────────────────────────────────────────────────── */
+.main-content {
+  flex: 1 0 auto !important;
+}
+
+/* Prevent fixed layout heights causing content overflow and overlapping */
+.top-section,
+.bottom-section,
+.campaign-structure-grid,
+.left-panel,
+.right-panel,
+.workflow-card,
+.tools-grid,
+.workflow-grid,
+.workflow-item,
+.metrics-row,
+.metric-card,
+.dashboard-card,
+.funnel-container,
+.campaign-card,
+.optimization-grid,
+.card,
+.card-container {
+  height: auto !important;
+  min-height: min-content !important;
+  flex-shrink: 0 !important;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   GLOBAL LIGHT THEME OVERRIDES (EXPERT SPECIFICITY VERSION)
+   ────────────────────────────────────────────────────────────── */
+
+/* 1. Global background gradient (premium light slate gradient) */
+#root .presentation-container {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%) !important;
+}
+
+/* 2. Global text hierarchies for light theme */
+#root .presentation-container h1,
+#root .presentation-container h2,
+#root .presentation-container h3,
+#root .presentation-container h4,
+#root .presentation-container h5,
+#root .presentation-container h6,
+#root .presentation-container .main-title,
+#root .presentation-container .sb-main-title,
+#root .presentation-container .card-title,
+#root .presentation-container .formula-title,
+#root .presentation-container .step-title,
+#root .presentation-container .sb-row-title,
+#root .presentation-container .sb-metric-value,
+#root .presentation-container .value-number,
+#root .presentation-container .metric-value,
+#root .presentation-container .stat-number,
+#root .presentation-container .persona-name,
+#root .presentation-container .journey-title,
+#root .presentation-container .workflow-title,
+#root .presentation-container .funnel-title,
+#root .presentation-container .offer-title,
+#root .presentation-container .stage-name,
+#root .presentation-container .section-title,
+#root .presentation-container .touchpoint-title,
+#root .presentation-container .bottom-title,
+#root .presentation-container .item-title,
+#root .presentation-container .summary-value,
+#root .presentation-container .objective-title,
+#root .presentation-container .kpi-value,
+#root .presentation-container .kpi-title,
+#root .presentation-container .pricing-value,
+#root .presentation-container .pricing-title,
+#root .presentation-container .acquisition-title,
+#root .presentation-container .acquisition-value,
+#root .presentation-container .feature-title,
+#root .presentation-container .feature-stat-value,
+#root .presentation-container .stat-value,
+/* Slides 3/10: section card titles */
+#root .presentation-container .method-title,
+#root .presentation-container .tool-name,
+#root .presentation-container .point-title,
+/* Slide 15: stage name inside stage-row */
+#root .presentation-container .journey-title,
+#root .presentation-container [class*="title"]:not([class*="subtitle"]):not([class*="sub-title"]) {
+  color: #0f172a !important; /* Premium dark headings */
+  font-weight: 700 !important;
+}
+
+#root .presentation-container p,
+#root .presentation-container li,
+#root .presentation-container .subtitle,
+#root .presentation-container .formula-subtitle,
+#root .presentation-container .step-desc,
+#root .presentation-container .example-text,
+#root .presentation-container .progress-info,
+#root .presentation-container .sb-subtitle,
+#root .presentation-container .sb-row-desc,
+#root .presentation-container .sb-metric-label,
+#root .presentation-container .toast-text,
+#root .presentation-container .sb-toast-text,
+#root .presentation-container .stage-desc,
+#root .presentation-container .metric-label,
+#root .presentation-container .stat-label,
+#root .presentation-container .check-text,
+#root .presentation-container .touchpoint-item,
+#root .presentation-container .item-desc,
+#root .presentation-container .offer-desc,
+#root .presentation-container .persona-role,
+#root .presentation-container .tag,
+#root .presentation-container .bottom-text,
+#root .presentation-container .item-text,
+#root .presentation-container .summary-label,
+#root .presentation-container .progress-text,
+#root .presentation-container .objective-desc,
+#root .presentation-container .value-unit,
+/* Slides 3/6/10/11/15 specific body text */
+#root .presentation-container .section-desc,
+#root .presentation-container .point-description,
+#root .presentation-container .point-period,
+#root .presentation-container .method-desc,
+#root .presentation-container .tool-desc,
+#root .presentation-container .element-text,
+#root .presentation-container .persona-role,
+#root .presentation-container .touchpoint-desc,
+#root .presentation-container .stat-label,
+#root .presentation-container span:not([class*="status"]):not([class*="badge"]):not([class*="letter"]):not([class*="number"]):not([class*="icon"]):not(.step-number) {
+  color: #475569 !important; /* Premium body text */
+}
+
+/* Let icons keep their color */
+#root .presentation-container i {
+  color: inherit;
+}
+
+/* Step letters, numbers, badges, and statuses must maintain legibility */
+#root .presentation-container .step-number,
+#root .presentation-container .step-letter,
+#root .presentation-container .stage-marker,
+#root .presentation-container .sb-checkbox i {
+  color: #ffffff !important;
+}
+
+/* 3. Opaque white cards and panels with visible borders (perfect contours) */
+#root .card,
+#root .sb-card,
+#root .strategy-card,
+#root .process-flow,
+#root .workflow-card,
+#root .formula-card,
+#root .metric-card,
+#root .dashboard-card,
+#root .campaign-card,
+#root .touchpoint-card,
+#root .offer-card,
+#root .persona-card,
+#root .journey-card,
+#root .toast-card,
+#root .sb-toast,
+#root .toast,
+#root .definition-card,
+#root .bottom-card,
+#root .pillar,
+#root .info-card,
+#root .chart-card,
+#root .stat-card,
+#root .skill-card,
+#root .objective-card,
+#root .pricing-card,
+#root .acquisition-card,
+#root .feature-card,
+#root .card-container,
+#root .table-container,
+#root .tools-grid > div,
+#root .workflow-grid > div,
+#root .metrics-row > div,
+#root .optimization-grid > div,
+/* Slide 3 & 10: section cards grid */
+#root .section-card,
+/* Slide 6: timeline point glassmorphic cards */
+#root .point-content,
+/* Slide 6: stats row wrapper */
+#root .stats-row,
+/* Slide 10: method and tool individual rows */
+#root .method-item,
+#root .tool-item,
+/* Slide 11: journey touchpoint cards */
+#root .persona-card,
+/* Slide 15: story card left panel */
+#root .story-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important; /* perfectly visible contours */
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -1px rgba(15, 23, 42, 0.03) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Premium Card hover styling */
+#root .card:hover,
+#root .sb-card:hover,
+#root .strategy-card:hover,
+#root .process-flow:hover,
+#root .workflow-card:hover,
+#root .formula-card:hover,
+#root .metric-card:hover,
+#root .dashboard-card:hover,
+#root .campaign-card:hover,
+#root .touchpoint-card:hover,
+#root .offer-card:hover,
+#root .persona-card:hover,
+#root .journey-card:hover,
+#root .definition-card:hover,
+#root .bottom-card:hover,
+#root .pillar:hover,
+#root .info-card:hover,
+#root .chart-card:hover,
+#root .stat-card:hover,
+#root .skill-card:hover,
+#root .objective-card:hover,
+#root .pricing-card:hover,
+#root .acquisition-card:hover,
+#root .feature-card:hover,
+#root .card-container:hover,
+#root .tools-grid > div:hover,
+#root .workflow-grid > div:hover,
+#root .metrics-row > div:hover,
+#root .optimization-grid > div:hover,
+#root .section-card:hover,
+#root .point-content:hover,
+#root .method-item:hover,
+#root .tool-item:hover,
+#root .story-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important; /* darker visible border on hover */
+  box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* 3.1 Inner item blocks, pills, steps, and lists (light theme nested structure cleanups) */
+#root .item-row {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important;
+}
+#root .item-row:last-child {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#root .check-item,
+#root .workflow-item,
+#root .touchpoint-item,
+#root .list-item,
+#root .optimization-item,
+#root .feature-item {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+#root .stat-item,
+#root .step-item,
+#root .formula-step,
+#root .ecosystem-item,
+#root .bottom-item,
+#root .summary-item,
+#root .kpi-item,
+#root .flow-stage,
+#root .stage-icon,
+#root .stage-marker,
+#root .pricing-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+}
+
+#root .stat-item:hover,
+#root .step-item:hover,
+#root .formula-step:hover,
+#root .ecosystem-item:hover,
+#root .bottom-item:hover,
+#root .summary-item:hover,
+#root .kpi-item:hover,
+#root .flow-stage:hover,
+#root .stage-icon:hover,
+#root .stage-marker:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 15: stage-row items inside journey-card */
+#root .stage-row {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+}
+#root .stage-row:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 15: element-item inside story-card */
+#root .element-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+}
+#root .element-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 6: timeline wrapper & points */
+#root .timeline-wrapper,
+#root .timeline-container {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Specific styling for Journey Steps in Slide 4 & Slide 18 */
+#root .journey-step {
+  background: #f8fafc !important;
+  border-top: 1.5px solid #cbd5e1 !important;
+  border-right: 1.5px solid #cbd5e1 !important;
+  border-bottom: 1.5px solid #cbd5e1 !important;
+  border-left-width: 4px !important;
+  border-left-style: solid !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+}
+#root .journey-step:hover {
+  background: #f1f5f9 !important;
+  border-top-color: #94a3b8 !important;
+  border-right-color: #94a3b8 !important;
+  border-bottom-color: #94a3b8 !important;
+}
+
+/* Ensure stat numbers inside stat items have high legibility */
+#root .stat-number {
+  font-weight: 700 !important;
+}
+
+/* Override inline white colors from React components */
+#root .presentation-container [style*="color: 'white'"],
+#root .presentation-container [style*="color: white"],
+#root .presentation-container [style*="color:#fff"],
+#root .presentation-container [style*="color: #fff"],
+#root .presentation-container span[style*="color: 'white'"],
+#root .presentation-container span[style*="color: white"],
+#root .presentation-container span[style*="color:#fff"],
+#root .presentation-container span[style*="color: #fff"] {
+  color: #0f172a !important;
+}
+
+#root .progress-info span,
+#root .progress-text span,
+#root .bottom-section span,
+#root .table-cell,
+#root .table-cell div,
+#root .table-cell span,
+#root .smart-table .table-cell {
+  color: #0f172a !important;
+}
+
+/* Fix Slide 5 integration text colors */
+#root .integration-info {
+  color: #475569 !important;
+}
+#root .integration-info div {
+  color: #0f172a !important;
+}
+#root .integration-info div div {
+  color: #0f172a !important;
+}
+#root .integration-info div div:last-child {
+  color: #475569 !important;
+}
+
+/* Adjust example boxes inside cards to keep soft colored backgrounds but have visible borders */
+#root .example-box {
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  border-left-width: 4px !important;
+}
+
+/* 4. Progress Bars, Connectors and Lines */
+#root .progress-bar,
+#root .sb-progress-bar {
+  background: #e2e8f0 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+#root .flow-connector {
+  background: linear-gradient(90deg, #3B82F6 30%, #cbd5e1 30%) !important;
+}
+
+#root .journey-connector {
+  background: linear-gradient(90deg, #3B82F6, #10B981, #F97316, #8B5CF6) !important;
+  opacity: 0.6;
+}
+
+#root .stage-icon,
+#root .stage-marker {
+  background: #ffffff !important;
+  border: 2px solid #cbd5e1 !important;
+}
+
+#root .stage-icon:hover,
+#root .stage-marker:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* 5. Navigation Controls & Hints overlays */
+#root .nav-btn,
+#root .controls-overlay {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: #1e293b !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+}
+
+#root .nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #0f172a !important;
+}
+
+#root .mini-nav-btn {
+  color: #475569 !important;
+}
+#root .mini-nav-btn:hover {
+  color: #0f172a !important;
+}
+
+#root .keyboard-tips {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  color: #475569 !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* 6. Badges and Statuses adapted for light backgrounds */
+#root .badge,
+#root .sb-badge {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+}
+#root .badge.blue,   #root .sb-badge.blue   { background: rgba(37,99,235,0.06) !important; color: #2563EB !important; border-color: rgba(37,99,235,0.2) !important; }
+#root .badge.green,  #root .sb-badge.green  { background: rgba(16,185,129,0.06) !important; color: #059669 !important; border-color: rgba(16,185,129,0.2) !important; }
+#root .badge.orange, #root .sb-badge.orange { background: rgba(249,115,22,0.06) !important; color: #ea580c !important; border-color: rgba(249,115,22,0.2) !important; }
+#root .badge.purple, #root .sb-badge.purple { background: rgba(139,92,246,0.06) !important; color: #6d28d9 !important; border-color: rgba(139,92,246,0.2) !important; }
+
+#root .sb-status.pending { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; border: 1px solid rgba(249,115,22,0.2) !important; }
+#root .sb-status.ok { background: rgba(16,185,129,0.08) !important; color: #059669 !important; border: 1px solid rgba(16,185,129,0.2) !important; }
+#root .sb-status.review { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; border: 1px solid rgba(37,99,235,0.2) !important; }
+#root .sb-status.high { background: rgba(239,68,68,0.08) !important; color: #dc2626 !important; border: 1px solid rgba(239,68,68,0.2) !important; }
+#root .stage-status.active { background: rgba(16, 185, 129, 0.1) !important; color: #059669 !important; border: 1px solid rgba(16, 185, 129, 0.25) !important; }
+#root .stage-status.pending { background: #f1f5f9 !important; color: #64748b !important; border: 1px solid #cbd5e1 !important; }
+
+/* 7. Action Buttons */
+#root .action-btn.secondary,
+#root .sb-btn.secondary {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #1e293b !important;
+}
+#root .action-btn.secondary:hover,
+#root .sb-btn.secondary:hover {
+  background: #e2e8f0 !important;
+}
+
+/* 8. Toast Notifications (Premium Light Card Toast) */
+#root .toast-card,
+#root .sb-toast {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1) !important;
+}
+
+/* 9. Ambient Glow shapes softened for light mode background */
+#root .floating-shape,
+#root .sb-orb {
+  opacity: 0.35 !important;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   10. SLIDE-SPECIFIC FIXES FOR SLIDES 3, 6, 10, 11, 15
+   ────────────────────────────────────────────────────────────── */
+
+/* Tags and topic-tags: light pill style with visible border */
+#root .tag,
+#root .topic-tag,
+#root .point-tags .tag {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+}
+#root .tag:hover,
+#root .topic-tag:hover {
+  background: #e2e8f0 !important;
+  border-color: #94a3b8 !important;
+  color: #1e293b !important;
+}
+
+/* Slide 6: stat-value colors – keep colored numbers (blue, green, orange, purple) */
+#root .slide-6 .stat-value {
+  font-weight: 800 !important;
+}
+#root .slide-6 .stat-value.blue  { color: #2563EB !important; }
+#root .slide-6 .stat-value.green { color: #059669 !important; }
+#root .slide-6 .stat-value.orange{ color: #ea580c !important; }
+#root .slide-6 .stat-value.purple{ color: #6d28d9 !important; }
+
+/* Slide 11: touchpoint-card needs visible border */
+#root .touchpoint-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05) !important;
+}
+#root .touchpoint-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 11: touchpoint-title and touchpoint-count visible */
+#root .touchpoint-title {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+#root .touchpoint-count {
+  color: #475569 !important;
+}
+
+/* Slide 3: section-desc and section-number readable on white */
+#root .section-desc {
+  color: #475569 !important;
+}
+#root .section-number {
+  color: rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Slide 6: point-content needs dark point-icon text */
+#root .point-icon.blue  { background: rgba(37, 99, 235, 0.08) !important; color: #2563EB !important; }
+#root .point-icon.green { background: rgba(16, 185, 129, 0.08) !important; color: #059669 !important; }
+#root .point-icon.orange{ background: rgba(249, 115, 22, 0.08) !important; color: #ea580c !important; }
+#root .point-icon.purple{ background: rgba(139, 92, 246, 0.08) !important; color: #6d28d9 !important; }
+
+/* Slide 10: section-icon colors */
+#root .slide-10 .section-icon.blue  { background: rgba(37, 99, 235, 0.08) !important; color: #2563EB !important; }
+#root .slide-10 .section-icon.green { background: rgba(16, 185, 129, 0.08) !important; color: #059669 !important; }
+
+/* Slide 10: status-badge light mode */
+#root .status-badge.active  { background: rgba(16, 185, 129, 0.08) !important; color: #059669 !important; border: 1px solid rgba(16, 185, 129, 0.2) !important; }
+#root .status-badge.pending { background: rgba(249, 115, 22, 0.08) !important; color: #ea580c !important; border: 1px solid rgba(249, 115, 22, 0.2) !important; }
+
+/* Slide 3: section-icon colors */
+#root .slide-3 .section-icon.blue   { background: rgba(37, 99, 235, 0.08) !important; color: #2563EB !important; }
+#root .slide-3 .section-icon.green  { background: rgba(16, 185, 129, 0.08) !important; color: #059669 !important; }
+#root .slide-3 .section-icon.orange { background: rgba(249, 115, 22, 0.08) !important; color: #ea580c !important; }
+#root .slide-3 .section-icon.purple { background: rgba(139, 92, 246, 0.08) !important; color: #6d28d9 !important; }
+#root .slide-3 .section-icon.red    { background: rgba(239, 68, 68, 0.08) !important;  color: #dc2626 !important; }
+
+/* Slide 11: stage-marker and journey-stage colors preserved */
+#root .stage-marker.blue   { border-color: #3B82F6 !important; color: #3B82F6 !important; }
+#root .stage-marker.green  { border-color: #10B981 !important; color: #10B981 !important; }
+#root .stage-marker.orange { border-color: #F97316 !important; color: #F97316 !important; }
+#root .stage-marker.purple { border-color: #8B5CF6 !important; color: #8B5CF6 !important; }
+
+/* Slide 11: stage-marker background should be light white not dark */
+#root .slide-11 .stage-marker {
+  background: #ffffff !important;
+}
+
+/* Slide 15: element-icon colored circles preserved */
+#root .element-icon.blue   { background: #3B82F6 !important; color: #ffffff !important; }
+#root .element-icon.green  { background: #10B981 !important; color: #ffffff !important; }
+#root .element-icon.orange { background: #F97316 !important; color: #ffffff !important; }
+#root .element-icon.purple { background: #8B5CF6 !important; color: #ffffff !important; }
+
+/* Slide 15: element-text visible */
+#root .element-text {
+  color: #475569 !important;
+}
+
+/* Slides bottom-section borders */
+#root .slide-6 .bottom-section,
+#root .slide-10 .bottom-section,
+#root .slide-11 .bottom-section,
+#root .slide-15 .bottom-section {
+  border-top: 1px solid #e2e8f0 !important;
+  background: transparent !important;
+}
+
+/* Slide 6 timeline connector visible on light background */
+#root .slide-6 .timeline-line {
+  opacity: 0.5 !important;
+}
+
+/* Slide 11: progress bar on journey */
+#root .slide-11 .journey-progress {
+  color: #475569 !important;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   11. SLIDE 13 – BRANDING DIGITAL LIGHT THEME FIXES
+   ────────────────────────────────────────────────────────────── */
+
+/* card-content body text (was #cbd5e1 = invisible on white) */
+#root .slide-13 .card-content {
+  color: #475569 !important;
+}
+
+/* element-title (was white = invisible on white) */
+#root .slide-13 .element-title {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+
+/* element-desc (was #94a3b8 = too light) */
+#root .slide-13 .element-desc {
+  color: #64748b !important;
+}
+
+/* element-item: visible border on white background */
+#root .slide-13 .element-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: none !important;
+}
+#root .slide-13 .element-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* checklist-item: visible on light mode */
+#root .slide-13 .checklist-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: none !important;
+}
+#root .slide-13 .checklist-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* check-text (was #cbd5e1 = invisible on white) */
+#root .slide-13 .check-text {
+  color: #1e293b !important;
+  font-weight: 500 !important;
+}
+
+/* stat-item inside identity card */
+#root .slide-13 .stat-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+#root .slide-13 .stat-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* stat-label (was #94a3b8 = too light on white) */
+#root .slide-13 .stat-label {
+  color: #64748b !important;
+}
+
+/* stat-number inline colors preserved (blue, green, orange via inline style) */
+#root .slide-13 .stat-number {
+  font-weight: 800 !important;
+}
+
+/* card-icon colors adapted for light background */
+#root .slide-13 .card-icon.blue   { background: rgba(37, 99, 235, 0.08) !important; color: #2563EB !important; }
+#root .slide-13 .card-icon.green  { background: rgba(16, 185, 129, 0.08) !important; color: #059669 !important; }
+#root .slide-13 .card-icon.orange { background: rgba(249, 115, 22, 0.08) !important; color: #ea580c !important; }
+#root .slide-13 .card-icon.purple { background: rgba(139, 92, 246, 0.08) !important; color: #6d28d9 !important; }
+
+/* element-icon colors adapted */
+#root .slide-13 .element-icon.blue   { background: rgba(37, 99, 235, 0.08) !important; color: #2563EB !important; }
+#root .slide-13 .element-icon.green  { background: rgba(16, 185, 129, 0.08) !important; color: #059669 !important; }
+#root .slide-13 .element-icon.orange { background: rgba(249, 115, 22, 0.08) !important; color: #ea580c !important; }
+#root .slide-13 .element-icon.purple { background: rgba(139, 92, 246, 0.08) !important; color: #6d28d9 !important; }
+
+/* progress-bar inside editorial card */
+#root .slide-13 .progress-bar {
+  background: #e2e8f0 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+/* Inline style overrides for "Cohérence" label (was color:'#94a3b8') */
+#root .slide-13 [style*="color: '#94a3b8'"],
+#root .slide-13 [style*="color: #94a3b8"] {
+  color: #64748b !important;
+}
+#root .slide-13 [style*="color: '#10B981'"],
+#root .slide-13 [style*="color: #10B981"] {
+  color: #059669 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   12. SLIDE 16 – SEO 3 PILIERS (pillar-card, pillar-item, metric-item)
+   ══════════════════════════════════════════════════════════════ */
+
+/* pillar-card : fond blanc + bordure colorée visible */
+#root .slide-16 .pillar-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06) !important;
+  backdrop-filter: none !important;
+}
+#root .slide-16 .pillar-card:hover {
+  background: #f8fafc !important;
+  box-shadow: 0 10px 24px rgba(15,23,42,0.1) !important;
+}
+#root .slide-16 .pillar-card.technical:hover { border-color: rgba(59,130,246,0.45) !important; }
+#root .slide-16 .pillar-card.content:hover   { border-color: rgba(16,185,129,0.45) !important; }
+#root .slide-16 .pillar-card.popularity:hover{ border-color: rgba(249,115,22,0.45) !important; }
+
+/* pillar-title & pillar-subtitle */
+#root .slide-16 .pillar-title    { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-16 .pillar-subtitle { color: #64748b !important; }
+
+/* pillar-item : fond clair + bordure visible */
+#root .slide-16 .pillar-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: none !important;
+}
+#root .slide-16 .pillar-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* item-title (was white → invisible) & item-desc */
+#root .slide-16 .item-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-16 .item-desc  { color: #475569 !important; }
+
+/* item-icon colors */
+#root .slide-16 .item-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-16 .item-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-16 .item-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+/* pillar-icon colors */
+#root .slide-16 .pillar-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-16 .pillar-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-16 .pillar-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+/* metric-item inside pillar cards */
+#root .slide-16 .metric-item {
+  background: #f1f5f9 !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-16 .metric-item:hover {
+  background: #e2e8f0 !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-16 .metric-value { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-16 .metric-label { color: #64748b !important; }
+
+/* bottom section */
+#root .slide-16 .bottom-section  { border-top: 1px solid #e2e8f0 !important; background: transparent !important; }
+#root .slide-16 .progress-info   { color: #475569 !important; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   13. SLIDE 17 – AUDIT SEO CHECKLIST (checklist-card, checklist-item, priority-badge)
+   ══════════════════════════════════════════════════════════════ */
+
+/* checklist-card */
+#root .slide-17 .checklist-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-17 .checklist-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+
+/* card-title */
+#root .slide-17 .card-title { color: #0f172a !important; font-weight: 600 !important; }
+
+/* card-icon colors */
+#root .slide-17 .card-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-17 .card-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-17 .card-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-17 .card-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+
+/* checklist-item rows */
+#root .slide-17 .checklist-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-17 .checklist-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* item-title (was white → invisible) & item-desc */
+#root .slide-17 .item-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-17 .item-desc  { color: #64748b !important; }
+
+/* checkbox border on light bg */
+#root .slide-17 .checkbox {
+  border-color: #94a3b8 !important;
+}
+
+/* priority badges adapted for light */
+#root .slide-17 .priority-badge.high   { background: rgba(239,68,68,0.08) !important;  color: #dc2626 !important; }
+#root .slide-17 .priority-badge.medium { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-17 .priority-badge.low    { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+
+/* progress section border */
+#root .slide-17 .progress-section { border-top: 1px solid #e2e8f0 !important; }
+#root .slide-17 .progress-info    { color: #475569 !important; }
+#root .slide-17 .progress-bar     { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   14. SLIDE 18 – PLAN ÉDITORIAL SEO (table, rows, cells, badges)
+   ══════════════════════════════════════════════════════════════ */
+
+/* table-container */
+#root .slide-18 .table-container {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+
+/* table header row */
+#root .slide-18 .table-row.header-row {
+  background: rgba(16,185,129,0.06) !important;
+  border-radius: 10px !important;
+}
+#root .slide-18 .table-cell.header-cell {
+  color: #059669 !important;
+  font-weight: 800 !important;
+}
+
+/* data rows */
+#root .slide-18 .table-row {
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+#root .slide-18 .table-row.data-row:hover {
+  background: #f8fafc !important;
+}
+
+/* table cell text (was #cbd5e1 → invisible) */
+#root .slide-18 .table-cell {
+  color: #475569 !important;
+}
+
+/* keyword text (was white → invisible) */
+#root .slide-18 .keyword-text { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-18 .keyword-type { color: #64748b !important; }
+
+/* h1 preview & angle text */
+#root .slide-18 .h1-preview    { color: #1e293b !important; }
+#root .slide-18 .angle-text    { color: #475569 !important; }
+#root .slide-18 .sections-preview { color: #64748b !important; }
+
+/* paa-count & media-icon */
+#root .slide-18 .paa-count      { color: #475569 !important; }
+#root .slide-18 .media-icon     { background: #f1f5f9 !important; color: #64748b !important; border: 1px solid #e2e8f0 !important; }
+
+/* intent badges */
+#root .slide-18 .intent-badge.info          { background: rgba(37,99,235,0.06) !important;   color: #2563EB !important; }
+#root .slide-18 .intent-badge.commercial    { background: rgba(249,115,22,0.06) !important;  color: #ea580c !important; }
+#root .slide-18 .intent-badge.transactional { background: rgba(16,185,129,0.06) !important;  color: #059669 !important; }
+
+/* status badges */
+#root .slide-18 .status-badge.optimized { background: rgba(16,185,129,0.06) !important; color: #059669 !important; border: 1px solid rgba(16,185,129,0.2) !important; }
+#root .slide-18 .status-badge.pending   { background: rgba(249,115,22,0.06) !important;  color: #ea580c !important; border: 1px solid rgba(249,115,22,0.2) !important;  }
+#root .slide-18 .status-badge.review    { background: rgba(37,99,235,0.06) !important;   color: #2563EB !important; border: 1px solid rgba(37,99,235,0.2) !important;   }
+
+/* table title */
+#root .slide-18 .table-title { color: #0f172a !important; font-weight: 700 !important; }
+
+/* bottom section */
+#root .slide-18 .bottom-section { border-top: 1px solid #e2e8f0 !important; }
+#root .slide-18 .progress-info  { color: #475569 !important; }
+#root .slide-18 .stat-value     { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-18 .last-update    { color: #94a3b8 !important; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   15. SLIDE 20 – CORE WEB VITALS (metric-card, tool-card, optimization-card/item)
+   ══════════════════════════════════════════════════════════════ */
+
+/* metric-card */
+#root .slide-20 .metric-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-20 .metric-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 10px 20px rgba(15,23,42,0.08) !important;
+}
+
+/* metric text */
+#root .slide-20 .metric-title    { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-20 .metric-subtitle { color: #64748b !important; }
+#root .slide-20 .value-number    { color: #0f172a !important; font-weight: 800 !important; }
+#root .slide-20 .value-unit      { color: #64748b !important; }
+#root .slide-20 .threshold-label { color: #94a3b8 !important; }
+
+/* metric-icon colors */
+#root .slide-20 .metric-icon.blue   { background: rgba(37,99,235,0.08) !important;  color: #2563EB !important; }
+#root .slide-20 .metric-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-20 .metric-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+/* status badge good */
+#root .slide-20 .status-badge.good { background: rgba(16,185,129,0.08) !important; color: #059669 !important; border: 1px solid rgba(16,185,129,0.2) !important; }
+
+/* tool-card */
+#root .slide-20 .tool-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: none !important;
+}
+#root .slide-20 .tool-card:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-20 .tool-name { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-20 .tool-desc { color: #64748b !important; }
+
+/* tool-icon colors */
+#root .slide-20 .tool-icon.blue   { background: rgba(37,99,235,0.08) !important;  color: #2563EB !important; }
+#root .slide-20 .tool-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-20 .tool-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-20 .tool-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+
+/* optimization-card */
+#root .slide-20 .optimization-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-20 .optimization-title { color: #0f172a !important; font-weight: 700 !important; }
+
+/* optimization-item rows */
+#root .slide-20 .optimization-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-20 .optimization-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* optimization-text (was #cbd5e1 → invisible) */
+#root .slide-20 .optimization-text { color: #1e293b !important; font-weight: 500 !important; }
+
+/* optimization-icon colors */
+#root .slide-20 .optimization-icon.blue   { background: rgba(37,99,235,0.08) !important;  color: #2563EB !important; }
+#root .slide-20 .optimization-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-20 .optimization-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+/* bottom section */
+#root .slide-20 .bottom-section { border-top: 1px solid #e2e8f0 !important; }
+#root .slide-20 .progress-info  { color: #475569 !important; }
+#root .slide-20 .progress-bar   { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+#root .slide-20 .last-update    { color: #94a3b8 !important; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   16. SLIDE 9 – PROCESSUS STRATÉGIQUE (flow-stage cards + metrics)
+   ══════════════════════════════════════════════════════════════ */
+
+/* process-flow card container */
+#root .slide-9 .process-flow {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+  backdrop-filter: none !important;
+}
+
+/* flow-stage individual cards */
+#root .slide-9 .flow-stage {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-9 .flow-stage:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.08) !important;
+}
+
+/* stage-icon: fond coloré léger sur blanc */
+#root .slide-9 .stage-icon {
+  background: #f1f5f9 !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-9 .stage-icon.blue   { color: #2563EB !important; border-color: rgba(37,99,235,0.3) !important; background: rgba(37,99,235,0.06) !important; }
+#root .slide-9 .stage-icon.green  { color: #059669 !important; border-color: rgba(16,185,129,0.3) !important; background: rgba(16,185,129,0.06) !important; }
+#root .slide-9 .stage-icon.orange { color: #ea580c !important; border-color: rgba(249,115,22,0.3) !important; background: rgba(249,115,22,0.06) !important; }
+#root .slide-9 .stage-icon.purple { color: #6d28d9 !important; border-color: rgba(139,92,246,0.3) !important; background: rgba(139,92,246,0.06) !important; }
+#root .slide-9 .stage-icon.red    { color: #dc2626 !important; border-color: rgba(239,68,68,0.3) !important;  background: rgba(239,68,68,0.06) !important; }
+#root .slide-9 .stage-icon.cyan   { color: #0891b2 !important; border-color: rgba(6,182,212,0.3) !important;  background: rgba(6,182,212,0.06) !important; }
+
+/* stage-title visible */
+#root .slide-9 .stage-title { color: #0f172a !important; font-weight: 700 !important; }
+
+/* stage-desc visible */
+#root .slide-9 .stage-desc { color: #64748b !important; }
+
+/* stage-status badges */
+#root .slide-9 .stage-status.active  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; border: 1px solid rgba(16,185,129,0.25) !important; }
+#root .slide-9 .stage-status.pending { background: #f1f5f9 !important; color: #64748b !important; border: 1px solid #cbd5e1 !important; }
+
+/* flow-title */
+#root .slide-9 .flow-title { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-9 .flow-header { border-bottom: 1px solid #f1f5f9; padding-bottom: 12px; margin-bottom: 16px !important; }
+
+/* metric-card inside process-flow */
+#root .slide-9 .metric-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-9 .metric-card:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-9 .metric-label { color: #64748b !important; }
+
+/* strategy-card (left panel) */
+#root .slide-9 .strategy-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+  backdrop-filter: none !important;
+}
+#root .slide-9 .strategy-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-9 .card-title { color: #0f172a !important; font-weight: 700 !important; }
+
+/* step-item inside strategy cards */
+#root .slide-9 .step-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-9 .step-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-9 .step-text { color: #1e293b !important; }
+
+/* card-icon colors */
+#root .slide-9 .card-icon.blue  { background: rgba(37,99,235,0.07) !important; color: #2563EB !important; }
+#root .slide-9 .card-icon.green { background: rgba(16,185,129,0.07) !important; color: #059669 !important; }
+
+/* bottom section */
+#root .slide-9 .bottom-section { border-top: 1px solid #e2e8f0 !important; }

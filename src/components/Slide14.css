@@ -1,0 +1,552 @@
+.slide-14 {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.slide-14 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-14 button, .slide-14 input, .slide-14 textarea, .slide-14 select {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Custom Thin Scrollbar for Slide 14 */
+.slide-14::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide-14::-webkit-scrollbar-track {
+    background: rgba(2, 6, 23, 0.5);
+}
+
+.slide-14::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.slide-14::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Background patterns */
+.slide-14 .bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.04) 0%, transparent 40%);
+    z-index: 1;
+}
+
+.slide-14 .grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
+    mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+}
+
+/* Floating background orbs */
+@keyframes orbFloat14_1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(3vw, -4vh) scale(1.05); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orbFloat14_2 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-3vw, 3vh) scale(1.08); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orbFloat14_3 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(2vw, 2vh) scale(0.96); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+.slide-14 .floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.slide-14 .shape-1 {
+    width: 30vw;
+    height: 30vw;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    filter: blur(80px);
+    top: -5vh;
+    left: -5vw;
+    animation: orbFloat14_1 20s infinite ease-in-out;
+}
+
+.slide-14 .shape-2 {
+    width: 25vw;
+    height: 25vw;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+    filter: blur(75px);
+    bottom: -5vh;
+    right: -5vw;
+    animation: orbFloat14_2 24s infinite ease-in-out;
+}
+
+.slide-14 .shape-3 {
+    width: 22vw;
+    height: 22vw;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+    filter: blur(70px);
+    top: 40%;
+    left: 45%;
+    animation: orbFloat14_3 18s infinite ease-in-out;
+}
+
+.slide-14 .content-wrapper {
+    position: relative;
+    z-index: 10;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 3.5vh 6vw 85px 6vw; /* safe area bottom padding */
+}
+
+/* Header */
+.slide-14 .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5vh;
+}
+
+.slide-14 .title-section {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-align: left;
+}
+
+.slide-14 .title-icon {
+    width: clamp(44px, 5.5vh, 56px);
+    height: clamp(44px, 5.5vh, 56px);
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: clamp(20px, 2.5vh, 26px);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.slide-14 .main-title {
+    font-size: clamp(22px, 3vh, 32px);
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-14 .subtitle {
+    font-size: clamp(11px, 1.5vh, 14px);
+    color: #94a3b8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-14 .badge {
+    background: rgba(249, 115, 22, 0.1);
+    color: #F97316;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: clamp(12px, 1.6vh, 14px);
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.05);
+}
+
+.slide-14 .badge:hover {
+    background: rgba(249, 115, 22, 0.2);
+    border-color: rgba(249, 115, 22, 0.4);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
+    transform: scale(1.03);
+}
+
+/* Main Content Grid */
+.slide-14 .main-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    flex: 1;
+    margin-bottom: 2.5vh;
+}
+
+/* Glassmorphic Formula Card */
+.slide-14 .formula-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: left;
+}
+
+.slide-14 .formula-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+}
+
+.slide-14 .formula-card.aida::before { background: #3B82F6; }
+.slide-14 .formula-card.pas::before { background: #10B981; }
+.slide-14 .formula-card.fouru::before { background: #F97316; }
+.slide-14 .formula-card.fab::before { background: #8B5CF6; }
+
+.slide-14 .formula-card.aida:hover { border-color: rgba(59, 130, 246, 0.25); box-shadow: 0 8px 20px rgba(59, 130, 246, 0.08); }
+.slide-14 .formula-card.pas:hover { border-color: rgba(16, 185, 129, 0.25); box-shadow: 0 8px 20px rgba(16, 185, 129, 0.08); }
+.slide-14 .formula-card.fouru:hover { border-color: rgba(249, 115, 22, 0.25); box-shadow: 0 8px 20px rgba(249, 115, 22, 0.08); }
+.slide-14 .formula-card.fab:hover { border-color: rgba(139, 92, 246, 0.25); box-shadow: 0 8px 20px rgba(139, 92, 246, 0.08); }
+
+.slide-14 .formula-card:hover {
+    background: rgba(255, 255, 255, 0.035);
+    transform: translateY(-3px);
+}
+
+.slide-14 .formula-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.slide-14 .formula-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.slide-14 .formula-icon.blue { background: rgba(37, 99, 235, 0.15); color: #3B82F6; }
+.slide-14 .formula-icon.green { background: rgba(16, 185, 129, 0.15); color: #10B981; }
+.slide-14 .formula-icon.orange { background: rgba(249, 115, 22, 0.15); color: #F97316; }
+.slide-14 .formula-icon.purple { background: rgba(139, 92, 246, 0.15); color: #8B5CF6; }
+
+.slide-14 .formula-title {
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-14 .formula-subtitle {
+    color: #94a3b8;
+    font-size: 11px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-14 .formula-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.slide-14 .formula-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.slide-14 .formula-step:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px);
+}
+
+.slide-14 .formula-step:hover:has(.step-letter.blue) { border-color: rgba(59, 130, 246, 0.25); }
+.slide-14 .formula-step:hover:has(.step-letter.green) { border-color: rgba(16, 185, 129, 0.25); }
+.slide-14 .formula-step:hover:has(.step-letter.orange) { border-color: rgba(249, 115, 22, 0.25); }
+.slide-14 .formula-step:hover:has(.step-letter.purple) { border-color: rgba(139, 92, 246, 0.25); }
+
+.slide-14 .step-letter {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.slide-14 .step-letter.blue { background: #3B82F6; }
+.slide-14 .step-letter.green { background: #10B981; }
+.slide-14 .step-letter.orange { background: #F97316; }
+.slide-14 .step-letter.purple { background: #8B5CF6; }
+
+.slide-14 .step-content {
+    flex: 1;
+}
+
+.slide-14 .step-title {
+    color: white;
+    font-size: 12.5px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-14 .step-desc {
+    color: #94a3b8;
+    font-size: 10.5px;
+    line-height: 1.3;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-14 .example-box {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    border-left: 3px solid;
+    transition: all 0.2s ease;
+}
+
+.slide-14 .formula-card.aida .example-box { border-left-color: #3B82F6; background: rgba(59, 130, 246, 0.06); }
+.slide-14 .formula-card.pas .example-box { border-left-color: #10B981; background: rgba(16, 185, 129, 0.06); }
+.slide-14 .formula-card.fouru .example-box { border-left-color: #F97316; background: rgba(249, 115, 22, 0.06); }
+.slide-14 .formula-card.fab .example-box { border-left-color: #8B5CF6; background: rgba(139, 92, 246, 0.06); }
+
+.slide-14 .example-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.slide-14 .formula-card.aida .example-label { color: #3B82F6; }
+.slide-14 .formula-card.pas .example-label { color: #10B981; }
+.slide-14 .formula-card.fouru .example-label, .slide-14 .fouru-label { color: #F97316; }
+.slide-14 .formula-card.fab .example-label { color: #8B5CF6; }
+
+.slide-14 .example-text {
+    color: #cbd5e1;
+    font-size: 10.5px;
+    line-height: 1.4;
+    font-style: italic;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Bottom Bar Section */
+.slide-14 .bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 2.2vh;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.slide-14 .progress-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 14.5px;
+}
+
+.slide-14 .progress-bar {
+    width: 280px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.slide-14 .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+    border-radius: 4px;
+}
+
+.slide-14 .action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.slide-14 .action-btn {
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: clamp(11.5px, 1.5vh, 13px);
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-14 .action-btn.primary {
+    background: linear-gradient(135deg, #3B82F6, #1d4ed8);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.slide-14 .action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.45);
+    background: linear-gradient(135deg, #4f8df7, #1d4ed8);
+}
+
+.slide-14 .action-btn.secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.slide-14 .action-btn.secondary:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Toast Notifications styling */
+.slide-14 .toasts-container {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 200;
+    pointer-events: none;
+}
+
+.slide-14 .toast-card {
+    pointer-events: auto;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid #2563EB;
+    border-radius: 10px;
+    padding: 12px 18px;
+    width: 290px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    animation: toastSlideIn14 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    color: white;
+    text-align: left;
+}
+
+.slide-14 .toast-card.orange { border-left-color: #F97316; }
+.slide-14 .toast-card.green { border-left-color: #10B981; }
+.slide-14 .toast-card.purple { border-left-color: #8B5CF6; }
+
+.slide-14 .toast-icon {
+    font-size: 16px;
+}
+.slide-14 .toast-icon.blue { color: #3B82F6; }
+.slide-14 .toast-icon.green { color: #10B981; }
+.slide-14 .toast-icon.orange { color: #F97316; }
+.slide-14 .toast-icon.purple { color: #8B5CF6; }
+
+.slide-14 .toast-content {
+    flex-grow: 1;
+}
+
+.slide-14 .toast-text {
+    font-size: 11.5px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.4;
+}
+
+/* Animations */
+@keyframes fadeInUp14 {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown14 {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-14 .animate-fade-in-up {
+    opacity: 0;
+    animation: fadeInUp14 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--delay, 0) * 0.1s + 0.15s);
+}
+
+.slide-14 .animate-fade-in-down {
+    opacity: 0;
+    animation: fadeInDown14 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlideIn14 {
+    from { transform: translateX(110%) translateY(10px); opacity: 0; }
+    to { transform: translateX(0) translateY(0); opacity: 1; }
+}

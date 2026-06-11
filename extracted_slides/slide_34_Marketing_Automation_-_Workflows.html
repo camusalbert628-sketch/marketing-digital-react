@@ -1,0 +1,481 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Marketing Automation - Workflows</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.title-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #8B5CF6, #7c3aed);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 25px;
+}
+
+.top-section {
+    display: flex;
+    gap: 25px;
+    height: 420px;
+}
+
+.left-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.workflow-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.card-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.card-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.card-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    flex: 1;
+}
+
+.workflow-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.workflow-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.workflow-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.workflow-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.workflow-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.workflow-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.workflow-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.workflow-title {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.workflow-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.workflow-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.step-icon {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.step-icon.blue {
+    color: #3B82F6;
+}
+
+.step-icon.green {
+    color: #10B981;
+}
+
+.step-icon.orange {
+    color: #F97316;
+}
+
+.step-text {
+    color: #94a3b8;
+    flex: 1;
+}
+
+.step-value {
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.tools-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.tool-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tool-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.tool-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.tool-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.tool-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.tool-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.tool-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-name {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.tool-desc {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.tool-status {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.tool-status.active {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.tool-status.pending {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.bottom-section {
+    display: flex;
+    gap: 25px;
+    height: 120px;
+}
+
+.metrics-row {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+}
+
+.metric-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.metric-icon {
+    font-size: 14px;
+}
+
+.metric-icon.blue {
+    color: #3B82F6;
+}
+
+.metric-icon.green {
+    color: #10B981;
+}
+
+.metric-icon.orange {
+    color: #F97316;
+}
+
+.metric-icon.purple {
+    color: #8B5CF6;
+}
+
+.metric-label {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.value-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.value-unit {
+    font-size: 12px;
+    color: #64748b;
+    margin-left: 4px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.action-btn {
+    padding: 0 30px;
+    height: 100%;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.2s;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+    min-width: 160px;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    min-width: 160px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper">< !-- Header --><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-robot"></i></div><div><div class="main-title">Marketing Automation - Workflows</div><div class="subtitle">Automatisation des processus marketing et workflows intelligents</div></div></div><div class="badge"><i class="fas fa-cogs" style="margin-right: 8px;"></i>4 Outils </div></div>< !-- Main Content --><div class="main-content">< !-- Top Section --><div class="top-section"><div class="left-panel"><div class="workflow-card"><div class="card-header"><div class="card-title"><div class="card-icon purple"><i class="fas fa-project-diagram"></i></div>Workflows Automatisés </div><div style="color: #94a3b8; font-size: 14px;"><i class="fas fa-clock" style="margin-right: 6px;"></i>4 workflows actifs </div></div><div class="workflow-grid">< !-- Lead Scoring --><div class="workflow-item"><div class="workflow-header"><div class="workflow-icon blue"><i class="fas fa-star"></i></div><div class="workflow-title">Lead Scoring</div></div><div class="workflow-content"><div class="workflow-step"><div class="step-icon blue"><i class="fas fa-user"></i></div><div class="step-text">Profil créé</div><div class="step-value">+10 pts</div></div><div class="workflow-step"><div class="step-icon green"><i class="fas fa-envelope"></i></div><div class="step-text">Email ouvert</div><div class="step-value">+5 pts</div></div><div class="workflow-step"><div class="step-icon orange"><i class="fas fa-mouse-pointer"></i></div><div class="step-text">Lien cliqué</div><div class="step-value">+15 pts</div></div></div></div>< !-- Lead Magnet --><div class="workflow-item"><div class="workflow-header"><div class="workflow-icon green"><i class="fas fa-magnet"></i></div><div class="workflow-title">Lead Magnet → Demo</div></div><div class="workflow-content"><div class="workflow-step"><div class="step-icon blue"><i class="fas fa-download"></i></div><div class="step-text">Téléchargement</div><div class="step-value">100%</div></div><div class="workflow-step"><div class="step-icon green"><i class="fas fa-envelope"></i></div><div class="step-text">Email de suivi</div><div class="step-value">+2j</div></div><div class="workflow-step"><div class="step-icon orange"><i class="fas fa-calendar"></i></div><div class="step-text">Demo planifiée</div><div class="step-value">+3j</div></div></div></div>< !-- Webinar --><div class="workflow-item"><div class="workflow-header"><div class="workflow-icon orange"><i class="fas fa-video"></i></div><div class="workflow-title">Webinar</div></div><div class="workflow-content"><div class="workflow-step"><div class="step-icon blue"><i class="fas fa-user-check"></i></div><div class="step-text">Inscription</div><div class="step-value">+1</div></div><div class="workflow-step"><div class="step-icon green"><i class="fas fa-bell"></i></div><div class="step-text">Rappel 24h</div><div class="step-value">100%</div></div><div class="workflow-step"><div class="step-icon orange"><i class="fas fa-play"></i></div><div class="step-text">Participation</div><div class="step-value">65%</div></div></div></div>< !-- Churn Prevention --><div class="workflow-item"><div class="workflow-header"><div class="workflow-icon purple"><i class="fas fa-user-minus"></i></div><div class="workflow-title">Churn Prevention</div></div><div class="workflow-content"><div class="workflow-step"><div class="step-icon blue"><i class="fas fa-exclamation-triangle"></i></div><div class="step-text">Signal détecté</div><div class="step-value">+1</div></div><div class="workflow-step"><div class="step-icon green"><i class="fas fa-envelope"></i></div><div class="step-text">Email réactivation</div><div class="step-value">+1j</div></div><div class="workflow-step"><div class="step-icon orange"><i class="fas fa-gift"></i></div><div class="step-text">Offre spéciale</div><div class="step-value">+3j</div></div></div></div></div></div></div><div class="right-panel"><div class="workflow-card"><div class="card-header"><div class="card-title"><div class="card-icon blue"><i class="fas fa-tools"></i></div>Outils &amp;
+
+Plateformes </div></div><div class="tools-grid"><div class="tool-card"><div class="tool-icon blue"><i class="fab fa-hubspot"></i></div><div class="tool-info"><div class="tool-name">HubSpot</div><div class="tool-desc">Marketing automation</div></div><div class="tool-status active">Actif</div></div><div class="tool-card"><div class="tool-icon green"><i class="fas fa-envelope"></i></div><div class="tool-info"><div class="tool-name">ActiveCampaign</div><div class="tool-desc">Email automation</div></div><div class="tool-status active">Actif</div></div><div class="tool-card"><div class="tool-icon purple"><i class="fas fa-shopping-cart"></i></div><div class="tool-info"><div class="tool-name">Klaviyo</div><div class="tool-desc">E-commerce automation</div></div><div class="tool-status pending">En cours</div></div><div class="tool-card"><div class="tool-icon orange"><i class="fas fa-bolt"></i></div><div class="tool-info"><div class="tool-name">Make/Zapier</div><div class="tool-desc">Workflow automation</div></div><div class="tool-status active">Actif</div></div></div></div></div></div>< !-- Bottom Section --><div class="bottom-section"><div class="metrics-row"><div class="metric-card"><div class="metric-header"><div class="metric-icon blue"><i class="fas fa-users"></i></div><div class="metric-label">Leads générés</div></div><div><span class="value-number">1,
+234</span><span class="value-unit">/mois</span></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon green"><i class="fas fa-percentage"></i></div><div class="metric-label">Taux de conversion</div></div><div><span class="value-number">8.5%</span><span class="value-unit">avg</span></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon orange"><i class="fas fa-clock"></i></div><div class="metric-label">Temps économisé</div></div><div><span class="value-number">12h</span><span class="value-unit">/semaine</span></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon purple"><i class="fas fa-chart-line"></i></div><div class="metric-label">ROI</div></div><div><span class="value-number">3.2x</span><span class="value-unit">return</span></div></div></div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter</button><button class="action-btn primary"><i class="fas fa-play"></i>Lancer</button></div></div></div></div></div></body></html>

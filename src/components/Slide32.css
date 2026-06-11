@@ -1,0 +1,247 @@
+.slide-32 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}.slide-32 {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}.slide-32 {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}.slide-32 .bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}.slide-32 .grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}.slide-32 .content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+}.slide-32 .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}.slide-32 .title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}.slide-32 .title-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+}.slide-32 .main-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+    line-height: 1.1;
+}.slide-32 .subtitle {
+    font-size: 18px;
+    color: #94a3b8;
+}.slide-32 .badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}.slide-32 .main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}.slide-32 .table-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}.slide-32 .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}.slide-32 .table-title {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+}.slide-32 .table-actions {
+    display: flex;
+    gap: 12px;
+}.slide-32 .action-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}.slide-32 .action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}.slide-32 .action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}.slide-32 .smart-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}.slide-32 .table-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1.3fr 1.2fr 1.5fr 1fr 1fr;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}.slide-32 .table-row.header {
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: white;
+    border-bottom: none;
+    padding: 14px 20px;
+}.slide-32 .table-cell {
+    color: #cbd5e1;
+    font-size: 15px;
+}.slide-32 .table-cell.header-cell {
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}.slide-32 .objective-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}.slide-32 .objective-title {
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}.slide-32 .objective-desc {
+    color: #94a3b8;
+    font-size: 13px;
+}.slide-32 .kpi-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    min-width: 110px;
+}.slide-32 .kpi-badge.green {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+}.slide-32 .kpi-badge.blue {
+    background: rgba(37, 99, 235, 0.15);
+    color: #3B82F6;
+}.slide-32 .kpi-badge.orange {
+    background: rgba(249, 115, 22, 0.15);
+    color: #F97316;
+}.slide-32 .kpi-badge.purple {
+    background: rgba(139, 92, 246, 0.15);
+    color: #8B5CF6;
+}.slide-32 .target-value {
+    font-weight: 700;
+    color: white;
+    font-size: 16px;
+}.slide-32 .progress-bar {
+    height: 6px;
+    width: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin-top: 8px;
+    overflow: hidden;
+}.slide-32 .progress-fill {
+    height: 100%;
+    border-radius: 3px;
+}.slide-32 .progress-fill.green {
+    background: #10B981;
+}.slide-32 .progress-fill.blue {
+    background: #3B82F6;
+}.slide-32 .progress-fill.orange {
+    background: #F97316;
+}.slide-32 .bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}.slide-32 .progress-info {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    color: #94a3b8;
+    font-size: 15px;
+}.slide-32 .stats-grid {
+    display: flex;
+    gap: 30px;
+}.slide-32 .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}.slide-32 .stat-value {
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}.slide-32 .budget-summary {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}.slide-32 .summary-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}.slide-32 .summary-label {
+    color: #94a3b8;
+    font-size: 13px;
+}.slide-32 .summary-value {
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+}
+

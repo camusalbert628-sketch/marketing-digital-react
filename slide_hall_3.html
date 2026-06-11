@@ -1,0 +1,337 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Branding Digital - Éléments clés</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 60px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+}
+
+.main-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    flex: 1;
+    padding-bottom: 20px;
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.card-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.card-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.card-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.card-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.card-title {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.card-content {
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.elements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.element-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.element-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.element-icon.blue {
+    background: rgba(37, 99, 235, 0.1);
+    color: #3B82F6;
+}
+
+.element-icon.green {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.element-icon.orange {
+    background: rgba(249, 115, 22, 0.1);
+    color: #F97316;
+}
+
+.element-icon.purple {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8B5CF6;
+}
+
+.element-text {
+    flex: 1;
+}
+
+.element-title {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.element-desc {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+}
+
+.check-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+}
+
+.check-icon.blue {
+    background: #3B82F6;
+}
+
+.check-icon.green {
+    background: #10B981;
+}
+
+.check-icon.orange {
+    background: #F97316;
+}
+
+.check-text {
+    color: #cbd5e1;
+    font-size: 15px;
+}
+
+.stats-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+}
+
+.stat-number {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.progress-bar {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 5px;
+}
+
+.progress-fill.green {
+    background: #10B981;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper"><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-palette"></i></div><div><div class="main-title">Branding Digital - Éléments clés</div><div class="subtitle">Construire une identité de marque forte et cohérente</div></div></div><div class="badge"><i class="fas fa-star" style="margin-right: 8px;"></i>Branding </div></div><div class="content-grid"><div class="left-column"><div class="card" style="flex: 1.4;"><div><div class="card-header"><div class="card-icon blue"><i class="fas fa-gem"></i></div><div class="card-title">Proposition de valeur</div></div><div class="card-content">Définissez ce qui rend votre marque unique et pourquoi les clients devraient vous choisir. Votre proposition de valeur doit être claire,
+concise et différenciante. </div></div><div class="elements-grid"><div class="element-item"><div class="element-icon blue"><i class="fas fa-bullseye"></i></div><div class="element-text"><div class="element-title">Différenciation</div><div class="element-desc">Votre avantage compétitif</div></div></div><div class="element-item"><div class="element-icon green"><i class="fas fa-heart"></i></div><div class="element-text"><div class="element-title">Émotion</div><div class="element-desc">Connexion émotionnelle</div></div></div><div class="element-item"><div class="element-icon orange"><i class="fas fa-lightbulb"></i></div><div class="element-text"><div class="element-title">Innovation</div><div class="element-desc">Solutions uniques</div></div></div><div class="element-item"><div class="element-icon purple"><i class="fas fa-shield-alt"></i></div><div class="element-text"><div class="element-title">Confiance</div><div class="element-desc">Crédibilité et fiabilité</div></div></div></div></div><div class="card" style="flex: 1;"><div><div class="card-header"><div class="card-icon green"><i class="fas fa-paint-brush"></i></div><div class="card-title">Identité verbale &amp;
+visuelle</div></div><div class="card-content">Créez une identité cohérente avec votre logo,
+typographie,
+palette de couleurs et ton de voix qui reflètent votre personnalité de marque. </div></div><div class="stats-row"><div class="stat-item"><div class="stat-number" style="color: #3B82F6;">85%</div><div class="stat-label">Consistance</div></div><div class="stat-item"><div class="stat-number" style="color: #10B981;">92%</div><div class="stat-label">Reconnaissance</div></div><div class="stat-item"><div class="stat-number" style="color: #F97316;">78%</div><div class="stat-label">Engagement</div></div></div></div></div><div class="right-column"><div class="card" style="flex: 1.4;"><div><div class="card-header"><div class="card-icon orange"><i class="fas fa-check-circle"></i></div><div class="card-title">Promesse &amp;
+preuves</div></div><div class="card-content">Établissez la confiance par des preuves concrètes de votre expertise et de la satisfaction de vos clients. </div></div><div class="checklist"><div class="checklist-item"><div class="check-icon blue"><i class="fas fa-check"></i></div><div class="check-text">Témoignages clients</div></div><div class="checklist-item"><div class="check-icon green"><i class="fas fa-check"></i></div><div class="check-text">Études de cas</div></div><div class="checklist-item"><div class="check-icon orange"><i class="fas fa-check"></i></div><div class="check-text">Certifications</div></div><div class="checklist-item"><div class="check-icon blue"><i class="fas fa-check"></i></div><div class="check-text">Chiffres clés</div></div></div></div><div class="card" style="flex: 1;"><div><div class="card-header"><div class="card-icon purple"><i class="fas fa-edit"></i></div><div class="card-title">Lignes éditoriales</div></div><div class="card-content" style="margin-bottom: 10px;">Définissez vos thèmes de contenu,
+fréquence de publication et ton de communication pour créer une présence digitale cohérente. </div></div><div><div class="progress-bar"><div class="progress-fill green" style="width: 75%;"></div></div><div style="display: flex; justify-content: space-between; margin-top: 8px;"><div style="font-size: 13px; color: #94a3b8;">Coherence</div><div style="font-size: 13px; color: #10B981; font-weight: 600;">75%</div></div></div></div></div></div></div></div></body></html>

@@ -1,0 +1,1195 @@
+/* ══════════════════════════════════════════════════════════════
+   SLIDES 26 → 40 — LIGHT THEME COMPLETE FIXES
+   Corrige: textes blancs, fonds invisibles, bordures absentes
+   ══════════════════════════════════════════════════════════════ */
+
+/* ─── MIXINS réutilisés ─────────────────────────────────────── */
+/* card-white  = fond blanc + bordure fine */
+/* card-light  = fond très légèrement grisé + bordure */
+/* text-dark   = #0f172a  (titres) */
+/* text-mid    = #475569  (corps) */
+/* text-sub    = #64748b  (sous-titres, labels) */
+
+/* ══ SLIDE 26 – Tableau des outils ══════════════════════════ */
+#root .slide-26 .table-container {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06) !important;
+}
+#root .slide-26 .table-row.header {
+  background: rgba(37,99,235,0.06) !important;
+  border-radius: 12px !important;
+}
+#root .slide-26 .table-cell { color: #475569 !important; }
+#root .slide-26 .table-cell.header-cell { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-26 .tool-name-text { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-26 .table-title { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-26 .priority-text { color: #64748b !important; }
+#root .slide-26 .usage-text   { color: #64748b !important; }
+
+/* ── Lignes du tableau avec transition hover ── */
+#root .slide-26 .table-row:not(.header) {
+  border-bottom: 1px solid #f1f5f9 !important;
+  border-radius: 10px !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-26 .table-row:not(.header):hover {
+  background: rgba(37,99,235,0.04) !important;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.06) !important;
+  transform: translateX(3px) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+/* Survol sur chaque cellule pour accentuer les badges */
+#root .slide-26 .table-row:not(.header):hover .category-badge {
+  filter: brightness(0.92) !important;
+  transform: scale(1.04) !important;
+  transition: all 0.2s ease !important;
+}
+#root .slide-26 .table-row:not(.header):hover .cost-badge {
+  filter: brightness(0.9) !important;
+  transition: all 0.2s ease !important;
+}
+#root .slide-26 .table-row:not(.header):hover .tool-name-text {
+  color: #2563EB !important;
+  transition: color 0.2s ease !important;
+}
+
+/* ── Section bas de page (entouré en vert sur la capture) ── */
+#root .slide-26 .bottom-section {
+  border-top: 1px solid #e2e8f0 !important;
+  padding-top: 16px !important;
+  align-items: center !important;
+}
+
+/* Texte "Total:" */
+#root .slide-26 .bottom-section > div:first-child {
+  color: #64748b !important;
+  font-size: 13px !important;
+}
+
+/* Conteneur stats-grid */
+#root .slide-26 .stats-grid {
+  display: flex !important;
+  gap: 12px !important;
+}
+
+/* Chaque stat-item = badge premium encadré */
+#root .slide-26 .stat-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 18px !important;
+  border-radius: 12px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease !important;
+  cursor: default !important;
+}
+
+/* Stat "12/15 actifs" → fond vert clair */
+#root .slide-26 .stats-grid .stat-item:nth-child(1) {
+  background: rgba(16,185,129,0.08) !important;
+  border: 1.5px solid rgba(16,185,129,0.25) !important;
+  color: #059669 !important;
+}
+#root .slide-26 .stats-grid .stat-item:nth-child(1):hover {
+  background: rgba(16,185,129,0.14) !important;
+  border-color: rgba(16,185,129,0.4) !important;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.15) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Stat "€312 /mois" → fond orange clair */
+#root .slide-26 .stats-grid .stat-item:nth-child(2) {
+  background: rgba(249,115,22,0.08) !important;
+  border: 1.5px solid rgba(249,115,22,0.25) !important;
+  color: #ea580c !important;
+}
+#root .slide-26 .stats-grid .stat-item:nth-child(2):hover {
+  background: rgba(249,115,22,0.14) !important;
+  border-color: rgba(249,115,22,0.4) !important;
+  box-shadow: 0 4px 12px rgba(249,115,22,0.15) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Valeurs et labels dans les stat-items */
+#root .slide-26 .stat-value { color: inherit !important; font-weight: 800 !important; font-size: 16px !important; }
+#root .slide-26 .stats-grid .stat-item > span:last-child { color: inherit !important; opacity: 0.75 !important; font-weight: 500 !important; font-size: 13px !important; }
+
+#root .slide-26 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1px solid #cbd5e1 !important; }
+#root .slide-26 .action-btn.secondary:hover { background: #e2e8f0 !important; border-color: #94a3b8 !important; transition: all 0.2s ease !important; }
+
+/* catégorie badges adaptés fond clair */
+#root .slide-26 .category-badge.seo        { background: rgba(16,185,129,0.07) !important; color: #059669 !important; transition: all 0.2s !important; }
+#root .slide-26 .category-badge.analytics  { background: rgba(37,99,235,0.07) !important;  color: #2563EB !important; transition: all 0.2s !important; }
+#root .slide-26 .category-badge.ads        { background: rgba(249,115,22,0.07) !important; color: #ea580c !important; transition: all 0.2s !important; }
+#root .slide-26 .category-badge.social     { background: rgba(139,92,246,0.07) !important; color: #6d28d9 !important; transition: all 0.2s !important; }
+#root .slide-26 .category-badge.email      { background: rgba(236,72,153,0.07) !important; color: #be185d !important; transition: all 0.2s !important; }
+#root .slide-26 .category-badge.automation { background: rgba(6,182,212,0.07) !important;  color: #0891b2 !important; transition: all 0.2s !important; }
+#root .slide-26 .cost-badge.free    { background: rgba(16,185,129,0.07) !important; color: #059669 !important; }
+#root .slide-26 .cost-badge.paid    { background: rgba(249,115,22,0.07) !important; color: #ea580c !important; }
+#root .slide-26 .cost-badge.premium { background: rgba(139,92,246,0.07) !important; color: #6d28d9 !important; }
+
+
+/* ══ SLIDE 27 – Planning éditorial ══════════════════════════ */
+#root .slide-27 .process-flow {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-27 .process-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-27 .process-step {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-27 .step-number { border: 2px solid #ffffff !important; }
+#root .slide-27 .step-title  { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-27 .step-desc   { color: #64748b !important; }
+#root .slide-27 .step-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-27 .step-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-27 .step-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-27 .step-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+#root .slide-27 .step-icon.pink   { background: rgba(236,72,153,0.08) !important; color: #be185d !important; }
+#root .slide-27 .step-icon.cyan   { background: rgba(6,182,212,0.08) !important;  color: #0891b2 !important; }
+
+/* Calendrier */
+#root .slide-27 .calendar-section {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-27 .calendar-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-27 .calendar-day {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+#root .slide-27 .day-header { color: #64748b !important; }
+#root .slide-27 .day-number { color: #0f172a !important; }
+#root .slide-27 .day-event { color: #1e293b !important; }
+#root .slide-27 .day-event.blue   { background: rgba(37,99,235,0.08) !important; border-left: 3px solid #2563EB !important; }
+#root .slide-27 .day-event.green  { background: rgba(16,185,129,0.08) !important; border-left: 3px solid #059669 !important; }
+#root .slide-27 .day-event.orange { background: rgba(249,115,22,0.08) !important; border-left: 3px solid #ea580c !important; }
+
+/* KPI cards */
+#root .slide-27 .kpi-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-27 .kpi-title    { color: #64748b !important; }
+#root .slide-27 .value-number { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-27 .value-unit   { color: #94a3b8 !important; }
+#root .slide-27 .kpi-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-27 .kpi-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-27 .kpi-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-27 .kpi-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+
+/* card-container (colonne droite) */
+#root .slide-27 .card-container {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+#root .slide-27 .list-item {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+#root .slide-27 .bottom-section { border-top: 1px solid #e2e8f0 !important; }
+#root .slide-27 .progress-bar   { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+#root .slide-27 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1px solid #cbd5e1 !important; }
+
+/* ══ SLIDE 28 – Réseaux sociaux (platform-card) ═════════════ */
+#root .slide-28 .platform-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-28 .platform-name { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-28 .platform-type { color: #64748b !important; }
+
+#root .slide-28 .stat-item  { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+#root .slide-28 .stat-value { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-28 .stat-label { color: #64748b !important; }
+
+#root .slide-28 .content-item { background: #f8fafc !important; border: 1.5px solid #e2e8f0 !important; }
+#root .slide-28 .content-text  { color: #1e293b !important; }
+#root .slide-28 .content-value { color: #64748b !important; }
+#root .slide-28 .content-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-28 .content-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-28 .content-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-28 .content-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+#root .slide-28 .content-icon.red    { background: rgba(239,68,68,0.08) !important;  color: #dc2626 !important; }
+
+#root .slide-28 .objective-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-28 .objective-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-28 .objective-desc  { color: #64748b !important; }
+#root .slide-28 .objective-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-28 .objective-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-28 .objective-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+#root .slide-28 .bottom-section { border-top: 1px solid #e2e8f0 !important; }
+#root .slide-28 .progress-info  { color: #475569 !important; }
+#root .slide-28 .progress-bar   { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+#root .slide-28 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1px solid #cbd5e1 !important; }
+
+/* ══ SLIDE 29 – Budget & ROI ══════════════════════════════════ */
+#root .slide-29 .section-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-29 .section-title { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-29 .section-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-29 .section-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-29 .section-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-29 .section-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+
+#root .slide-29 .item-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-29 .item-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-29 .item-desc  { color: #64748b !important; }
+
+#root .slide-29 .stat-item   { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+#root .slide-29 .stat-number { color: #0f172a !important; font-weight: 800 !important; }
+#root .slide-29 .stat-label  { color: #64748b !important; }
+
+#root .slide-29 .bottom-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-29 .bottom-title { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-29 .check-item   { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+#root .slide-29 .check-text   { color: #1e293b !important; }
+
+/* ══ SLIDE 32 – Tableau des objectifs SMART ═════════════════ */
+#root .slide-32 .table-container {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-32 .table-title { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-32 .table-row.header {
+  background: rgba(37,99,235,0.06) !important;
+  border-radius: 12px !important;
+}
+#root .slide-32 .table-cell { color: #475569 !important; }
+#root .slide-32 .table-cell.header-cell { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-32 .table-row { border-bottom: 1px solid #f1f5f9 !important; }
+#root .slide-32 .objective-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-32 .objective-desc  { color: #64748b !important; }
+#root .slide-32 .target-value    { color: #0f172a !important; font-weight: 700 !important; }
+
+#root .slide-32 .kpi-badge.green  { background: rgba(16,185,129,0.07) !important; color: #059669 !important; }
+#root .slide-32 .kpi-badge.blue   { background: rgba(37,99,235,0.07) !important;  color: #2563EB !important; }
+#root .slide-32 .kpi-badge.orange { background: rgba(249,115,22,0.07) !important; color: #ea580c !important; }
+#root .slide-32 .kpi-badge.purple { background: rgba(139,92,246,0.07) !important; color: #6d28d9 !important; }
+
+#root .slide-32 .progress-bar { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+#root .slide-32 .bottom-section { border-top: 1px solid #e2e8f0 !important; }
+#root .slide-32 .progress-info  { color: #475569 !important; }
+#root .slide-32 .stat-value     { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-32 .summary-item   { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+#root .slide-32 .summary-label  { color: #64748b !important; }
+#root .slide-32 .summary-value  { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-32 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1px solid #cbd5e1 !important; }
+
+/* ══ SLIDE 33 – Email marketing (séquences) ══════════════════ */
+#root .slide-33 .card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-33 .card-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-33 .card-icon.blue  { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-33 .card-icon.green { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+
+#root .slide-33 .sequence-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-33 .sequence-title  { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-33 .sequence-stats  { color: #64748b !important; }
+#root .slide-33 .sequence-value  { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-33 .sequence-progress { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+#root .slide-33 .sequence-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-33 .sequence-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-33 .sequence-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-33 .sequence-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+#root .slide-33 .sequence-icon.pink   { background: rgba(236,72,153,0.08) !important; color: #be185d !important; }
+
+#root .slide-33 .segment-card  { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+#root .slide-33 .segment-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-33 .segment-subtitle { color: #64748b !important; }
+#root .slide-33 .segment-value { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-33 .segment-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-33 .segment-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-33 .segment-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-33 .segment-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+
+#root .slide-33 .metric-item { background: #f8fafc !important; border: 1.5px solid #e2e8f0 !important; }
+#root .slide-33 .metric-label { color: #64748b !important; }
+#root .slide-33 .value-number { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-33 .value-unit   { color: #94a3b8 !important; }
+#root .slide-33 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1.5px solid #cbd5e1 !important; }
+
+/* ══ SLIDE 34 – Marketing Automation ════════════════════════ */
+#root .slide-34 .workflow-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-34 .card-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-34 .card-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-34 .card-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-34 .card-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+
+#root .slide-34 .workflow-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-34 .workflow-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-34 .workflow-step  { background: #f1f5f9 !important; border: 1px solid #e2e8f0 !important; }
+#root .slide-34 .step-text  { color: #475569 !important; }
+#root .slide-34 .step-value { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-34 .workflow-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-34 .workflow-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-34 .workflow-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-34 .workflow-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+
+#root .slide-34 .tool-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-34 .tool-name { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-34 .tool-desc { color: #64748b !important; }
+#root .slide-34 .tool-status.active  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-34 .tool-status.pending { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-34 .tool-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-34 .tool-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-34 .tool-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+#root .slide-34 .tool-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+#root .slide-34 .metric-card { background: #f8fafc !important; border: 1.5px solid #e2e8f0 !important; }
+#root .slide-34 .metric-label { color: #64748b !important; }
+#root .slide-34 .value-number { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-34 .value-unit   { color: #94a3b8 !important; }
+#root .slide-34 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1.5px solid #cbd5e1 !important; }
+
+/* ══ SLIDE 35 – Tunnel de conversion ═══════════════════════ */
+#root .slide-35 .funnel-container {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-35 .funnel-title { color: #0f172a !important; font-weight: 600 !important; }
+
+/* stages du funnel : garder les couleurs TOFU/MOFU/BOFU mais les rendre bien visibles */
+#root .slide-35 .funnel-stage.tofu  { background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(37,99,235,0.04)) !important; border: 1.5px solid rgba(37,99,235,0.3) !important; width: 100% !important; }
+#root .slide-35 .funnel-stage.mofu  { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.04)) !important; border: 1.5px solid rgba(16,185,129,0.3) !important; width: 100% !important; }
+#root .slide-35 .funnel-stage.bofu  { background: linear-gradient(135deg, rgba(249,115,22,0.12), rgba(249,115,22,0.04)) !important; border: 1.5px solid rgba(249,115,22,0.3) !important; width: 100% !important; }
+#root .slide-35 .stage-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-35 .stage-desc  { color: #64748b !important; }
+#root .slide-35 .stat-value  { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-35 .stat-label  { color: #64748b !important; }
+#root .slide-35 .stage-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-35 .stage-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-35 .stage-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+#root .slide-35 .metric-card { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+#root .slide-35 .metric-title { color: #64748b !important; }
+#root .slide-35 .value-number { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-35 .value-unit   { color: #94a3b8 !important; }
+#root .slide-35 .metric-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-35 .metric-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-35 .metric-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+#root .slide-35 .offer-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.04) !important;
+}
+#root .slide-35 .offer-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-35 .offer-desc  { color: #64748b !important; }
+#root .slide-35 .offer-stat  { color: #64748b !important; }
+#root .slide-35 .offer-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-35 .offer-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-35 .offer-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-35 .offer-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+
+#root .slide-35 .bottom-section { border-top: 1px solid #e2e8f0 !important; }
+#root .slide-35 .progress-info  { color: #475569 !important; }
+#root .slide-35 .progress-bar   { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+#root .slide-35 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1px solid #cbd5e1 !important; }
+
+/* ══ SLIDE 37 – Intelligence Artificielle ════════════════════ */
+#root .slide-37 .ai-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-37 .card-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-37 .card-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-37 .card-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-37 .card-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-37 .card-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+
+#root .slide-37 .maturity-badge.mature   { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-37 .maturity-badge.growth   { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-37 .maturity-badge.emerging { background: rgba(37,99,235,0.08) !important;  color: #2563EB !important; }
+
+#root .slide-37 .use-case-item { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+#root .slide-37 .use-case-text  { color: #475569 !important; }
+#root .slide-37 .use-case-value { color: #0f172a !important; font-weight: 600 !important; }
+
+#root .slide-37 .stats-row { border-top: 1px solid #e2e8f0 !important; }
+#root .slide-37 .stat-value { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-37 .stat-label { color: #64748b !important; }
+
+#root .slide-37 .metric-card { background: #f8fafc !important; border: 1.5px solid #e2e8f0 !important; }
+#root .slide-37 .metric-label { color: #64748b !important; }
+#root .slide-37 .value-number { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-37 .value-unit   { color: #94a3b8 !important; }
+#root .slide-37 .progress-bar { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+#root .slide-37 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1.5px solid #cbd5e1 !important; }
+
+/* ══ SLIDE 38 – Analytics Dashboard ═════════════════════════ */
+#root .slide-38 .dashboard-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-38 .card-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-38 .card-icon.blue  { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-38 .card-icon.green { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+
+#root .slide-38 .kpi-card { background: #f8fafc !important; border: 1.5px solid #e2e8f0 !important; }
+#root .slide-38 .kpi-label  { color: #64748b !important; font-weight: 600 !important; }
+#root .slide-38 .value-number { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-38 .value-unit   { color: #94a3b8 !important; }
+
+#root .slide-38 .dashboard-mockup { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+#root .slide-38 .mockup-header    { border-bottom: 1px solid #e2e8f0 !important; }
+#root .slide-38 .mockup-title     { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-38 .mockup-col       { background: #f1f5f9 !important; border: 1px solid #e2e8f0 !important; }
+#root .slide-38 .mockup-label     { color: #64748b !important; }
+#root .slide-38 .mockup-value     { color: #0f172a !important; font-weight: 600 !important; }
+
+#root .slide-38 .data-stack {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-38 .stack-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-38 .stack-item  { background: #f8fafc !important; border: 1.5px solid #e2e8f0 !important; }
+#root .slide-38 .stack-name  { color: #0f172a !important; font-weight: 500 !important; }
+#root .slide-38 .stack-status { color: #059669 !important; }
+#root .slide-38 .stack-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-38 .stack-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-38 .stack-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-38 .stack-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+#root .slide-38 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1.5px solid #cbd5e1 !important; }
+#root .slide-38 .bar-item { background: rgba(37,99,235,0.2) !important; }
+
+/* ══ SLIDE 39 – Paid vs Organic ══════════════════════════════ */
+#root .slide-39 .comparison-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-39 .card-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-39 .card-header { border-bottom: 1px solid #e2e8f0 !important; }
+#root .slide-39 .card-icon.blue  { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-39 .card-icon.green { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-39 .status-badge.active { background: rgba(16,185,129,0.08) !important; color: #059669 !important; border: 1px solid rgba(16,185,129,0.2) !important; }
+
+#root .slide-39 .comparison-row {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-39 .comparison-label { color: #64748b !important; }
+#root .slide-39 .comparison-value { color: #0f172a !important; }
+
+#root .slide-39 .pricing-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-39 .pricing-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-39 .pricing-value { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-39 .pricing-desc  { color: #64748b !important; }
+#root .slide-39 .pricing-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-39 .pricing-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-39 .pricing-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+#root .slide-39 .tool-item { background: #f8fafc !important; border: 1.5px solid #e2e8f0 !important; }
+#root .slide-39 .tool-name   { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-39 .tool-status { color: #64748b !important; }
+#root .slide-39 .tool-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-39 .tool-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-39 .tool-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+#root .slide-39 .tool-icon.purple { background: rgba(139,92,246,0.08) !important; color: #6d28d9 !important; }
+
+#root .slide-39 .acquisition-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-39 .acquisition-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-39 .acquisition-value { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-39 .acquisition-desc  { color: #64748b !important; }
+#root .slide-39 .acquisition-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-39 .acquisition-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-39 .acquisition-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+#root .slide-39 .bottom-section { border-top: 1px solid #e2e8f0 !important; }
+#root .slide-39 .progress-info  { color: #475569 !important; }
+#root .slide-39 .progress-bar   { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+#root .slide-39 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1.5px solid #cbd5e1 !important; }
+
+/* ══ SLIDE 40 – Timeline / Plan annuel ═══════════════════════ */
+#root .slide-40 .quarter-section {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-40 .quarter-title { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-40 .quarter-badge.q1 { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-40 .quarter-badge.q2 { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+
+#root .slide-40 .month-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-40 .month-number    { color: #0f172a !important; opacity: 1 !important; }
+#root .slide-40 .month-objective { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-40 .task-item       { color: #475569 !important; }
+
+#root .slide-40 .progress-section {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.05) !important;
+}
+#root .slide-40 .progress-title { color: #0f172a !important; font-weight: 600 !important; }
+#root .slide-40 .progress-bar   { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+
+#root .slide-40 .stat-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-40 .stat-label { color: #64748b !important; }
+#root .slide-40 .stat-value { color: #0f172a !important; font-weight: 800 !important; }
+
+#root .slide-40 .milestone-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-40 .milestone-title { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-40 .milestone-desc  { color: #64748b !important; }
+#root .slide-40 .milestone-icon.blue   { background: rgba(37,99,235,0.08) !important; color: #2563EB !important; }
+#root .slide-40 .milestone-icon.green  { background: rgba(16,185,129,0.08) !important; color: #059669 !important; }
+#root .slide-40 .milestone-icon.orange { background: rgba(249,115,22,0.08) !important; color: #ea580c !important; }
+
+#root .slide-40 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1.5px solid #cbd5e1 !important; }
+
+/* ══ SLIDE 30 – Facebook Ads Campagne — LIGHT THEME COMPLET ══ */
+
+#root .slide-30 .campaign-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06) !important;
+  border-radius: 20px !important;
+}
+#root .slide-30 .campaign-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.1) !important;
+}
+
+#root .slide-30 .main-title {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+#root .slide-30 .subtitle {
+  color: #64748b !important;
+}
+#root .slide-30 .card-title {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+#root .slide-30 .level-title {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+#root .slide-30 .level-number {
+  background: #3B82F6 !important;
+  color: #ffffff !important;
+}
+
+#root .slide-30 .structure-level {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+}
+#root .slide-30 .structure-level:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+#root .slide-30 .level-item {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
+}
+#root .slide-30 .level-item:hover {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+#root .slide-30 .item-text {
+  color: #64748b !important;
+}
+#root .slide-30 .item-value {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+#root .slide-30 .kpi-tag.green {
+  color: #059669 !important;
+  background: rgba(16,185,129,0.08) !important;
+  border: 1.5px solid rgba(16,185,129,0.2) !important;
+}
+#root .slide-30 .kpi-tag.orange {
+  color: #ea580c !important;
+  background: rgba(249,115,22,0.08) !important;
+  border: 1.5px solid rgba(249,115,22,0.2) !important;
+}
+#root .slide-30 .kpi-tag.blue {
+  color: #2563EB !important;
+  background: rgba(37,99,235,0.08) !important;
+  border: 1.5px solid rgba(37,99,235,0.2) !important;
+}
+
+#root .slide-30 .audience-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+}
+#root .slide-30 .audience-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-30 .audience-text {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+#root .slide-30 .audience-value {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+#root .slide-30 .metric-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+#root .slide-30 .metric-card:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-30 .metric-title {
+  color: #64748b !important;
+}
+#root .slide-30 .value-number {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+#root .slide-30 .value-unit {
+  color: #94a3b8 !important;
+}
+
+#root .slide-30 .badge {
+  background: rgba(249,115,22,0.08) !important;
+  color: #ea580c !important;
+  border: 1.5px solid rgba(249,115,22,0.25) !important;
+  font-weight: 600 !important;
+}
+
+#root .slide-30 .bottom-section {
+  border-top: 1.5px solid #e2e8f0 !important;
+}
+#root .slide-30 .progress-info {
+  color: #475569 !important;
+}
+#root .slide-30 .progress-info span {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+#root .slide-30 .progress-bar {
+  background: #cbd5e1 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+#root .slide-30 .progress-fill {
+  background: linear-gradient(90deg, #3B82F6, #10B981) !important;
+}
+
+#root .slide-30 .action-btn.secondary {
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+#root .slide-30 .action-btn.secondary:hover {
+  background: #e2e8f0 !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-30 .action-btn.primary {
+  background: #3B82F6 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+#root .slide-30 .action-btn.primary:hover {
+  background: #2563EB !important;
+  transform: translateY(-1px) !important;
+}
+
+#root .slide-30 .card-header div[style*="color"] {
+  color: #64748b !important;
+}
+
+/* Force les icônes colorées de slide 30 */
+#root .slide-30 .card-icon.blue { background: rgba(59, 130, 246, 0.12) !important; color: #3B82F6 !important; }
+#root .slide-30 .card-icon.green { background: rgba(16, 185, 129, 0.12) !important; color: #10B981 !important; }
+#root .slide-30 .card-icon.orange { background: rgba(249, 115, 22, 0.12) !important; color: #F97316 !important; }
+#root .slide-30 .card-icon.purple { background: rgba(139, 92, 246, 0.12) !important; color: #8B5CF6 !important; }
+
+#root .slide-30 .item-icon.blue { background: rgba(59, 130, 246, 0.12) !important; color: #3B82F6 !important; }
+#root .slide-30 .item-icon.green { background: rgba(16, 185, 129, 0.12) !important; color: #10B981 !important; }
+#root .slide-30 .item-icon.orange { background: rgba(249, 115, 22, 0.12) !important; color: #F97316 !important; }
+#root .slide-30 .item-icon.purple { background: rgba(139, 92, 246, 0.12) !important; color: #8B5CF6 !important; }
+
+#root .slide-30 .audience-icon.blue { background: rgba(59, 130, 246, 0.12) !important; color: #3B82F6 !important; }
+#root .slide-30 .audience-icon.green { background: rgba(16, 185, 129, 0.12) !important; color: #10B981 !important; }
+#root .slide-30 .audience-icon.orange { background: rgba(249, 115, 22, 0.12) !important; color: #F97316 !important; }
+
+#root .slide-30 .metric-icon.blue { background: rgba(59, 130, 246, 0.12) !important; color: #3B82F6 !important; }
+#root .slide-30 .metric-icon.green { background: rgba(16, 185, 129, 0.12) !important; color: #10B981 !important; }
+#root .slide-30 .metric-icon.orange { background: rgba(249, 115, 22, 0.12) !important; color: #F97316 !important; }
+#root .slide-30 .metric-icon.purple { background: rgba(139, 92, 246, 0.12) !important; color: #8B5CF6 !important; }
+
+/* ══ SLIDE 31 – LIGHT THEME COMPLET ══════════════════════════
+   Le fond global est clair (#f8fafc → #e2e8f0). Tous les
+   textes, contours et fonds doivent être en light theme.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Cartes principales ── */
+#root .slide-31 .campaign-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06) !important;
+  border-radius: 20px !important;
+}
+#root .slide-31 .campaign-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── Titres ── */
+#root .slide-31 .main-title                { color: #0f172a !important; font-weight: 800 !important; }
+#root .slide-31 .subtitle                  { color: #64748b !important; font-weight: 400 !important; }
+#root .slide-31 .card-title                { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-31 [class*="title"]           { color: #0f172a !important; }
+#root .slide-31 .ad-type-title             { color: #1e293b !important; font-weight: 600 !important; }
+
+/* ── Ad type cards (Search, Shopping, Video, Display, etc.) ── */
+#root .slide-31 .ad-type-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  transition: all 0.2s ease !important;
+}
+#root .slide-31 .ad-type-card:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.08) !important;
+}
+#root .slide-31 .ad-type-desc { color: #64748b !important; font-size: 12px !important; }
+
+/* ── Optimization items (Mots-clés / Négatifs / Extensions / Conversion Tracking / Mobile Optimized) ── */
+#root .slide-31 .optimization-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  transition: all 0.2s ease !important;
+}
+#root .slide-31 .optimization-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  transform: translateX(4px) !important;
+  box-shadow: 0 3px 10px rgba(15,23,42,0.06) !important;
+}
+#root .slide-31 .optimization-text  { color: #1e293b !important; font-weight: 600 !important; font-size: 14px !important; }
+#root .slide-31 .optimization-value { color: #64748b !important; font-size: 13px !important; font-weight: 500 !important; }
+
+/* ── Metric cards (CPC, ROAS, CTR, Conv.) ── */
+#root .slide-31 .metric-card {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  transition: all 0.2s ease !important;
+}
+#root .slide-31 .metric-card:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.08) !important;
+}
+#root .slide-31 .metric-title  { color: #64748b !important; font-size: 13px !important; }
+#root .slide-31 .value-number  { color: #0f172a !important; font-weight: 800 !important; font-size: 20px !important; }
+#root .slide-31 .value-unit    { color: #94a3b8 !important; font-size: 11px !important; }
+#root .slide-31 .status-text   { color: #64748b !important; font-size: 12px !important; }
+
+/* ── Icônes colorées — version light (fond plus doux) ── */
+#root .slide-31 .card-icon.blue        { background: rgba(59,130,246,0.12) !important; color: #2563EB !important; }
+#root .slide-31 .card-icon.green       { background: rgba(16,185,129,0.12) !important; color: #059669 !important; }
+#root .slide-31 .card-icon.orange      { background: rgba(249,115,22,0.12) !important; color: #ea580c !important; }
+#root .slide-31 .card-icon.purple      { background: rgba(139,92,246,0.12) !important; color: #6d28d9 !important; }
+#root .slide-31 .ad-type-icon.blue     { background: rgba(59,130,246,0.12) !important; color: #2563EB !important; }
+#root .slide-31 .ad-type-icon.green    { background: rgba(16,185,129,0.12) !important; color: #059669 !important; }
+#root .slide-31 .ad-type-icon.orange   { background: rgba(249,115,22,0.12) !important; color: #ea580c !important; }
+#root .slide-31 .ad-type-icon.purple   { background: rgba(139,92,246,0.12) !important; color: #6d28d9 !important; }
+#root .slide-31 .optimization-icon.blue   { background: rgba(59,130,246,0.12) !important; color: #2563EB !important; }
+#root .slide-31 .optimization-icon.green  { background: rgba(16,185,129,0.12) !important; color: #059669 !important; }
+#root .slide-31 .optimization-icon.orange { background: rgba(249,115,22,0.12) !important; color: #ea580c !important; }
+#root .slide-31 .metric-icon.blue     { background: rgba(59,130,246,0.12) !important; color: #2563EB !important; }
+#root .slide-31 .metric-icon.green    { background: rgba(16,185,129,0.12) !important; color: #059669 !important; }
+#root .slide-31 .metric-icon.orange   { background: rgba(249,115,22,0.12) !important; color: #ea580c !important; }
+#root .slide-31 .metric-icon.purple   { background: rgba(139,92,246,0.12) !important; color: #6d28d9 !important; }
+
+/* ── KPI tags (QS, CPC, CTR) ── */
+#root .slide-31 .kpi-tag.green  { color: #059669 !important; background: rgba(16,185,129,0.08) !important; border: 1.5px solid rgba(16,185,129,0.25) !important; }
+#root .slide-31 .kpi-tag.orange { color: #ea580c !important; background: rgba(249,115,22,0.08) !important; border: 1.5px solid rgba(249,115,22,0.25) !important; }
+#root .slide-31 .kpi-tag.blue   { color: #2563EB !important; background: rgba(37,99,235,0.08) !important;  border: 1.5px solid rgba(37,99,235,0.25) !important; }
+
+/* ── Status dots ── */
+#root .slide-31 .status-dot.green  { background: #10B981 !important; }
+#root .slide-31 .status-dot.orange { background: #F97316 !important; }
+#root .slide-31 .status-dot.red    { background: #EF4444 !important; }
+
+/* ── Badge "6 Types" en haut à droite ── */
+#root .slide-31 .badge {
+  background: rgba(16,185,129,0.08) !important;
+  color: #059669 !important;
+  border: 1.5px solid rgba(16,185,129,0.25) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Bottom section ── */
+#root .slide-31 .bottom-section { border-top: 1.5px solid #e2e8f0 !important; }
+#root .slide-31 .progress-info  { color: #64748b !important; font-size: 14px !important; }
+#root .slide-31 .progress-bar   { background: #e2e8f0 !important; border: 1px solid #cbd5e1 !important; }
+#root .slide-31 .progress-fill  { background: linear-gradient(90deg, #4285F4, #34A853) !important; }
+#root .slide-31 .progress-info span { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-31 .bottom-section > div:last-child { color: #94a3b8 !important; font-size: 13px !important; }
+
+/* ── Boutons ── */
+#root .slide-31 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1.5px solid #cbd5e1 !important; }
+#root .slide-31 .action-btn.secondary:hover { background: #e2e8f0 !important; border-color: #94a3b8 !important; }
+#root .slide-31 .action-btn.primary   { background: #4285F4 !important; color: #ffffff !important; border: none !important; }
+#root .slide-31 .action-btn.primary:hover { background: #2563EB !important; transform: translateY(-1px) !important; }
+
+/* ── Texte "Optimisation" en haut à droite de la carte ── */
+#root .slide-31 .card-header > div:last-child { color: #64748b !important; }
+
+/* ── Correction hover generique (écraser les overrides hover-all-slides.css) ── */
+#root .slide-31 [class*="-card"]:not(.toast-card):hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.1) !important;
+}
+#root .slide-31 [class*="-item"]:not(.toast-icon):hover {
+  background: #f1f5f9 !important;
+}
+
+/* ══ SLIDE 36 – E-commerce & Conversion (CRO) — LIGHT THEME ═
+   Même situation que slide 31 : fond original dark, rendu sur
+   fond clair global → tout en Light Theme propre.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Titres & sous-titres ── */
+#root .slide-36 .main-title  { color: #0f172a !important; font-weight: 800 !important; }
+#root .slide-36 .subtitle    { color: #64748b !important; }
+
+/* ── Badge "9 Optimisations" ── */
+#root .slide-36 .badge {
+  background: rgba(249,115,22,0.08) !important;
+  color: #ea580c !important;
+  border: 1.5px solid rgba(249,115,22,0.25) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Cartes d'optimisation (6 cartes grille : PDP, Preuves, Paiement, Vitesse, Recherche, Filtres) ── */
+#root .slide-36 .optimization-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06) !important;
+  border-radius: 20px !important;
+  transition: all 0.25s ease !important;
+}
+#root .slide-36 .optimization-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.1) !important;
+  transform: translateY(-3px) !important;
+}
+#root .slide-36 .card-title { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-36 [class*="title"] { color: #0f172a !important; }
+
+/* ── Optimization items (lignes avec texte + valeur) ── */
+#root .slide-36 .optimization-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  transition: all 0.18s ease !important;
+}
+#root .slide-36 .optimization-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  transform: translateX(3px) !important;
+}
+#root .slide-36 .item-text  { color: #475569 !important; }
+#root .slide-36 .item-value { color: #0f172a !important; font-weight: 700 !important; }
+
+/* ── Progress bars ── */
+#root .slide-36 .progress-bar  { background: #e2e8f0 !important; border: none !important; }
+#root .slide-36 .progress-fill.green  { background: #10B981 !important; }
+#root .slide-36 .progress-fill.blue   { background: #3B82F6 !important; }
+#root .slide-36 .progress-fill.orange { background: #F97316 !important; }
+
+/* ── Icônes ── */
+#root .slide-36 .card-icon.blue   { background: rgba(59,130,246,0.12) !important; color: #2563EB !important; }
+#root .slide-36 .card-icon.green  { background: rgba(16,185,129,0.12) !important; color: #059669 !important; }
+#root .slide-36 .card-icon.orange { background: rgba(249,115,22,0.12) !important;  color: #ea580c !important; }
+#root .slide-36 .card-icon.purple { background: rgba(139,92,246,0.12) !important;  color: #6d28d9 !important; }
+
+/* ── Carte KPIs CRO (droite) ── */
+#root .slide-36 .metrics-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06) !important;
+  border-radius: 20px !important;
+}
+#root .slide-36 .metrics-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.1) !important;
+  transform: translateY(-2px) !important;
+}
+#root .slide-36 .metrics-title { color: #0f172a !important; font-weight: 700 !important; }
+
+/* ── Metric items (Taux de conversion, Panier moyen, LTV, Abandon panier) ── */
+#root .slide-36 .metric-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  transition: all 0.2s ease !important;
+}
+#root .slide-36 .metric-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 10px rgba(15,23,42,0.06) !important;
+}
+#root .slide-36 .metric-label { color: #64748b !important; }
+#root .slide-36 .value-number { color: #0f172a !important; font-weight: 800 !important; }
+#root .slide-36 .value-unit   { color: #94a3b8 !important; }
+
+/* ── KPI items (Tests A/B, Heatmaps) ── */
+#root .slide-36 .kpi-item {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  transition: all 0.2s ease !important;
+}
+#root .slide-36 .kpi-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 10px rgba(15,23,42,0.06) !important;
+}
+#root .slide-36 .kpi-label { color: #64748b !important; }
+#root .slide-36 .kpi-value { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-36 .kpi-icon.green { background: rgba(16,185,129,0.12) !important; color: #059669 !important; }
+#root .slide-36 .kpi-icon.blue  { background: rgba(59,130,246,0.12) !important;  color: #2563EB !important; }
+
+/* ── Bottom section ── */
+#root .slide-36 .bottom-section { border-top: 1.5px solid #e2e8f0 !important; }
+#root .slide-36 .progress-info  { color: #64748b !important; }
+#root .slide-36 .progress-info span { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-36 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1.5px solid #cbd5e1 !important; }
+#root .slide-36 .action-btn.secondary:hover { background: #e2e8f0 !important; border-color: #94a3b8 !important; }
+#root .slide-36 .action-btn.primary  { background: #3B82F6 !important; color: #ffffff !important; border: none !important; }
+
+/* ── Spans et textes généraux ── */
+#root .slide-36 span { color: inherit !important; }
+
+
+/* ══ SLIDE 37 – IA pour le Marketing 2026 — LIGHT THEME ══════
+   8 cartes IA en grille 4×2 + 4 métriques bas de page.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Titres & sous-titres ── */
+#root .slide-37 .main-title { color: #0f172a !important; font-weight: 800 !important; }
+#root .slide-37 .subtitle   { color: #64748b !important; }
+
+/* ── Badge "8 Applications" ── */
+#root .slide-37 .badge {
+  background: rgba(139,92,246,0.08) !important;
+  color: #6d28d9 !important;
+  border: 1.5px solid rgba(139,92,246,0.25) !important;
+  font-weight: 600 !important;
+}
+
+/* ── 8 cartes AI (Idéation, Rédaction, Génération Médias, Chatbots, etc.) ── */
+#root .slide-37 .ai-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06) !important;
+  border-radius: 16px !important;
+  transition: all 0.25s ease !important;
+}
+#root .slide-37 .ai-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.1) !important;
+  transform: translateY(-4px) !important;
+}
+#root .slide-37 .card-title { color: #0f172a !important; font-weight: 700 !important; }
+#root .slide-37 [class*="title"] { color: #0f172a !important; }
+
+/* ── Icônes des cartes ── */
+#root .slide-37 .card-icon.blue   { background: rgba(59,130,246,0.12) !important; color: #2563EB !important; }
+#root .slide-37 .card-icon.green  { background: rgba(16,185,129,0.12) !important; color: #059669 !important; }
+#root .slide-37 .card-icon.orange { background: rgba(249,115,22,0.12) !important;  color: #ea580c !important; }
+#root .slide-37 .card-icon.purple { background: rgba(139,92,246,0.12) !important;  color: #6d28d9 !important; }
+
+/* ── Badges de maturité (MATURE, CROISSANCE, ÉMERGENT) ── */
+#root .slide-37 .maturity-badge.mature   { background: rgba(16,185,129,0.1) !important; color: #059669 !important; border: 1px solid rgba(16,185,129,0.25) !important; }
+#root .slide-37 .maturity-badge.growth   { background: rgba(249,115,22,0.1) !important; color: #ea580c !important;  border: 1px solid rgba(249,115,22,0.25) !important; }
+#root .slide-37 .maturity-badge.emerging { background: rgba(59,130,246,0.1) !important; color: #2563EB !important;  border: 1px solid rgba(59,130,246,0.25) !important; }
+
+/* ── Use case items (lignes internes de chaque carte IA) ── */
+#root .slide-37 .use-case-item {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  transition: all 0.18s ease !important;
+}
+#root .slide-37 .use-case-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  transform: translateX(2px) !important;
+}
+#root .slide-37 .use-case-text  { color: #475569 !important; }
+#root .slide-37 .use-case-value { color: #0f172a !important; font-weight: 700 !important; }
+
+/* ── Stats row : conteneur TRANSPARENT (plus de rectangle blanc) ── */
+#root .slide-37 .stats-row {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-top: 1px solid #e2e8f0 !important;
+  display: flex !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+  padding-top: 8px !important;
+  margin-top: 8px !important;
+  align-items: center !important;
+}
+/* Boutons stat-item : on garde le contour pill, fond doux */
+#root .slide-37 .stat-item {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: none !important;
+  border-radius: 20px !important;
+  padding: 3px 10px !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-size: 11px !important;
+  transition: all 0.18s ease !important;
+}
+#root .slide-37 .stat-item:hover {
+  background: #e2e8f0 !important;
+  border-color: #94a3b8 !important;
+}
+/* Pas de pseudo-séparateur (les pills sont déjà bien séparés) */
+#root .slide-37 .stat-item::after { content: none !important; }
+#root .slide-37 .stat-value { color: #1e293b !important; font-weight: 700 !important; }
+#root .slide-37 .stat-label { color: #64748b !important; font-weight: 400 !important; }
+
+
+
+/* ── Progress bars ── */
+#root .slide-37 .progress-bar  { background: #e2e8f0 !important; border: none !important; }
+#root .slide-37 .progress-fill.green  { background: #10B981 !important; }
+#root .slide-37 .progress-fill.blue   { background: #3B82F6 !important; }
+#root .slide-37 .progress-fill.orange { background: #F97316 !important; }
+#root .slide-37 .progress-fill.purple { background: #8B5CF6 !important; }
+
+/* ── Metric cards en bas (Adoption IA, Temps économisé, ROI moyen, Satisfaction) ── */
+#root .slide-37 .metric-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06) !important;
+  border-radius: 16px !important;
+  transition: all 0.2s ease !important;
+}
+#root .slide-37 .metric-card:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.1) !important;
+  transform: translateY(-2px) !important;
+}
+#root .slide-37 .metric-label { color: #64748b !important; font-size: 12px !important; }
+#root .slide-37 .value-number { color: #0f172a !important; font-weight: 800 !important; }
+#root .slide-37 .value-unit   { color: #94a3b8 !important; }
+
+/* ── Icônes des metric cards ── */
+#root .slide-37 .metric-icon.blue   { color: #2563EB !important; }
+#root .slide-37 .metric-icon.green  { color: #059669 !important; }
+#root .slide-37 .metric-icon.orange { color: #ea580c !important; }
+#root .slide-37 .metric-icon.purple { color: #6d28d9 !important; }
+
+/* ── Boutons ── */
+#root .slide-37 .action-btn.secondary { background: #f1f5f9 !important; color: #1e293b !important; border: 1.5px solid #cbd5e1 !important; }
+#root .slide-37 .action-btn.secondary:hover { background: #e2e8f0 !important; border-color: #94a3b8 !important; }
+#root .slide-37 .action-btn.primary  { background: #8B5CF6 !important; color: #ffffff !important; border: none !important; }
+#root .slide-37 .action-btn.primary:hover { background: #7c3aed !important; transform: translateY(-1px) !important; }
+
+/* ── Spans généraux ── */
+#root .slide-37 span { color: inherit !important; }
+
+/* ── Hover override (neutralise les sélecteurs génériques sombres) ── */
+#root .slide-37 [class*="-card"]:not(.toast-card):hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.1) !important;
+}
+#root .slide-37 [class*="-item"]:not(.toast-icon):hover {
+  background: #f1f5f9 !important;
+}
+#root .slide-36 [class*="-card"]:not(.toast-card):hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.1) !important;
+}
+#root .slide-36 [class*="-item"]:not(.toast-icon):hover {
+  background: #f1f5f9 !important;
+}

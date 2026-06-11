@@ -1,0 +1,968 @@
+/* ════════════════════════════════════════════════════════════════════
+   HOVER EFFECTS & BADGE STATS — TOUS LES SLIDES
+   Applique :
+   1. hover sur toutes les cartes, lignes de tableau, items de liste
+   2. stat-items en bas → badges colorés cliquables
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Utilitaire : tout élément avec cursor:pointer reçoit une transition ── */
+
+/* ══════════════════════════════════════════════════════════
+   SLIDES 1-9 : dark mode — stat-items déjà visibles
+   On ajoute juste les badge couleurs pour les bottom-stats
+   ══════════════════════════════════════════════════════════ */
+
+/* Slide 3 – section-card hover */
+#root .slide-3 .section-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-3 .section-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 30px rgba(15,23,42,0.18) !important;
+  border-color: rgba(37,99,235,0.35) !important;
+}
+#root .slide-3 .stat-item {
+  transition: all 0.25s ease !important;
+  padding: 6px 14px !important;
+  border-radius: 10px !important;
+}
+#root .slide-3 .stat-item:hover {
+  background: rgba(255,255,255,0.06) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Slide 4 – ecosystem-item, journey-step, stat-item hover */
+#root .slide-4 .ecosystem-item {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-4 .ecosystem-item:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.15) !important;
+}
+#root .slide-4 .journey-step {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-4 .journey-step:hover {
+  transform: translateX(4px) !important;
+  background: rgba(255,255,255,0.04) !important;
+}
+#root .slide-4 .stat-item {
+  transition: all 0.25s ease !important;
+  padding: 6px 14px !important;
+  border-radius: 10px !important;
+}
+#root .slide-4 .stat-item:hover {
+  background: rgba(255,255,255,0.06) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Slide 5 – summary-item hover */
+#root .slide-5 .summary-item {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-5 .summary-item:hover {
+  transform: translateX(4px) !important;
+  background: rgba(255,255,255,0.04) !important;
+}
+
+/* Slide 6 – stat-item hover */
+#root .slide-6 .stat-item {
+  transition: all 0.25s ease !important;
+  padding: 6px 14px !important;
+  border-radius: 10px !important;
+  cursor: default !important;
+}
+#root .slide-6 .stat-item:hover {
+  background: rgba(255,255,255,0.06) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Slide 7 – stat-card, chart-card, info-card hover */
+#root .slide-7 .stat-card,
+#root .slide-7 .chart-card,
+#root .slide-7 .info-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-7 .stat-card:hover,
+#root .slide-7 .chart-card:hover,
+#root .slide-7 .info-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.2) !important;
+}
+
+/* Slide 8 – skill-card, check-item, stat-item hover */
+#root .slide-8 .skill-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-8 .skill-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.2) !important;
+}
+#root .slide-8 .check-item {
+  transition: all 0.2s ease !important;
+  cursor: default !important;
+}
+#root .slide-8 .check-item:hover {
+  transform: translateX(4px) !important;
+}
+#root .slide-8 .stat-item {
+  transition: all 0.25s ease !important;
+  padding: 6px 14px !important;
+  border-radius: 10px !important;
+}
+#root .slide-8 .stat-item:hover {
+  background: rgba(255,255,255,0.06) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SLIDES 10-25 : light mode
+   Hover sur cartes + badges colorés sur stat-items
+   ══════════════════════════════════════════════════════════ */
+
+/* Slide 10 – section-card, method-item, tool-item */
+#root .slide-10 .section-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-10 .section-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-10 .method-item {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-10 .method-item:hover {
+  transform: translateX(4px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-10 .tool-item {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-10 .tool-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.08) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 11 – persona-card, journey-card, touchpoint-card, touchpoint-item */
+#root .slide-11 .persona-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-11 .persona-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-11 .journey-card {
+  transition: all 0.25s ease !important;
+}
+#root .slide-11 .journey-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.09) !important;
+}
+#root .slide-11 .touchpoint-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-11 .touchpoint-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.08) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-11 .touchpoint-item {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-11 .touchpoint-item:hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* Slide 14 – formula-card, formula-step */
+#root .slide-14 .formula-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-14 .formula-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-14 .formula-step {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-14 .formula-step:hover {
+  transform: translateX(4px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* Slide 15 – story-card, journey-card, stage-row, element-item */
+#root .slide-15 .story-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-15 .story-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-15 .journey-card {
+  transition: all 0.25s ease !important;
+}
+#root .slide-15 .journey-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.09) !important;
+}
+#root .slide-15 .stage-row {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-15 .stage-row:hover {
+  transform: translateX(4px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-15 .element-item {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-15 .element-item:hover {
+  transform: translateX(3px) !important;
+}
+
+/* Slide 16 – pillar-card, pillar-item, metric-item */
+#root .slide-16 .pillar-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-16 .pillar-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-16 .pillar-item {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-16 .pillar-item:hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-16 .metric-item {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-16 .metric-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 10px rgba(15,23,42,0.06) !important;
+}
+
+/* Slide 17 – checklist-card, checklist-item */
+#root .slide-17 .checklist-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-17 .checklist-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-17 .checklist-item {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-17 .checklist-item:hover {
+  transform: translateX(4px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* Slide 19 – metric-item */
+#root .slide-19 .metric-item {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-19 .metric-item:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.08) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 20 – optimization-card (metric-card & tool-card déjà ont hover) */
+#root .slide-20 .optimization-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-20 .optimization-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 21 */
+#root .slide-21 [class*="-card"]:not(.toast-card) {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-21 [class*="-card"]:not(.toast-card):hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-21 [class*="-item"]:not(.toast-icon):not(.stat-item) {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-21 [class*="-item"]:not(.toast-icon):not(.stat-item):hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* Slide 22 */
+#root .slide-22 [class*="-card"]:not(.toast-card) {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-22 [class*="-card"]:not(.toast-card):hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-22 [class*="-item"]:not(.toast-icon) {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-22 [class*="-item"]:not(.toast-icon):hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* Slide 23 – feature-card */
+#root .slide-23 .feature-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-23 .feature-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-23 [class*="-item"]:not(.toast-icon) {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-23 [class*="-item"]:not(.toast-icon):hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* Slide 24 */
+#root .slide-24 [class*="-card"]:not(.toast-card) {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-24 [class*="-card"]:not(.toast-card):hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-24 [class*="-item"]:not(.toast-icon) {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-24 [class*="-item"]:not(.toast-icon):hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* Slide 25 – feature-card */
+#root .slide-25 .feature-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-25 .feature-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-25 [class*="-item"]:not(.toast-icon) {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-25 [class*="-item"]:not(.toast-icon):hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SLIDES 26-40 : light mode — hover sur cartes
+   (stat-items/badge déjà fait dans slides-26-40-fixes.css)
+   ══════════════════════════════════════════════════════════ */
+
+/* Slide 27 – process-step, kpi-card, list-item, calendar-day */
+#root .slide-27 .process-step {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-27 .process-step:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-27 .kpi-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-27 .kpi-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.09) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-27 .list-item {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-27 .list-item:hover {
+  transform: translateX(4px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-27 .calendar-day {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-27 .calendar-day:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.07) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 28 – platform-card, content-item, objective-card */
+#root .slide-28 .platform-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-28 .platform-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-28 .content-item {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-28 .content-item:hover {
+  transform: translateX(4px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-28 .objective-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-28 .objective-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.08) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 29 – section-card, item-card, check-item, stat-item */
+#root .slide-29 .section-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-29 .section-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-29 .item-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-29 .item-card:hover {
+  transform: translateX(4px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-29 .check-item {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-29 .check-item:hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-29 .stat-item {
+  transition: all 0.2s ease !important;
+  cursor: default !important;
+  padding: 6px 14px !important;
+  border-radius: 10px !important;
+}
+#root .slide-29 .stat-item:hover {
+  background: #f1f5f9 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Slide 30 */
+#root .slide-30 [class*="-card"]:not(.toast-card) {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-30 [class*="-card"]:not(.toast-card):hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-30 [class*="-item"]:not(.toast-icon) {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-30 [class*="-item"]:not(.toast-icon):hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* Slide 31 */
+#root .slide-31 [class*="-card"]:not(.toast-card) {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-31 [class*="-card"]:not(.toast-card):hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-31 [class*="-item"]:not(.toast-icon) {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-31 [class*="-item"]:not(.toast-icon):hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* Slide 32 – table-row (MANQUANT !), summary-item, stat-item badges */
+#root .slide-32 .table-row:not(.header) {
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-32 .table-row:not(.header):hover {
+  background: rgba(37,99,235,0.04) !important;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.06) !important;
+  transform: translateX(3px) !important;
+}
+#root .slide-32 .table-row:not(.header):hover .kpi-badge {
+  filter: brightness(0.92) !important;
+  transform: scale(1.04) !important;
+}
+#root .slide-32 .summary-item {
+  transition: all 0.2s ease !important;
+  cursor: default !important;
+}
+#root .slide-32 .summary-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 10px rgba(15,23,42,0.07) !important;
+  border-color: #94a3b8 !important;
+}
+/* Badges stat-item slide 32 */
+#root .slide-32 .stats-grid { display: flex !important; gap: 12px !important; }
+#root .slide-32 .stat-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 18px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease !important;
+  cursor: default !important;
+  background: rgba(37,99,235,0.07) !important;
+  border: 1.5px solid rgba(37,99,235,0.2) !important;
+  color: #2563EB !important;
+}
+#root .slide-32 .stat-item:hover {
+  background: rgba(37,99,235,0.12) !important;
+  border-color: rgba(37,99,235,0.35) !important;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.12) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Slide 33 – sequence-card, segment-card, metric-item */
+#root .slide-33 .sequence-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-33 .sequence-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.09) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-33 .segment-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-33 .segment-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.08) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-33 .metric-item {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-33 .metric-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.07) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 34 – workflow-card, workflow-item, tool-card, metric-card */
+#root .slide-34 .workflow-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-34 .workflow-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-34 .workflow-item {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-34 .workflow-item:hover {
+  transform: translateX(4px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-34 .tool-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-34 .tool-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.08) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-34 .metric-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-34 .metric-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.07) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 35 – funnel-stage, offer-card, metric-card */
+#root .slide-35 .funnel-stage {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-35 .funnel-stage:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.09) !important;
+}
+#root .slide-35 .offer-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-35 .offer-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-35 .metric-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-35 .metric-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.07) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 36 */
+#root .slide-36 [class*="-card"]:not(.toast-card) {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-36 [class*="-card"]:not(.toast-card):hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-36 [class*="-item"]:not(.toast-icon) {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-36 [class*="-item"]:not(.toast-icon):hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+
+/* Slide 37 – ai-card, use-case-item, metric-card */
+#root .slide-37 .ai-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-37 .ai-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-37 .use-case-item {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-37 .use-case-item:hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-37 .metric-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-37 .metric-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.07) !important;
+  border-color: #94a3b8 !important;
+}
+/* Badges stat-items slide 37 */
+#root .slide-37 .stat-item {
+  transition: all 0.25s ease !important;
+  padding: 4px 12px !important;
+  border-radius: 8px !important;
+  cursor: default !important;
+}
+#root .slide-37 .stat-item:hover {
+  background: rgba(37,99,235,0.06) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Slide 38 – dashboard-card, kpi-card, stack-item, mockup-col */
+#root .slide-38 .dashboard-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-38 .dashboard-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-38 .kpi-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-38 .kpi-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.08) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-38 .stack-item {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-38 .stack-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.07) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-38 .mockup-col {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-38 .mockup-col:hover {
+  background: #e2e8f0 !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-38 .data-stack {
+  transition: all 0.25s ease !important;
+}
+#root .slide-38 .data-stack:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.09) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 39 – comparison-card, comparison-row, pricing-card, tool-item, acquisition-card */
+#root .slide-39 .comparison-card {
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-39 .comparison-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.1) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-39 .comparison-row {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-39 .comparison-row:hover {
+  transform: translateX(4px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-39 .pricing-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-39 .pricing-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.08) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-39 .tool-item {
+  transition: all 0.18s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-39 .tool-item:hover {
+  transform: translateX(3px) !important;
+  background: #f1f5f9 !important;
+}
+#root .slide-39 .acquisition-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-39 .acquisition-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.07) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Slide 40 – quarter-section, month-card, stat-card, milestone-card, progress-section */
+#root .slide-40 .quarter-section {
+  transition: all 0.25s ease !important;
+}
+#root .slide-40 .quarter-section:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.09) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-40 .month-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-40 .month-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.08) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-40 .stat-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-40 .stat-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.07) !important;
+  border-color: #94a3b8 !important;
+}
+#root .slide-40 .milestone-card {
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#root .slide-40 .milestone-card:hover {
+  transform: translateX(4px) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.07) !important;
+  border-color: #94a3b8 !important;
+}
+/* Badges stat-items slide 40 */
+#root .slide-40 .stats-grid { display: flex !important; gap: 12px !important; }
+#root .slide-40 .stat-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 18px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease !important;
+  cursor: default !important;
+  background: rgba(16,185,129,0.08) !important;
+  border: 1.5px solid rgba(16,185,129,0.22) !important;
+  color: #059669 !important;
+}
+#root .slide-40 .stat-item:hover {
+  background: rgba(16,185,129,0.13) !important;
+  border-color: rgba(16,185,129,0.38) !important;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.12) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ══ Slide 18 — stat-items badges (dark mode table, light stat-items) ══ */
+#root .slide-18 .stats-grid { display: flex !important; gap: 12px !important; }
+#root .slide-18 .stat-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 14px !important;
+  border-radius: 10px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease !important;
+  cursor: default !important;
+  background: rgba(16,185,129,0.08) !important;
+  border: 1.5px solid rgba(16,185,129,0.22) !important;
+  color: #059669 !important;
+}
+#root .slide-18 .stat-item:hover {
+  background: rgba(16,185,129,0.14) !important;
+  border-color: rgba(16,185,129,0.38) !important;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.1) !important;
+  transform: translateY(-2px) !important;
+}
+#root .slide-18 .stat-value { color: #059669 !important; font-weight: 800 !important; }
+
+/* ══ Slide 28 — stat-items dans bottom-section ══ */
+#root .slide-28 .stats-grid { display: flex !important; gap: 12px !important; }
+#root .slide-28 .stat-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 7px 16px !important;
+  border-radius: 11px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease !important;
+  cursor: default !important;
+  background: rgba(37,99,235,0.07) !important;
+  border: 1.5px solid rgba(37,99,235,0.2) !important;
+  color: #2563EB !important;
+}
+#root .slide-28 .stat-item:hover {
+  background: rgba(37,99,235,0.12) !important;
+  border-color: rgba(37,99,235,0.35) !important;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.1) !important;
+  transform: translateY(-2px) !important;
+}
+#root .slide-28 .stat-value { color: #2563EB !important; font-weight: 800 !important; }
+
+/* ══ Slide 35 — stat-items dans bottom-section ══ */
+#root .slide-35 .stats-grid { display: flex !important; gap: 12px !important; }
+#root .slide-35 .stat-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 7px 16px !important;
+  border-radius: 11px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease !important;
+  cursor: default !important;
+  background: rgba(249,115,22,0.07) !important;
+  border: 1.5px solid rgba(249,115,22,0.2) !important;
+  color: #ea580c !important;
+}
+#root .slide-35 .stat-item:hover {
+  background: rgba(249,115,22,0.12) !important;
+  border-color: rgba(249,115,22,0.35) !important;
+  box-shadow: 0 4px 12px rgba(249,115,22,0.1) !important;
+  transform: translateY(-2px) !important;
+}

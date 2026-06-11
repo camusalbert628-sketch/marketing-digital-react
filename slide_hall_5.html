@@ -1,0 +1,426 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Storytelling - Structure Narrative</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px 30px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+}
+
+.main-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+    min-height: 0;
+}
+
+.narrative-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 25px;
+    flex: 1;
+    min-height: 0;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.story-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.card-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.card-title {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.story-elements {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.element-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.element-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.element-icon.blue {
+    background: #3B82F6;
+}
+
+.element-icon.green {
+    background: #10B981;
+}
+
+.element-icon.orange {
+    background: #F97316;
+}
+
+.element-icon.purple {
+    background: #8B5CF6;
+}
+
+.element-text {
+    color: #cbd5e1;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.journey-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.journey-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.journey-title {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.journey-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.progress-bar {
+    width: 120px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+    border-radius: 3px;
+}
+
+.journey-stages {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-height: 0;
+}
+
+.stage-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    min-height: 0;
+}
+
+.stage-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.stage-number.blue {
+    background: #3B82F6;
+}
+
+.stage-number.green {
+    background: #10B981;
+}
+
+.stage-number.orange {
+    background: #F97316;
+}
+
+.stage-number.purple {
+    background: #8B5CF6;
+}
+
+.stage-number.red {
+    background: #EF4444;
+}
+
+.stage-number.cyan {
+    background: #06B6D4;
+}
+
+.stage-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 0;
+}
+
+.stage-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.stage-name {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.stage-desc {
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stage-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.stage-status.active {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.stage-status.pending {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.action-btn {
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper"><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-book-open"></i></div><div><div class="main-title">Storytelling - Structure Narrative</div><div class="subtitle">Arc narratif complet pour créer des histoires engageantes</div></div></div><div class="badge"><i class="fas fa-theater-masks" style="margin-right: 8px;"></i>6 Étapes </div></div><div class="main-content"><div class="narrative-container"><div class="left-panel"><div class="story-card"><div class="card-header"><div class="card-icon blue"><i class="fas fa-layer-group"></i></div><div class="card-title">Éléments clés</div></div><div class="story-elements"><div class="element-item"><div class="element-icon blue">1</div><div class="element-text">Hook - Accroche immédiate</div></div><div class="element-item"><div class="element-icon green">2</div><div class="element-text">Conflit - Problème à résoudre</div></div><div class="element-item"><div class="element-icon orange">3</div><div class="element-text">Guide - Solution apportée</div></div><div class="element-item"><div class="element-icon purple">4</div><div class="element-text">Transformation - Changement</div></div><div class="element-item"><div class="element-icon blue">5</div><div class="element-text">Preuves - Validation</div></div><div class="element-item"><div class="element-icon green">6</div><div class="element-text">CTA - Appel à l'action</div>
+ </div></div></div></div><div class="right-panel"><div class="journey-card"><div class="journey-header"><div class="journey-title">Parcours narratif - 6 étapes</div><div class="journey-progress"><div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div><span>75%</span></div></div><div class="journey-stages"><div class="stage-row"><div class="stage-number blue">1</div><div class="stage-content"><div class="stage-info"><div class="stage-name">Hook (Accroche)</div><div class="stage-desc">Capturer l'attention en 3 secondes avec une phrase d' accroche puissante</div></div><div class="stage-status active"><i class="fas fa-check-circle"></i><span>En cours</span></div></div></div><div class="stage-row"><div class="stage-number green">2</div><div class="stage-content"><div class="stage-info"><div class="stage-name">Conflit/Problème</div><div class="stage-desc">Présenter le problème ou la douleur que le client ressent</div></div><div class="stage-status active"><i class="fas fa-check-circle"></i><span>En cours</span></div></div></div><div class="stage-row"><div class="stage-number orange">3</div><div class="stage-content"><div class="stage-info"><div class="stage-name">Guide/Solution</div><div class="stage-desc">Introduire le guide ou la solution qui résout le problème</div></div><div class="stage-status pending"><i class="fas fa-clock"></i><span>En attente</span></div></div></div><div class="stage-row"><div class="stage-number purple">4</div><div class="stage-content"><div class="stage-info"><div class="stage-name">Transformation</div><div class="stage-desc">Montrer la transformation positive après la solution</div></div><div class="stage-status pending"><i class="fas fa-clock"></i><span>En attente</span></div></div></div><div class="stage-row"><div class="stage-number red">5</div><div class="stage-content"><div class="stage-info"><div class="stage-name">Preuves sociales</div><div class="stage-desc">Témoignages,
+études de cas,
+statistiques</div></div><div class="stage-status pending"><i class="fas fa-clock"></i><span>En attente</span></div></div></div><div class="stage-row"><div class="stage-number cyan">6</div><div class="stage-content"><div class="stage-info"><div class="stage-name">Appel à l'action</div>
+ <div class="stage-desc">CTA clair et direct pour inciter à l'action</div>
+ </div><div class="stage-status pending"><i class="fas fa-clock"></i><span>En attente</span></div></div></div></div></div></div></div><div class="bottom-section"><div class="progress-info"><div>Progression: <span style="color: white; font-weight: 700;">75%</span></div><div style="color: #64748b; font-size: 13px;">Dernière mise à jour: Aujourd'hui</div>
+ </div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter </button><button class="action-btn primary"><i class="fas fa-play"></i>Démarrer </button></div></div></div></div></div></body></html>

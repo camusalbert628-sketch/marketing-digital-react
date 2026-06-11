@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Les 7 piliers du Marketing Digital</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #0f172a;
+        overflow: hidden;
+        width: 1280px;
+        height: 720px;
+    }
+
+    .slide-container {
+        width: 1280px;
+        height: 720px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .bg-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        z-index: 1;
+    }
+
+    .grid-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 1;
+    }
+
+    .content-wrapper {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 60px 60px 40px 60px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+
+    .title-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .title-icon {
+        width: 54px;
+        height: 54px;
+        background: linear-gradient(135deg, #2563EB, #1d4ed8);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+    }
+
+    .main-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 2px;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        color: #94a3b8;
+    }
+
+    .badge {
+        background: rgba(249, 115, 22, 0.2);
+        color: #F97316;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .pillars-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        flex: 1;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .pillar {
+        flex: 1;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 24px 12px;
+        height: 340px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pillar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--pillar-color), var(--pillar-color-light));
+    }
+
+    .pillar-number {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        font-size: 24px;
+        font-weight: 800;
+        color: rgba(255,255,255,0.1);
+        line-height: 1;
+    }
+
+    .pillar-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        background: rgba(255,255,255,0.1);
+    }
+
+    .pillar-icon.blue { background: rgba(37, 99, 235, 0.2); color: #3B82F6; }
+    .pillar-icon.green { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+    .pillar-icon.orange { background: rgba(249, 115, 22, 0.2); color: #F97316; }
+    .pillar-icon.purple { background: rgba(139, 92, 246, 0.2); color: #8B5CF6; }
+    .pillar-icon.red { background: rgba(239, 68, 68, 0.2); color: #EF4444; }
+    .pillar-icon.cyan { background: rgba(6, 182, 212, 0.2); color: #06B6D4; }
+    .pillar-icon.pink { background: rgba(236, 72, 153, 0.2); color: #EC4899; }
+
+    .pillar-title {
+        color: white;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+
+    .pillar-desc {
+        color: #94a3b8;
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 20px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pillar-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        margin-top: auto;
+    }
+
+    .stat-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 10px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 8px;
+    }
+
+    .stat-label {
+        color: #94a3b8;
+        font-size: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 70px;
+    }
+
+    .stat-value {
+        color: white;
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .progress-bar {
+        height: 4px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 2px;
+        margin-top: 4px;
+    }
+
+    .progress-fill {
+        height: 100%;
+        border-radius: 2px;
+    }
+
+    .pillar:nth-child(1) { --pillar-color: #3B82F6; --pillar-color-light: #60A5FA; }
+    .pillar:nth-child(2) { --pillar-color: #10B981; --pillar-color-light: #34D399; }
+    .pillar:nth-child(3) { --pillar-color: #F97316; --pillar-color-light: #FB923C; }
+    .pillar:nth-child(4) { --pillar-color: #8B5CF6; --pillar-color-light: #A78BFA; }
+    .pillar:nth-child(5) { --pillar-color: #EF4444; --pillar-color-light: #F87171; }
+    .pillar:nth-child(6) { --pillar-color: #06B6D4; --pillar-color-light: #22D3EE; }
+    .pillar:nth-child(7) { --pillar-color: #EC4899; --pillar-color-light: #F472B6; }
+
+    .bottom-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .integration-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #94a3b8;
+        font-size: 14px;
+    }
+
+    .integration-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: rgba(37, 99, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #3B82F6;
+    }
+
+    .stats-summary {
+        display: flex;
+        gap: 20px;
+    }
+
+    .summary-item {
+        text-align: center;
+        padding: 10px 24px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 10px;
+        min-width: 100px;
+    }
+
+    .summary-value {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 2px;
+    }
+
+    .summary-label {
+        font-size: 12px;
+        color: #94a3b8;
+    }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<div class="bg-pattern"></div>
+<div class="grid-lines"></div>
+<div class="content-wrapper">
+<div class="header">
+<div class="title-section">
+<div class="title-icon">
+<i class="fas fa-columns"></i>
+</div>
+<div>
+<div class="main-title">Les 7 piliers du Marketing Digital</div>
+<div class="subtitle">Architecture complète d'une stratégie marketing efficace</div>
+</div>
+</div>
+<div class="badge">
+<i class="fas fa-layer-group" style="margin-right: 8px;"></i>
+                Fondamentaux
+            </div>
+</div>
+<div class="pillars-container">
+<div class="pillar">
+<div class="pillar-number">01</div>
+<div class="pillar-icon blue">
+<i class="fas fa-chess"></i>
+</div>
+<div class="pillar-title">Stratégie</div>
+<div class="pillar-desc">Planification et objectifs</div>
+<div class="pillar-stats">
+<div class="stat-row">
+<span class="stat-label">Planification</span>
+<span class="stat-value">100%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 100%; background: #3B82F6;"></div>
+</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-number">02</div>
+<div class="pillar-icon green">
+<i class="fas fa-file-alt"></i>
+</div>
+<div class="pillar-title">Contenu</div>
+<div class="pillar-desc">Création et publication</div>
+<div class="pillar-stats">
+<div class="stat-row">
+<span class="stat-label">Qualité</span>
+<span class="stat-value">95%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 95%; background: #10B981;"></div>
+</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-number">03</div>
+<div class="pillar-icon orange">
+<i class="fas fa-search"></i>
+</div>
+<div class="pillar-title">SEO</div>
+<div class="pillar-desc">Référencement naturel</div>
+<div class="pillar-stats">
+<div class="stat-row">
+<span class="stat-label">Visibilité</span>
+<span class="stat-value">90%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 90%; background: #F97316;"></div>
+</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-number">04</div>
+<div class="pillar-icon purple">
+<i class="fas fa-ad"></i>
+</div>
+<div class="pillar-title">Publicité</div>
+<div class="pillar-desc">Campagnes payantes</div>
+<div class="pillar-stats">
+<div class="stat-row">
+<span class="stat-label">ROI</span>
+<span class="stat-value">85%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 85%; background: #8B5CF6;"></div>
+</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-number">05</div>
+<div class="pillar-icon red">
+<i class="fas fa-share-alt"></i>
+</div>
+<div class="pillar-title">Social</div>
+<div class="pillar-desc">Réseaux sociaux</div>
+<div class="pillar-stats">
+<div class="stat-row">
+<span class="stat-label">Engagement</span>
+<span class="stat-value">80%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 80%; background: #EF4444;"></div>
+</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-number">06</div>
+<div class="pillar-icon cyan">
+<i class="fas fa-envelope"></i>
+</div>
+<div class="pillar-title">Email</div>
+<div class="pillar-desc">Marketing automation</div>
+<div class="pillar-stats">
+<div class="stat-row">
+<span class="stat-label">Ouverture</span>
+<span class="stat-value">75%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 75%; background: #06B6D4;"></div>
+</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-number">07</div>
+<div class="pillar-icon pink">
+<i class="fas fa-chart-pie"></i>
+</div>
+<div class="pillar-title">Data/CRO</div>
+<div class="pillar-desc">Analytics et optimisation</div>
+<div class="pillar-stats">
+<div class="stat-row">
+<span class="stat-label">Conversion</span>
+<span class="stat-value">70%</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 70%; background: #EC4899;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom-section">
+<div class="integration-info">
+<div class="integration-icon">
+<i class="fas fa-link"></i>
+</div>
+<div>
+<div style="color: white; font-weight: 600; margin-bottom: 2px;">Intégration complète</div>
+<div style="font-size: 13px;">Les 7 piliers travaillent ensemble pour maximiser vos résultats</div>
+</div>
+</div>
+<div class="stats-summary">
+<div class="summary-item">
+<div class="summary-value" style="color: #3B82F6;">98%</div>
+<div class="summary-label">Efficacité</div>
+</div>
+<div class="summary-item">
+<div class="summary-value" style="color: #10B981;">2.5x</div>
+<div class="summary-label">ROI moyen</div>
+</div>
+<div class="summary-item">
+<div class="summary-value" style="color: #F97316;">45%</div>
+<div class="summary-label">Croissance</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

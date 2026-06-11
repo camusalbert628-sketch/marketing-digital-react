@@ -1,0 +1,400 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>IA pour le Marketing - Applications 2026</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #8B5CF6, #7c3aed);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+}
+
+.ai-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 16px;
+    flex: 1;
+}
+
+.ai-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.card-title {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.card-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.card-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.card-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.card-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.maturity-badge {
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.maturity-badge.mature {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.maturity-badge.growth {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.maturity-badge.emerging {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.use-case-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.use-case-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.use-case-text {
+    color: #94a3b8;
+    flex: 1;
+}
+
+.use-case-value {
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.stats-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+}
+
+.stat-value {
+    color: white;
+    font-weight: 600;
+}
+
+.stat-label {
+    color: #64748b;
+}
+
+.bottom-section {
+    display: flex;
+    gap: 20px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.metrics-row {
+    display: flex;
+    gap: 12px;
+    flex: 1;
+}
+
+.metric-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.metric-icon {
+    font-size: 14px;
+}
+
+.metric-icon.blue {
+    color: #3B82F6;
+}
+
+.metric-icon.green {
+    color: #10B981;
+}
+
+.metric-icon.orange {
+    color: #F97316;
+}
+
+.metric-icon.purple {
+    color: #8B5CF6;
+}
+
+.metric-label {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.value-number {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+}
+
+.value-unit {
+    font-size: 11px;
+    color: #64748b;
+    margin-left: 4px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.action-btn {
+    padding: 0 25px;
+    height: 56px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+    min-width: 150px;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    min-width: 150px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+
+.progress-fill.green {
+    background: #10B981;
+}
+
+.progress-fill.blue {
+    background: #3B82F6;
+}
+
+.progress-fill.orange {
+    background: #F97316;
+}
+
+.progress-fill.purple {
+    background: #8B5CF6;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper">< !-- Header --><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-robot"></i></div><div><div class="main-title">IA pour le Marketing - Applications 2026</div><div class="subtitle">Cas d'usage et bonnes pratiques de l' IA en marketing</div></div></div><div class="badge"><i class="fas fa-magic" style="margin-right: 8px;"></i>8 Applications </div></div>< !-- Main Content --><div class="main-content"><div class="ai-grid">< !-- Card 1: Idéation & Briefs --><div class="ai-card"><div class="card-header"><div class="card-title"><div class="card-icon blue"><i class="fas fa-lightbulb"></i></div>Idéation &amp;
+Briefs </div><div class="maturity-badge mature">Mature</div></div><div class="card-content"><div class="use-case-item"><div class="use-case-icon blue"><i class="fas fa-brain"></i></div><div class="use-case-text">Génération d'idées</div>
+ <div class="use-case-value">95%</div></div><div class="use-case-item"><div class="use-case-icon green"><i class="fas fa-file-alt"></i></div><div class="use-case-text">Création de briefs</div><div class="use-case-value">87%</div></div><div class="progress-bar"><div class="progress-fill blue" style="width: 92%;"></div></div></div><div class="stats-row"><div class="stat-item"><span class="stat-value">2.5x</span><span class="stat-label">plus rapide</span></div><div class="stat-item"><span class="stat-value">85%</span><span class="stat-label">précision</span></div></div></div>< !-- Card 2: Rédaction Assistée --><div class="ai-card"><div class="card-header"><div class="card-title"><div class="card-icon green"><i class="fas fa-pen"></i></div>Rédaction Assistée </div><div class="maturity-badge mature">Mature</div></div><div class="card-content"><div class="use-case-item"><div class="use-case-icon blue"><i class="fas fa-edit"></i></div><div class="use-case-text">Content writing</div><div class="use-case-value">92%</div></div><div class="use-case-item"><div class="use-case-icon green"><i class="fas fa-spell-check"></i></div><div class="use-case-text">Correction</div><div class="use-case-value">98%</div></div><div class="progress-bar"><div class="progress-fill green" style="width: 95%;"></div></div></div><div class="stats-row"><div class="stat-item"><span class="stat-value">3x</span><span class="stat-label">productivité</span></div><div class="stat-item"><span class="stat-value">90%</span><span class="stat-label">qualité</span></div></div></div>< !-- Card 3: Génération Images/Vidéos --><div class="ai-card"><div class="card-header"><div class="card-title"><div class="card-icon orange"><i class="fas fa-image"></i></div>Génération Médias </div><div class="maturity-badge growth">Croissance</div></div><div class="card-content"><div class="use-case-item"><div class="use-case-icon blue"><i class="fas fa-image"></i></div><div class="use-case-text">Images</div><div class="use-case-value">88%</div></div><div class="use-case-item"><div class="use-case-icon orange"><i class="fas fa-video"></i></div><div class="use-case-text">Vidéos</div><div class="use-case-value">75%</div></div><div class="progress-bar"><div class="progress-fill orange" style="width: 82%;"></div></div></div><div class="stats-row"><div class="stat-item"><span class="stat-value">5x</span><span class="stat-label">vitesse</span></div><div class="stat-item"><span class="stat-value">78%</span><span class="stat-label">qualité</span></div></div></div>< !-- Card 4: Chatbots/FAQ --><div class="ai-card"><div class="card-header"><div class="card-title"><div class="card-icon purple"><i class="fas fa-comments"></i></div>Chatbots/FAQ </div><div class="maturity-badge mature">Mature</div></div><div class="card-content"><div class="use-case-item"><div class="use-case-icon blue"><i class="fas fa-robot"></i></div><div class="use-case-text">Réponses auto</div><div class="use-case-value">94%</div></div><div class="use-case-item"><div class="use-case-icon green"><i class="fas fa-question-circle"></i></div><div class="use-case-text">FAQ</div><div class="use-case-value">96%</div></div><div class="progress-bar"><div class="progress-fill purple" style="width: 95%;"></div></div></div><div class="stats-row"><div class="stat-item"><span class="stat-value">24/7</span><span class="stat-label">disponible</span></div><div class="stat-item"><span class="stat-value">92%</span><span class="stat-label">satisfaction</span></div></div></div>< !-- Card 5: Scoring Prédictif --><div class="ai-card"><div class="card-header"><div class="card-title"><div class="card-icon blue"><i class="fas fa-chart-line"></i></div>Scoring Prédictif </div><div class="maturity-badge growth">Croissance</div></div><div class="card-content"><div class="use-case-item"><div class="use-case-icon blue"><i class="fas fa-star"></i></div><div class="use-case-text">Lead scoring</div><div class="use-case-value">89%</div></div><div class="use-case-item"><div class="use-case-icon green"><i class="fas fa-trophy"></i></div><div class="use-case-text">Priorisation</div><div class="use-case-value">85%</div></div><div class="progress-bar"><div class="progress-fill blue" style="width: 87%;"></div></div></div><div class="stats-row"><div class="stat-item"><span class="stat-value">+23%</span><span class="stat-label">conversion</span></div><div class="stat-item"><span class="stat-value">4.5x</span><span class="stat-label">ROI</span></div></div></div>< !-- Card 6: Personnalisation --><div class="ai-card"><div class="card-header"><div class="card-title"><div class="card-icon green"><i class="fas fa-user"></i></div>Personnalisation </div><div class="maturity-badge mature">Mature</div></div><div class="card-content"><div class="use-case-item"><div class="use-case-icon blue"><i class="fas fa-heart"></i></div><div class="use-case-text">Recommandations</div><div class="use-case-value">91%</div></div><div class="use-case-item"><div class="use-case-icon green"><i class="fas fa-target"></i></div><div class="use-case-text">Ciblage</div><div class="use-case-value">88%</div></div><div class="progress-bar"><div class="progress-fill green" style="width: 90%;"></div></div></div><div class="stats-row"><div class="stat-item"><span class="stat-value">+35%</span><span class="stat-label">engagement</span></div><div class="stat-item"><span class="stat-value">3.2x</span><span class="stat-label">CTR</span></div></div></div>< !-- Card 7: Gouvernance --><div class="ai-card"><div class="card-header"><div class="card-title"><div class="card-icon orange"><i class="fas fa-shield-alt"></i></div>Gouvernance </div><div class="maturity-badge emerging">Émergent</div></div><div class="card-content"><div class="use-case-item"><div class="use-case-icon blue"><i class="fas fa-lock"></i></div><div class="use-case-text">Sécurité</div><div class="use-case-value">95%</div></div><div class="use-case-item"><div class="use-case-icon orange"><i class="fas fa-balance-scale"></i></div><div class="use-case-text">Éthique</div><div class="use-case-value">87%</div></div><div class="progress-bar"><div class="progress-fill orange" style="width: 91%;"></div></div></div><div class="stats-row"><div class="stat-item"><span class="stat-value">100%</span><span class="stat-label">RGPD</span></div><div class="stat-item"><span class="stat-value">98%</span><span class="stat-label">confiance</span></div></div></div>< !-- Card 8: Prompts & Évaluation --><div class="ai-card"><div class="card-header"><div class="card-title"><div class="card-icon purple"><i class="fas fa-terminal"></i></div>Prompts &amp;
+Éval </div><div class="maturity-badge growth">Croissance</div></div><div class="card-content"><div class="use-case-item"><div class="use-case-icon blue"><i class="fas fa-keyboard"></i></div><div class="use-case-text">Optimisation</div><div class="use-case-value">82%</div></div><div class="use-case-item"><div class="use-case-icon green"><i class="fas fa-check-circle"></i></div><div class="use-case-text">Évaluation</div><div class="use-case-value">79%</div></div><div class="progress-bar"><div class="progress-fill purple" style="width: 81%;"></div></div></div><div class="stats-row"><div class="stat-item"><span class="stat-value">+40%</span><span class="stat-label">efficacité</span></div><div class="stat-item"><span class="stat-value">2.8x</span><span class="stat-label">précision</span></div></div></div></div>< !-- Bottom Section --><div class="bottom-section"><div class="metrics-row"><div class="metric-card"><div class="metric-header"><div class="metric-icon blue"><i class="fas fa-chart-line"></i></div><div class="metric-label">Adoption IA</div></div><div><span class="value-number">87%</span><span class="value-unit">des marketeurs</span></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon green"><i class="fas fa-clock"></i></div><div class="metric-label">Temps économisé</div></div><div><span class="value-number">15h</span><span class="value-unit">/semaine</span></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon orange"><i class="fas fa-dollar-sign"></i></div><div class="metric-label">ROI moyen</div></div><div><span class="value-number">4.2x</span><span class="value-unit">return</span></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon purple"><i class="fas fa-star"></i></div><div class="metric-label">Satisfaction</div></div><div><span class="value-number">4.6/5</span><span class="value-unit">rating</span></div></div></div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter</button><button class="action-btn primary"><i class="fas fa-play"></i>Démarrer</button></div></div></div></div></div></body></html>

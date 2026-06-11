@@ -1,0 +1,470 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>SEO Off-Page - Stratégies de Backlinks</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.title-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+}
+
+.main-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 15px;
+    min-height: 0;
+}
+
+.strategies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    flex: 1;
+    min-height: 0;
+}
+
+.strategy-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.strategy-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+}
+
+.strategy-card.digital-pr::before {
+    background: linear-gradient(90deg, #3B82F6, #1d4ed8);
+}
+
+.strategy-card.content::before {
+    background: linear-gradient(90deg, #10B981, #059669);
+}
+
+.strategy-card.guest-post::before {
+    background: linear-gradient(90deg, #F97316, #ea580c);
+}
+
+.strategy-card.haro::before {
+    background: linear-gradient(90deg, #8B5CF6, #7c3aed);
+}
+
+.strategy-card.co-marketing::before {
+    background: linear-gradient(90deg, #EC4899, #db2777);
+}
+
+.strategy-card.local-citation::before {
+    background: linear-gradient(90deg, #06B6D4, #0891b2);
+}
+
+.strategy-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.strategy-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.strategy-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.strategy-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.strategy-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.strategy-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.strategy-icon.pink {
+    background: rgba(236, 72, 153, 0.2);
+    color: #EC4899;
+}
+
+.strategy-icon.cyan {
+    background: rgba(6, 182, 212, 0.2);
+    color: #06B6D4;
+}
+
+.strategy-info {
+    flex: 1;
+}
+
+.strategy-title {
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.strategy-subtitle {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.strategy-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.strategy-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.item-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.item-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.item-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.item-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.item-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.item-icon.pink {
+    background: rgba(236, 72, 153, 0.2);
+    color: #EC4899;
+}
+
+.item-icon.cyan {
+    background: rgba(6, 182, 212, 0.2);
+    color: #06B6D4;
+}
+
+.item-content {
+    flex: 1;
+}
+
+.item-title {
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.item-desc {
+    color: #94a3b8;
+    font-size: 10px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 210px;
+}
+
+.impact-badge {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.impact-badge.high {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.impact-badge.medium {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.tracking-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.tracking-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.tracking-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.tracking-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.tracking-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.tracking-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.tracking-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.tracking-title {
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.tracking-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tracking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+}
+
+.tracking-label {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.tracking-value {
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.progress-bar {
+    width: 250px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+    border-radius: 4px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper">< !-- Header --><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-link"></i></div><div><div class="main-title">SEO Off-Page - Stratégies de Backlinks</div><div class="subtitle">Stratégies avancées pour construire des liens de qualité</div></div></div><div class="badge"><i class="fas fa-chart-line" style="margin-right: 8px;"></i>6 Stratégies </div></div>< !-- Main Content --><div class="main-content"><div class="strategies-grid">< !-- Digital PR --><div class="strategy-card digital-pr"><div class="strategy-header"><div class="strategy-icon blue"><i class="fas fa-newspaper"></i></div><div class="strategy-info"><div class="strategy-title">Digital PR</div><div class="strategy-subtitle">Relations presse digitales</div></div></div><div class="strategy-content"><div class="strategy-item"><div class="item-icon blue"><i class="fas fa-bullhorn"></i></div><div class="item-content"><div class="item-title">Création de contenus newsworthy</div><div class="item-desc">Études,
+infographies,
+données exclusives</div></div><div class="impact-badge high">Haute</div></div><div class="strategy-item"><div class="item-icon blue"><i class="fas fa-handshake"></i></div><div class="item-content"><div class="item-title">Relations avec journalistes</div><div class="item-desc">Networking et outreach</div></div><div class="impact-badge medium">Moyenne</div></div></div></div>< !-- Contenus liables --><div class="strategy-card content"><div class="strategy-header"><div class="strategy-icon green"><i class="fas fa-share-alt"></i></div><div class="strategy-info"><div class="strategy-title">Contenus liables</div><div class="strategy-subtitle">Création de ressources</div></div></div><div class="strategy-content"><div class="strategy-item"><div class="item-icon green"><i class="fas fa-file-alt"></i></div><div class="item-content"><div class="item-title">Guides complets</div><div class="item-desc">Ressources exhaustives et uniques</div></div><div class="impact-badge high">Haute</div></div><div class="strategy-item"><div class="item-icon green"><i class="fas fa-tools"></i></div><div class="item-content"><div class="item-title">Outils gratuits</div><div class="item-desc">Calculatrices,
+templates</div></div><div class="impact-badge medium">Moyenne</div></div></div></div>< !-- Guest posts --><div class="strategy-card guest-post"><div class="strategy-header"><div class="strategy-icon orange"><i class="fas fa-pen-fancy"></i></div><div class="strategy-info"><div class="strategy-title">Guest Posts</div><div class="strategy-subtitle">Contenu invité qualitatif</div></div></div><div class="strategy-content"><div class="strategy-item"><div class="item-icon orange"><i class="fas fa-edit"></i></div><div class="item-content"><div class="item-title">Articles de qualité</div><div class="item-desc">Contenu original et pertinent</div></div><div class="impact-badge high">Haute</div></div><div class="strategy-item"><div class="item-icon orange"><i class="fas fa-blog"></i></div><div class="item-content"><div class="item-title">Blogs de niche</div><div class="item-desc">Sites pertinents et autorisés</div></div><div class="impact-badge medium">Moyenne</div></div></div></div>< !-- HARO --><div class="strategy-card haro"><div class="strategy-header"><div class="strategy-icon purple"><i class="fas fa-question-circle"></i></div><div class="strategy-info"><div class="strategy-title">HARO &amp;
+
+Équivalents</div><div class="strategy-subtitle">Réponses aux journalistes</div></div></div><div class="strategy-content"><div class="strategy-item"><div class="item-icon purple"><i class="fas fa-reply"></i></div><div class="item-content"><div class="item-title">Réponses rapides</div><div class="item-desc">Répondre aux demandes des médias</div></div><div class="impact-badge high">Haute</div></div><div class="strategy-item"><div class="item-icon purple"><i class="fas fa-clock"></i></div><div class="item-content"><div class="item-title">Timing optimal</div><div class="item-desc">Réponse sous 24h</div></div><div class="impact-badge medium">Moyenne</div></div></div></div>< !-- Co-marketing --><div class="strategy-card co-marketing"><div class="strategy-header"><div class="strategy-icon pink"><i class="fas fa-users"></i></div><div class="strategy-info"><div class="strategy-title">Co-marketing</div><div class="strategy-subtitle">Partenariats stratégiques</div></div></div><div class="strategy-content"><div class="strategy-item"><div class="item-icon pink"><i class="fas fa-handshake"></i></div><div class="item-content"><div class="item-title">Collaborations</div><div class="item-desc">Partenariats mutuellement bénéfiques</div></div><div class="impact-badge high">Haute</div></div><div class="strategy-item"><div class="item-icon pink"><i class="fas fa-gift"></i></div><div class="item-content"><div class="item-title">Offres communes</div><div class="item-desc">Promotions conjointes</div></div><div class="impact-badge medium">Moyenne</div></div></div></div>< !-- Citations locales --><div class="strategy-card local-citation"><div class="strategy-header"><div class="strategy-icon cyan"><i class="fas fa-map-marker-alt"></i></div><div class="strategy-info"><div class="strategy-title">Citations locales</div><div class="strategy-subtitle">Présence locale</div></div></div><div class="strategy-content"><div class="strategy-item"><div class="item-icon cyan"><i class="fas fa-building"></i></div><div class="item-content"><div class="item-title">Annuaires locaux</div><div class="item-desc">Google My Business,
+Yelp</div></div><div class="impact-badge high">Haute</div></div><div class="strategy-item"><div class="item-icon cyan"><i class="fas fa-phone"></i></div><div class="item-content"><div class="item-title">NAP cohérent</div><div class="item-desc">Nom,
+Adresse,
+Téléphone</div></div><div class="impact-badge medium">Moyenne</div></div></div></div></div>< !-- Tracking Section --><div class="tracking-section"><div class="tracking-card"><div class="tracking-header"><div class="tracking-icon blue"><i class="fas fa-shield-alt"></i></div><div class="tracking-title">Toxicité</div></div><div class="tracking-content"><div class="tracking-item"><span class="tracking-label">Score de toxicité</span><span class="tracking-value">12/100</span></div><div class="tracking-item"><span class="tracking-label">Liens toxiques</span><span class="tracking-value">3</span></div></div></div><div class="tracking-card"><div class="tracking-header"><div class="tracking-icon green"><i class="fas fa-anchor"></i></div><div class="tracking-title">Ancres</div></div><div class="tracking-content"><div class="tracking-item"><span class="tracking-label">Ancres optimisées</span><span class="tracking-value">85%</span></div><div class="tracking-item"><span class="tracking-label">Ancres variées</span><span class="tracking-value">15%</span></div></div></div><div class="tracking-card"><div class="tracking-header"><div class="tracking-icon orange"><i class="fas fa-chart-bar"></i></div><div class="tracking-title">Topical Authority</div></div><div class="tracking-content"><div class="tracking-item"><span class="tracking-label">Score thématique</span><span class="tracking-value">78/100</span></div><div class="tracking-item"><span class="tracking-label">Expertise</span><span class="tracking-value">Haute</span></div></div></div></div>< !-- Bottom Section --><div class="bottom-section"><div class="progress-info"><div>Progression: <span style="color: white; font-weight: 700;">75%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div><div style="color: #64748b; font-size: 12px;">Dernière mise à jour: Aujourd'hui</div>
+ </div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter </button><button class="action-btn primary"><i class="fas fa-play"></i>Analyser </button></div></div></div></div></div></body></html>

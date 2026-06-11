@@ -1,0 +1,527 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Core Web Vitals - Métriques &amp;
+
+Outils</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px 30px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+}
+
+.main-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+
+.metric-card.lcp::before {
+    background: linear-gradient(90deg, #3B82F6, #1d4ed8);
+}
+
+.metric-card.inp::before {
+    background: linear-gradient(90deg, #10B981, #059669);
+}
+
+.metric-card.cls::before {
+    background: linear-gradient(90deg, #F97316, #ea580c);
+}
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.metric-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.metric-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.metric-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.metric-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.metric-info {
+    flex: 1;
+}
+
+.metric-title {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.metric-subtitle {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.metric-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.value-number {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+}
+
+.value-unit {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.metric-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.good {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.metric-chart {
+    height: 100px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.tool-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tool-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.tool-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.tool-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.tool-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.tool-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.tool-name {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.tool-desc {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.optimization-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.optimization-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.optimization-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.optimization-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.optimization-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.optimization-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+}
+
+.optimization-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.optimization-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.optimization-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.optimization-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.optimization-text {
+    flex: 1;
+    color: white;
+    font-size: 14px;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+    border-radius: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper">< !-- Header --><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-tachometer-alt"></i></div><div><div class="main-title">Core Web Vitals - Métriques &amp;
+
+Outils</div><div class="subtitle">Optimisation des performances web et mesures clés</div></div></div><div class="badge"><i class="fas fa-chart-line" style="margin-right: 8px;"></i>3 Métriques </div></div>< !-- Main Content --><div class="main-content">< !-- Metrics Grid --><div class="metrics-grid"><div class="metric-card lcp"><div class="metric-header"><div class="metric-icon blue"><i class="fas fa-clock"></i></div><div class="metric-info"><div class="metric-title">LCP</div><div class="metric-subtitle">Largest Contentful Paint</div></div></div><div class="metric-value"><span class="value-number">2.1</span><span class="value-unit">s</span></div><div class="metric-status"><div class="status-badge good"><i class="fas fa-check-circle" style="margin-right: 4px;"></i>Bon</div><span style="color: #94a3b8; font-size: 12px;">Seuil: ≤ 2.5s</span></div><div class="metric-chart"><canvas id="lcpChart"></canvas></div></div><div class="metric-card inp"><div class="metric-header"><div class="metric-icon green"><i class="fas fa-bolt"></i></div><div class="metric-info"><div class="metric-title">INP</div><div class="metric-subtitle">Interaction to Next Paint</div></div></div><div class="metric-value"><span class="value-number">180</span><span class="value-unit">ms</span></div><div class="metric-status"><div class="status-badge good"><i class="fas fa-check-circle" style="margin-right: 4px;"></i>Bon</div><span style="color: #94a3b8; font-size: 12px;">Seuil: ≤ 200ms</span></div><div class="metric-chart"><canvas id="inpChart"></canvas></div></div><div class="metric-card cls"><div class="metric-header"><div class="metric-icon orange"><i class="fas fa-arrows-alt"></i></div><div class="metric-info"><div class="metric-title">CLS</div><div class="metric-subtitle">Cumulative Layout Shift</div></div></div><div class="metric-value"><span class="value-number">0.05</span><span class="value-unit"></span></div><div class="metric-status"><div class="status-badge good"><i class="fas fa-check-circle" style="margin-right: 4px;"></i>Bon</div><span style="color: #94a3b8; font-size: 12px;">Seuil: ≤ 0.1</span></div><div class="metric-chart"><canvas id="clsChart"></canvas></div></div></div>< !-- Tools Grid --><div class="tools-grid"><div class="tool-card"><div class="tool-icon blue"><i class="fas fa-stopwatch"></i></div><div class="tool-info"><div class="tool-name">PageSpeed</div><div class="tool-desc">Analyse performance</div></div></div><div class="tool-card"><div class="tool-icon green"><i class="fas fa-lightbulb"></i></div><div class="tool-info"><div class="tool-name">Lighthouse</div><div class="tool-desc">Audit complet</div></div></div><div class="tool-card"><div class="tool-icon orange"><i class="fas fa-chart-bar"></i></div><div class="tool-info"><div class="tool-name">CrUX</div><div class="tool-desc">Données réelles</div></div></div><div class="tool-card"><div class="tool-icon purple"><i class="fas fa-search"></i></div><div class="tool-info"><div class="tool-name">GSC</div><div class="tool-desc">Search Console</div></div></div></div>< !-- Optimization Section --><div class="optimization-section"><div class="optimization-card"><div class="optimization-header"><i class="fas fa-image" style="color: #3B82F6; font-size: 22px;"></i><div class="optimization-title">Optimisations Images</div></div><div class="optimization-list"><div class="optimization-item"><div class="optimization-icon blue"><i class="fas fa-compress"></i></div><div class="optimization-text">Compression WebP/AVIF</div></div><div class="optimization-item"><div class="optimization-icon green"><i class="fas fa-expand"></i></div><div class="optimization-text">Dimensions adaptées</div></div><div class="optimization-item"><div class="optimization-icon orange"><i class="fas fa-history"></i></div><div class="optimization-text">Lazy loading</div></div></div></div><div class="optimization-card"><div class="optimization-header"><i class="fas fa-code" style="color: #10B981; font-size: 22px;"></i><div class="optimization-title">Optimisations Code</div></div><div class="optimization-list"><div class="optimization-item"><div class="optimization-icon blue"><i class="fas fa-file-code"></i></div><div class="optimization-text">Minification CSS/JS</div></div><div class="optimization-item"><div class="optimization-icon green"><i class="fas fa-server"></i></div><div class="optimization-text">Compression Gzip/Brotli</div></div><div class="optimization-item"><div class="optimization-icon orange"><i class="fas fa-font"></i></div><div class="optimization-text">Font-display: swap</div></div></div></div></div>< !-- Bottom Section --><div class="bottom-section"><div class="progress-info"><div>Progression: <span style="color: white; font-weight: 700;">92%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 92%;"></div></div><div style="color: #64748b; font-size: 13px;">Dernière mise à jour: Aujourd'hui</div>
+ </div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter</button><button class="action-btn primary"><i class="fas fa-play"></i>Analyser</button></div></div></div></div></div><script>const chartOptions= {
+
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        legend: {
+            display: false
+        }
+    }
+
+    ,
+    scales: {
+        x: {
+            display: false
+        }
+
+        ,
+        y: {
+            display: false
+        }
+    }
+}
+
+;
+
+new Chart(document.getElementById('lcpChart').getContext('2d'), {
+
+    type: 'line',
+    data: {
+
+        labels: ['J-6', 'J-5', 'J-4', 'J-3', 'J-2', 'J-1', 'J'],
+        datasets: [ {
+            data: [2.8, 2.5, 2.3, 2.1, 2.0, 2.1, 2.1],
+            borderColor: '#3B82F6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: 0
+        }
+
+        ]
+    }
+
+    ,
+    options: chartOptions
+});
+
+new Chart(document.getElementById('inpChart').getContext('2d'), {
+
+    type: 'line',
+    data: {
+
+        labels: ['J-6', 'J-5', 'J-4', 'J-3', 'J-2', 'J-1', 'J'],
+        datasets: [ {
+            data: [220, 200, 190, 185, 180, 182, 180],
+            borderColor: '#10B981',
+            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: 0
+        }
+
+        ]
+    }
+
+    ,
+    options: chartOptions
+});
+
+new Chart(document.getElementById('clsChart').getContext('2d'), {
+
+    type: 'line',
+    data: {
+
+        labels: ['J-6', 'J-5', 'J-4', 'J-3', 'J-2', 'J-1', 'J'],
+        datasets: [ {
+            data: [0.15, 0.12, 0.08, 0.06, 0.05, 0.05, 0.05],
+            borderColor: '#F97316',
+            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: 0
+        }
+
+        ]
+    }
+
+    ,
+    options: chartOptions
+});
+</script></body></html>

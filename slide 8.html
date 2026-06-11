@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compétences essentielles - Marketing Digital &amp; SEO</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #0f172a;
+        overflow: hidden;
+        width: 1280px;
+        height: 720px;
+    }
+
+    .slide-container {
+        width: 1280px;
+        height: 720px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .bg-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        z-index: 1;
+    }
+
+    .grid-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 1;
+    }
+
+    .content-wrapper {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 40px 50px 40px 50px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 35px;
+    }
+
+    .title-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .title-icon {
+        width: 54px;
+        height: 54px;
+        background: linear-gradient(135deg, #2563EB, #1d4ed8);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+    }
+
+    .main-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 2px;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        color: #94a3b8;
+    }
+
+    .badge {
+        background: rgba(249, 115, 22, 0.2);
+        color: #F97316;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        flex: 1;
+    }
+
+    .skill-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 16px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .skill-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .skill-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+
+    .skill-icon.blue { background: rgba(37, 99, 235, 0.2); color: #3B82F6; }
+    .skill-icon.green { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+    .skill-icon.orange { background: rgba(249, 115, 22, 0.2); color: #F97316; }
+    .skill-icon.purple { background: rgba(139, 92, 246, 0.2); color: #8B5CF6; }
+    .skill-icon.red { background: rgba(239, 68, 68, 0.2); color: #EF4444; }
+    .skill-icon.cyan { background: rgba(6, 182, 212, 0.2); color: #06B6D4; }
+
+    .skill-title {
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .skill-level {
+        display: flex;
+        align-items: center;
+        margin-top: 4px;
+    }
+
+    .level-badge {
+        padding: 2px 8px;
+        border-radius: 8px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .level-badge.beginner { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+    .level-badge.intermediate { background: rgba(249, 115, 22, 0.2); color: #F97316; }
+    .level-badge.advanced { background: rgba(239, 68, 68, 0.2); color: #EF4444; }
+
+    .skill-description {
+        color: #94a3b8;
+        font-size: 12.5px;
+        line-height: 1.4;
+        margin-bottom: 14px;
+        min-height: 36px;
+    }
+
+    .skill-checklist {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: auto;
+    }
+
+    .check-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 8px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 6px;
+        font-size: 11px;
+        color: #cbd5e1;
+    }
+
+    .check-icon {
+        color: #10B981;
+        font-size: 9px;
+    }
+
+    .progress-bar {
+        height: 4px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 2px;
+        margin-top: 14px;
+    }
+
+    .progress-fill {
+        height: 100%;
+        border-radius: 2px;
+    }
+
+    .progress-fill.blue { background: #3B82F6; }
+    .progress-fill.green { background: #10B981; }
+    .progress-fill.orange { background: #F97316; }
+    .progress-fill.purple { background: #8B5CF6; }
+    .progress-fill.red { background: #EF4444; }
+    .progress-fill.cyan { background: #06B6D4; }
+
+    .bottom-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .progress-text {
+        color: #94a3b8;
+        font-size: 14px;
+    }
+
+    .stats {
+        display: flex;
+        gap: 30px;
+    }
+
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #94a3b8;
+        font-size: 14px;
+    }
+
+    .stat-value {
+        color: white;
+        font-weight: 700;
+    }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<div class="bg-pattern"></div>
+<div class="grid-lines"></div>
+<div class="content-wrapper">
+<div class="header">
+<div class="title-section">
+<div class="title-icon">
+<i class="fas fa-check-circle"></i>
+</div>
+<div>
+<div class="main-title">Compétences essentielles</div>
+<div class="subtitle">Les 9 compétences clés pour réussir en marketing digital</div>
+</div>
+</div>
+<div class="badge">
+<i class="fas fa-star" style="margin-right: 8px;"></i>
+            9 compétences
+        </div>
+</div>
+<div class="skills-grid">
+<div class="skill-card">
+<div class="skill-header">
+<div class="skill-icon blue">
+<i class="fas fa-chart-line"></i>
+</div>
+<div>
+<div class="skill-title">Analyse et KPIs</div>
+<div class="skill-level">
+<span class="level-badge beginner">Débutant</span>
+</div>
+</div>
+</div>
+<div class="skill-description">Maîtriser les métriques clés et l'analyse de données pour mesurer la performance des campagnes.</div>
+<div class="skill-checklist">
+<div class="check-item"><i class="fas fa-check check-icon"></i> GA4</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Dashboards</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> KPIs</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill blue" style="width: 75%;"></div>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-header">
+<div class="skill-icon green">
+<i class="fas fa-search"></i>
+</div>
+<div>
+<div class="skill-title">Recherche mots-clés</div>
+<div class="skill-level">
+<span class="level-badge intermediate">Intermédiaire</span>
+</div>
+</div>
+</div>
+<div class="skill-description">Identifier les mots-clés pertinents pour optimiser le référencement naturel.</div>
+<div class="skill-checklist">
+<div class="check-item"><i class="fas fa-check check-icon"></i> SEMrush</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Ahrefs</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Ubersuggest</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill green" style="width: 65%;"></div>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-header">
+<div class="skill-icon orange">
+<i class="fas fa-pen"></i>
+</div>
+<div>
+<div class="skill-title">Rédaction SEO</div>
+<div class="skill-level">
+<span class="level-badge intermediate">Intermédiaire</span>
+</div>
+</div>
+</div>
+<div class="skill-description">Rédiger du contenu optimisé pour les moteurs de recherche et les utilisateurs.</div>
+<div class="skill-checklist">
+<div class="check-item"><i class="fas fa-check check-icon"></i> Meta tags</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Structure</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Contenu</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill orange" style="width: 70%;"></div>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-header">
+<div class="skill-icon purple">
+<i class="fab fa-google"></i>
+</div>
+<div>
+<div class="skill-title">Outils Google</div>
+<div class="skill-level">
+<span class="level-badge advanced">Avancé</span>
+</div>
+</div>
+</div>
+<div class="skill-description">Maîtriser l'écosystème Google pour le marketing digital.</div>
+<div class="skill-checklist">
+<div class="check-item"><i class="fas fa-check check-icon"></i> GSC</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> GA4</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Ads</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill purple" style="width: 85%;"></div>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-header">
+<div class="skill-icon red">
+<i class="fas fa-ad"></i>
+</div>
+<div>
+<div class="skill-title">Ads basics</div>
+<div class="skill-level">
+<span class="level-badge intermediate">Intermédiaire</span>
+</div>
+</div>
+</div>
+<div class="skill-description">Créer et gérer des campagnes publicitaires payantes efficaces.</div>
+<div class="skill-checklist">
+<div class="check-item"><i class="fas fa-check check-icon"></i> Facebook</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Google</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> LinkedIn</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill red" style="width: 60%;"></div>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-header">
+<div class="skill-icon cyan">
+<i class="fas fa-robot"></i>
+</div>
+<div>
+<div class="skill-title">Automation</div>
+<div class="skill-level">
+<span class="level-badge beginner">Débutant</span>
+</div>
+</div>
+</div>
+<div class="skill-description">Automatiser les tâches répétitives et les workflows marketing.</div>
+<div class="skill-checklist">
+<div class="check-item"><i class="fas fa-check check-icon"></i> Zapier</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Make</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> HubSpot</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill cyan" style="width: 55%;"></div>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-header">
+<div class="skill-icon blue">
+<i class="fas fa-user-cog"></i>
+</div>
+<div>
+<div class="skill-title">UX/CRO</div>
+<div class="skill-level">
+<span class="level-badge intermediate">Intermédiaire</span>
+</div>
+</div>
+</div>
+<div class="skill-description">Optimiser l'expérience utilisateur et les taux de conversion.</div>
+<div class="skill-checklist">
+<div class="check-item"><i class="fas fa-check check-icon"></i> A/B testing</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Heatmaps</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Funnels</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill blue" style="width: 72%;"></div>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-header">
+<div class="skill-icon green">
+<i class="fas fa-tasks"></i>
+</div>
+<div>
+<div class="skill-title">Gestion de projet</div>
+<div class="skill-level">
+<span class="level-badge advanced">Avancé</span>
+</div>
+</div>
+</div>
+<div class="skill-description">Gérer efficacement les projets marketing et les équipes.</div>
+<div class="skill-checklist">
+<div class="check-item"><i class="fas fa-check check-icon"></i> Agile</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Scrum</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Trello</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill green" style="width: 80%;"></div>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-header">
+<div class="skill-icon orange">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div>
+<div class="skill-title">Éthique &amp; RGPD</div>
+<div class="skill-level">
+<span class="level-badge intermediate">Intermédiaire</span>
+</div>
+</div>
+</div>
+<div class="skill-description">Respecter les réglementations et l'éthique du marketing digital.</div>
+<div class="skill-checklist">
+<div class="check-item"><i class="fas fa-check check-icon"></i> RGPD</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Cookies</div>
+<div class="check-item"><i class="fas fa-check check-icon"></i> Consent</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill orange" style="width: 68%;"></div>
+</div>
+</div>
+</div>
+<div class="bottom-section">
+<div class="progress-text">Progression globale: <span style="color: white; font-weight: 700;">75%</span></div>
+<div class="stats">
+<div class="stat-item">
+<i class="fas fa-check-circle" style="color: #10B981;"></i>
+<span class="stat-value">8/9</span>
+<span>compétences</span>
+</div>
+<div class="stat-item">
+<i class="fas fa-clock" style="color: #3B82F6;"></i>
+<span class="stat-value">45h</span>
+<span>de formation</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,439 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Recherche de mots-clés - Méthodologie</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 40px;
+}
+
+.process-flow {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.process-step {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.step-number {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #3B82F6;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.step-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.step-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.step-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.step-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.step-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.step-title {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.step-item-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.step-item-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.step-item-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.step-item-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.step-item-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.step-item-icon.pink {
+    background: rgba(236, 72, 153, 0.2);
+    color: #EC4899;
+}
+
+.step-item-text {
+    color: white;
+    font-size: 13px;
+    flex: 1;
+}
+
+.step-item-value {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.arrow-icon {
+    align-self: center;
+    color: #3B82F6;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.metric-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.metric-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.metric-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.metric-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.metric-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.metric-title {
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.metric-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.value-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+}
+
+.value-unit {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.metric-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.metric-fill {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.metric-fill.blue {
+    background: #3B82F6;
+}
+
+.metric-fill.green {
+    background: #10B981;
+}
+
+.metric-fill.orange {
+    background: #F97316;
+}
+
+.metric-fill.purple {
+    background: #8B5CF6;
+}
+
+.bottom-section {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper">< !-- Header --><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-search"></i></div><div><div class="main-title">Recherche de mots-clés - Méthodologie</div><div class="subtitle">Processus complet de recherche et d'analyse de mots-clés</div>
+ </div></div><div class="badge"><i class="fas fa-key" style="margin-right: 8px;"></i>6 Étapes </div></div>< !-- Main Content --><div class="main-content">< !-- Process Flow --><div class="process-flow"><div class="process-step"><div class="step-number">1</div><div class="step-header"><div class="step-icon blue"><i class="fas fa-seedling"></i></div><div class="step-title">Seeds &amp;
+Concurrents</div></div><div class="step-content"><div class="step-item"><div class="step-item-icon blue"><i class="fas fa-search"></i></div><div class="step-item-text">Analyse des seeds</div><div class="step-item-value">50+</div></div><div class="step-item"><div class="step-item-icon green"><i class="fas fa-users"></i></div><div class="step-item-text">Concurrents</div><div class="step-item-value">10</div></div></div></div><i class="fas fa-arrow-right arrow-icon"></i><div class="process-step"><div class="step-number">2</div><div class="step-header"><div class="step-icon green"><i class="fas fa-bullseye"></i></div><div class="step-title">Intentions</div></div><div class="step-content"><div class="step-item"><div class="step-item-icon blue"><i class="fas fa-info"></i></div><div class="step-item-text">Informationnelle</div><div class="step-item-value">40%</div></div><div class="step-item"><div class="step-item-icon green"><i class="fas fa-shopping-cart"></i></div><div class="step-item-text">Transactionnelle</div><div class="step-item-value">35%</div></div></div></div><i class="fas fa-arrow-right arrow-icon"></i><div class="process-step"><div class="step-number">3</div><div class="step-header"><div class="step-icon orange"><i class="fas fa-chart-bar"></i></div><div class="step-title">Volume &amp;
+
+KD</div></div><div class="step-content"><div class="step-item"><div class="step-item-icon orange"><i class="fas fa-eye"></i></div><div class="step-item-text">Volume mensuel</div><div class="step-item-value">10K+</div></div><div class="step-item"><div class="step-item-icon purple"><i class="fas fa-key"></i></div><div class="step-item-text">KD moyen</div><div class="step-item-value">45</div></div></div></div><i class="fas fa-arrow-right arrow-icon"></i><div class="process-step"><div class="step-number">4</div><div class="step-header"><div class="step-icon purple"><i class="fas fa-layer-group"></i></div><div class="step-title">Clustering</div></div><div class="step-content"><div class="step-item"><div class="step-item-icon purple"><i class="fas fa-sitemap"></i></div><div class="step-item-text">Thématiques</div><div class="step-item-value">12</div></div><div class="step-item"><div class="step-item-icon pink"><i class="fas fa-link"></i></div><div class="step-item-text">Mapping</div><div class="step-item-value">100%</div></div></div></div></div>< !-- Metrics Grid --><div class="metrics-grid"><div class="metric-card"><div class="metric-header"><div class="metric-icon blue"><i class="fas fa-search"></i></div><div class="metric-title">Mots-clés trouvés</div></div><div class="metric-value"><span class="value-number">2,
+847</span><span class="value-unit">mots</span></div><div class="metric-bar"><div class="metric-fill blue" style="width: 85%;"></div></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon green"><i class="fas fa-chart-line"></i></div><div class="metric-title">Volume total</div></div><div class="metric-value"><span class="value-number">1.2M</span><span class="value-unit">/mois</span></div><div class="metric-bar"><div class="metric-fill green" style="width: 72%;"></div></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon orange"><i class="fas fa-trophy"></i></div><div class="metric-title">KD moyen</div></div><div class="metric-value"><span class="value-number">45</span><span class="value-unit">/100</span></div><div class="metric-bar"><div class="metric-fill orange" style="width: 45%;"></div></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon purple"><i class="fas fa-percentage"></i></div><div class="metric-title">Clics potentiels</div></div><div class="metric-value"><span class="value-number">8.5%</span><span class="value-unit">CTR</span></div><div class="metric-bar"><div class="metric-fill purple" style="width: 65%;"></div></div></div></div>< !-- Bottom Section --><div class="bottom-section"><div class="progress-info"><div class="progress-bar-container"><span>Progression: <strong style="color: white;">78%</strong></span><div class="progress-bar"><div class="progress-fill" style="width: 78%;"></div></div></div><div style="color: #475569; font-size: 13px;">Dernière mise à jour: Aujourd'hui</div>
+ </div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter</button><button class="action-btn primary"><i class="fas fa-play"></i>Analyser</button></div></div></div></div></div></body></html>

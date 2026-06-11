@@ -1,0 +1,312 @@
+.slide-22 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}.slide-22 {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}.slide-22 {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}.slide-22 .bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}.slide-22 .grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}.slide-22 .content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+}.slide-22 .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}.slide-22 .title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}.slide-22 .title-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+}.slide-22 .main-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+    line-height: 1.1;
+}.slide-22 .subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}.slide-22 .badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}.slide-22 .main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 40px;
+}.slide-22 .process-flow {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 20px;
+}.slide-22 .process-step {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}.slide-22 .step-number {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #3B82F6;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}.slide-22 .step-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5px;
+}.slide-22 .step-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}.slide-22 .step-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}.slide-22 .step-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}.slide-22 .step-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}.slide-22 .step-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}.slide-22 .step-title {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}.slide-22 .step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}.slide-22 .step-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}.slide-22 .step-item-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+}.slide-22 .step-item-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}.slide-22 .step-item-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}.slide-22 .step-item-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}.slide-22 .step-item-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}.slide-22 .step-item-icon.pink {
+    background: rgba(236, 72, 153, 0.2);
+    color: #EC4899;
+}.slide-22 .step-item-text {
+    color: white;
+    font-size: 13px;
+    flex: 1;
+}.slide-22 .step-item-value {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 500;
+}.slide-22 .arrow-icon {
+    align-self: center;
+    color: #3B82F6;
+    font-size: 20px;
+    opacity: 0.8;
+}.slide-22 .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}.slide-22 .metric-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}.slide-22 .metric-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}.slide-22 .metric-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}.slide-22 .metric-icon.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}.slide-22 .metric-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}.slide-22 .metric-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}.slide-22 .metric-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}.slide-22 .metric-title {
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 500;
+}.slide-22 .metric-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}.slide-22 .value-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+}.slide-22 .value-unit {
+    font-size: 13px;
+    color: #64748b;
+}.slide-22 .metric-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}.slide-22 .metric-fill {
+    height: 100%;
+    border-radius: 4px;
+}.slide-22 .metric-fill.blue {
+    background: #3B82F6;
+}.slide-22 .metric-fill.green {
+    background: #10B981;
+}.slide-22 .metric-fill.orange {
+    background: #F97316;
+}.slide-22 .metric-fill.purple {
+    background: #8B5CF6;
+}.slide-22 .bottom-section {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}.slide-22 .progress-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}.slide-22 .progress-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}.slide-22 .progress-bar {
+    width: 300px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}.slide-22 .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+}.slide-22 .action-buttons {
+    display: flex;
+    gap: 15px;
+}.slide-22 .action-btn {
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}.slide-22 .action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}.slide-22 .action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+

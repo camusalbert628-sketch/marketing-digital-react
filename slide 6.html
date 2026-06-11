@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Évolution 2020-2026</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            overflow: hidden;
+            width: 1280px;
+            height: 720px;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 60px 30px 60px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .title-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .title-icon {
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, #2563EB, #1d4ed8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .main-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #94a3b8;
+        }
+
+        .badge {
+            background: rgba(249, 115, 22, 0.2);
+            color: #F97316;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .timeline-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .timeline-wrapper {
+            position: relative;
+            padding: 20px 0;
+            margin-bottom: 10px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 22px; /* Adjusted to sit behind markers */
+            left: 5%;
+            right: 5%;
+            height: 4px;
+            background: linear-gradient(90deg, #3B82F6, #10B981, #F97316, #8B5CF6);
+            border-radius: 2px;
+            z-index: 1;
+        }
+
+        .timeline-points {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-point {
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .point-marker {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .point-marker.blue { border-color: #3B82F6; }
+        .point-marker.green { border-color: #10B981; }
+        .point-marker.orange { border-color: #F97316; }
+        .point-marker.purple { border-color: #8B5CF6; }
+
+        .point-content {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 20px;
+            width: 100%;
+            min-height: 240px; /* Increased to fix overlap/clipping and balance cards */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .point-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .point-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .point-icon.blue { background: rgba(37, 99, 235, 0.2); color: #3B82F6; }
+        .point-icon.green { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+        .point-icon.orange { background: rgba(249, 115, 22, 0.2); color: #F97316; }
+        .point-icon.purple { background: rgba(139, 92, 246, 0.2); color: #8B5CF6; }
+
+        .point-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .point-period {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .point-description {
+            color: #cbd5e1;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .point-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.1);
+            color: #94a3b8;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding: 25px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .bottom-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .key-insight {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .insight-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(37, 99, 235, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3B82F6;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="bg-pattern"></div>
+<div class="grid-lines"></div>
+<div class="content-wrapper">
+<!-- Header -->
+<div class="header">
+<div class="title-section">
+<div class="title-icon">
+<i class="fas fa-timeline"></i>
+</div>
+<div>
+<div class="main-title">Évolution 2020-2026</div>
+<div class="subtitle">Les grandes transformations du marketing digital</div>
+</div>
+</div>
+<div class="badge">
+<i class="fas fa-clock" style="margin-right: 8px;"></i>
+                    6 ans d'évolution
+                </div>
+</div>
+<div class="timeline-container">
+<!-- Timeline Section -->
+<div class="timeline-wrapper">
+<div class="timeline-line"></div>
+<div class="timeline-points">
+<!-- Point 1 -->
+<div class="timeline-point">
+<div class="point-marker blue"></div>
+<div class="point-content">
+<div class="point-header">
+<div class="point-icon blue">
+<i class="fas fa-shopping-cart"></i>
+</div>
+<div class="point-title">2020-2021</div>
+</div>
+<div class="point-period">Boom e-commerce</div>
+<div class="point-description">
+                                    Explosion du e-commerce, social commerce, livraison express. Adoption massive du digital.
+                                </div>
+<div class="point-tags">
+<span class="tag">E-commerce</span>
+<span class="tag">Social commerce</span>
+</div>
+</div>
+</div>
+<!-- Point 2 -->
+<div class="timeline-point">
+<div class="point-marker green"></div>
+<div class="point-content">
+<div class="point-header">
+<div class="point-icon green">
+<i class="fas fa-lock"></i>
+</div>
+<div class="point-title">2022-2023</div>
+</div>
+<div class="point-period">Privacy &amp; GA4</div>
+<div class="point-description">
+                                    GA4, iOS ATT, RGPD renforcé. Protection des données personnelles.
+                                </div>
+<div class="point-tags">
+<span class="tag">Privacy</span>
+<span class="tag">GA4</span>
+</div>
+</div>
+</div>
+<!-- Point 3 -->
+<div class="timeline-point">
+<div class="point-marker orange"></div>
+<div class="point-content">
+<div class="point-header">
+<div class="point-icon orange">
+<i class="fas fa-robot"></i>
+</div>
+<div class="point-title">2024-2025</div>
+</div>
+<div class="point-period">IA Générative</div>
+<div class="point-description">
+                                    IA générative, PMax, INP, search multimodal. Révolution de la recherche.
+                                </div>
+<div class="point-tags">
+<span class="tag">IA</span>
+<span class="tag">PMax</span>
+</div>
+</div>
+</div>
+<!-- Point 4 -->
+<div class="timeline-point">
+<div class="point-marker purple"></div>
+<div class="point-content">
+<div class="point-header">
+<div class="point-icon purple">
+<i class="fas fa-brain"></i>
+</div>
+<div class="point-title">2026+</div>
+</div>
+<div class="point-period">Future</div>
+<div class="point-description">
+                                    IA avancée, voice search, AR/VR. Nouvelle ère du marketing.
+                                </div>
+<div class="point-tags">
+<span class="tag">AI</span>
+<span class="tag">AR/VR</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Section -->
+<div class="stats-row">
+<div class="stat-item">
+<div class="stat-value" style="color: #3B82F6;">+156%</div>
+<div class="stat-label">Croissance e-commerce</div>
+</div>
+<div class="stat-item">
+<div class="stat-value" style="color: #10B981;">+89%</div>
+<div class="stat-label">Adoption GA4</div>
+</div>
+<div class="stat-item">
+<div class="stat-value" style="color: #F97316;">+234%</div>
+<div class="stat-label">Usage IA</div>
+</div>
+<div class="stat-item">
+<div class="stat-value" style="color: #8B5CF6;">+78%</div>
+<div class="stat-label">Mobile traffic</div>
+</div>
+</div>
+</div>
+<!-- Footer Section -->
+<div class="bottom-section">
+<div class="key-insight">
+<div class="insight-icon">
+<i class="fas fa-lightbulb"></i>
+</div>
+<div>Le marketing digital évolue vers l'IA et la personnalisation</div>
+</div>
+<div style="color: #94a3b8; font-size: 14px; font-weight: 500;">
+<i class="fas fa-chart-line" style="margin-right: 8px;"></i>
+                    Tendance: +45% de croissance prévue
+                </div>
+</div>
+</div>
+</div>
+</body>
+</html>

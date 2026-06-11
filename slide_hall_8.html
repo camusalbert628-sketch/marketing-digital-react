@@ -1,0 +1,365 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Optimisation du contenu - SEO</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 68px;
+    height: 68px;
+    background: linear-gradient(135deg, #10B981, #059669);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+}
+
+.main-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+.badge {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.table-container {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.table-title {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.table-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.seo-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1.3fr 1.2fr 0.9fr 0.9fr 0.8fr 0.9fr;
+    align-items: center;
+    padding: 14px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.table-row.header {
+    background: rgba(16, 185, 129, 0.08);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: white;
+    border-bottom: none;
+    padding: 18px 15px;
+}
+
+.table-cell {
+    color: #cbd5e1;
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+.table-cell.header-cell {
+    color: #10B981;
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.keyword-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.keyword-text {
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.keyword-type {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.intent-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 5px;
+    width: fit-content;
+}
+
+.intent-badge.info {
+    background: rgba(37, 99, 235, 0.15);
+    color: #60A5FA;
+}
+
+.intent-badge.commercial {
+    background: rgba(249, 115, 22, 0.15);
+    color: #FB923C;
+}
+
+.intent-badge.transactional {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34D399;
+}
+
+.h1-preview {
+    font-size: 13px;
+    color: #f1f5f9;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.angle-text {
+    font-size: 13px;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+.sections-preview {
+    font-size: 13px;
+    color: #94a3b8;
+    font-family: monospace;
+}
+
+.paa-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.paa-count i {
+    color: #F97316;
+}
+
+.media-icons {
+    display: flex;
+    gap: 6px;
+}
+
+.media-icon {
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.optimized {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-badge.pending {
+    background: rgba(249, 115, 22, 0.1);
+    color: #F97316;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.status-badge.review {
+    background: rgba(37, 99, 235, 0.1);
+    color: #3B82F6;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+.stats-grid {
+    display: flex;
+    gap: 25px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-value {
+    color: white;
+    font-weight: 700;
+}
+
+.last-update {
+    color: #64748b;
+    font-size: 14px;
+    font-style: italic;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper"><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-file-invoice"></i></div><div><div class="main-title">Optimisation du contenu</div><div class="subtitle">Tableau de planification SEO stratégique 2026</div></div></div><div class="badge"><i class="fas fa-chart-line" style="margin-right: 10px;"></i>8 contenus planifiés </div></div><div class="main-content"><div class="table-container"><div class="table-header"><div class="table-title">Calendrier de Production</div><div class="table-actions"><button class="action-btn secondary"><i class="fas fa-sliders-h"></i>Paramètres</button><button class="action-btn primary"><i class="fas fa-plus-circle"></i>Nouveau Contenu</button></div></div><div class="seo-table"><div class="table-row header"><div class="table-cell header-cell">Cible &amp;
+Intention</div><div class="table-cell header-cell">Structure H1</div><div class="table-cell header-cell">Angle Editorial</div><div class="table-cell header-cell">Balises</div><div class="table-cell header-cell">PAA</div><div class="table-cell header-cell">Assets</div><div class="table-cell header-cell">État</div></div><div class="table-row"><div class="table-cell"><div class="keyword-cell"><div class="keyword-text">marketing digital 2026</div><div class="keyword-type">Vol: 2.4K | KD: 42</div></div><div class="intent-badge info"><i class="fas fa-info-circle"></i>Informationnel</div></div><div class="table-cell"><div class="h1-preview">Guide complet du marketing digital 2026 : Le Futur</div></div><div class="table-cell"><div class="angle-text">Analyse prédictive et IA</div></div><div class="table-cell"><div class="sections-preview">H2: 05 | H3: 12</div></div><div class="table-cell"><div class="paa-count"><i class="fas fa-lightbulb"></i>8 Qs</div></div><div class="table-cell"><div class="media-icons"><div class="media-icon"><i class="fas fa-image"></i></div><div class="media-icon"><i class="fas fa-video"></i></div><div class="media-icon"><i class="fas fa-chart-pie"></i></div></div></div><div class="table-cell"><div class="status-badge optimized"><i class="fas fa-check-double"></i>Terminé</div></div></div><div class="table-row"><div class="table-cell"><div class="keyword-cell"><div class="keyword-text">SEO on-page technique</div><div class="keyword-type">Vol: 1.8K | KD: 58</div></div><div class="intent-badge commercial"><i class="fas fa-shopping-bag"></i>Commercial</div></div><div class="table-cell"><div class="h1-preview">SEO on-page : Checklist Technique 2026</div></div><div class="table-cell"><div class="angle-text">Optimisation de l'expérience</div>
+ </div><div class="table-cell"><div class="sections-preview">H2: 04 | H3: 10</div></div><div class="table-cell"><div class="paa-count"><i class="fas fa-lightbulb"></i>6 Qs</div></div><div class="table-cell"><div class="media-icons"><div class="media-icon"><i class="fas fa-image"></i></div><div class="media-icon"><i class="fas fa-terminal"></i></div></div></div><div class="table-cell"><div class="status-badge pending"><i class="fas fa-pen-nib"></i>Rédaction</div></div></div><div class="table-row"><div class="table-cell"><div class="keyword-cell"><div class="keyword-text">formation SEO expert</div><div class="keyword-type">Vol: 3.2K | KD: 65</div></div><div class="intent-badge transactional"><i class="fas fa-wallet"></i>Transaction</div></div><div class="table-cell"><div class="h1-preview">Formation SEO Masterclass 2026</div></div><div class="table-cell"><div class="angle-text">Pratique et études de cas</div></div><div class="table-cell"><div class="sections-preview">H2: 06 | H3: 15</div></div><div class="table-cell"><div class="paa-count"><i class="fas fa-lightbulb"></i>10 Qs</div></div><div class="table-cell"><div class="media-icons"><div class="media-icon"><i class="fas fa-play-circle"></i></div><div class="media-icon"><i class="fas fa-file-code"></i></div><div class="media-icon"><i class="fas fa-tasks"></i></div></div></div><div class="table-cell"><div class="status-badge review"><i class="fas fa-clipboard-list"></i>Review</div></div></div><div class="table-row"><div class="table-cell"><div class="keyword-cell"><div class="keyword-text">Google Analytics 4</div><div class="keyword-type">Vol: 1.5K | KD: 35</div></div><div class="intent-badge info"><i class="fas fa-info-circle"></i>Informationnel</div></div><div class="table-cell"><div class="h1-preview">GA4 : Maîtriser l'analyse prédictive</div>
+ </div><div class="table-cell"><div class="angle-text">Data-driven marketing</div></div><div class="table-cell"><div class="sections-preview">H2: 03 | H3: 08</div></div><div class="table-cell"><div class="paa-count"><i class="fas fa-lightbulb"></i>5 Qs</div></div><div class="table-cell"><div class="media-icons"><div class="media-icon"><i class="fas fa-chart-line"></i></div><div class="media-icon"><i class="fas fa-table"></i></div></div></div><div class="table-cell"><div class="status-badge optimized"><i class="fas fa-check-double"></i>Terminé</div></div></div><div class="table-row"><div class="table-cell"><div class="keyword-cell"><div class="keyword-text">marketing automation</div><div class="keyword-type">Vol: 2.1K | KD: 50</div></div><div class="intent-badge commercial"><i class="fas fa-shopping-bag"></i>Commercial</div></div><div class="table-cell"><div class="h1-preview">Automation 2026 : Workflows IA</div></div><div class="table-cell"><div class="angle-text">Gain de productivité</div></div><div class="table-cell"><div class="sections-preview">H2: 05 | H3: 11</div></div><div class="table-cell"><div class="paa-count"><i class="fas fa-lightbulb"></i>7 Qs</div></div><div class="table-cell"><div class="media-icons"><div class="media-icon"><i class="fas fa-project-diagram"></i></div><div class="media-icon"><i class="fas fa-robot"></i></div></div></div><div class="table-cell"><div class="status-badge pending"><i class="fas fa-pen-nib"></i>Rédaction</div></div></div></div></div><div class="bottom-section"><div class="progress-info"><div>Complétion globale: <span style="color: #10B981; font-weight: 800;">75%</span></div><div class="stats-grid"><div class="stat-item"><i class="fas fa-check-circle" style="color: #10B981;"></i><span class="stat-value">6 / 8</span><span>Contenus validés</span></div><div class="stat-item"><i class="fas fa-history" style="color: #3B82F6;"></i><span class="stat-value">12</span><span>Tâches en attente</span></div></div></div><div class="last-update">Dernière synchronisation : Aujourd'hui à 14:30</div>
+ </div></div></div></div></body></html>

@@ -1,0 +1,486 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Marketing de contenu - Framework</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.title-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 25px;
+}
+
+.framework-section {
+    display: flex;
+    gap: 25px;
+    flex: 1;
+}
+
+.left-panel {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.right-panel {
+    flex: 0.85;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.process-flow {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.process-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.process-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.process-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.process-step {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 20px 10px;
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3B82F6;
+    color: white;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    border: 2px solid #1e293b;
+}
+
+.step-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin: 0 auto 12px;
+}
+
+.step-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.step-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.step-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.step-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.step-icon.pink {
+    background: rgba(236, 72, 153, 0.2);
+    color: #EC4899;
+}
+
+.step-icon.cyan {
+    background: rgba(6, 182, 212, 0.2);
+    color: #06B6D4;
+}
+
+.step-title {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.step-desc {
+    color: #94a3b8;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.calendar-section {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar-title {
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    flex: 1;
+}
+
+.calendar-day {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+}
+
+.day-header {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.day-number {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 4px 0;
+}
+
+.day-event {
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 500;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.day-event.blue {
+    background: rgba(59, 130, 246, 0.3);
+    border-left: 2px solid #3B82F6;
+}
+
+.day-event.green {
+    background: rgba(16, 185, 129, 0.3);
+    border-left: 2px solid #10B981;
+}
+
+.day-event.orange {
+    background: rgba(249, 115, 22, 0.3);
+    border-left: 2px solid #F97316;
+}
+
+.kpi-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.kpi-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.kpi-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.kpi-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.kpi-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.kpi-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.kpi-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.kpi-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.kpi-title {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.kpi-value {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.value-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+}
+
+.value-unit {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.kpi-change {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.kpi-change.positive {
+    color: #10B981;
+}
+
+.card-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+    width: 320px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0 15px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+    border-radius: 6px;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper">< !-- Header --><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-calendar-alt"></i></div><div><div class="main-title">Marketing de contenu - Framework</div><div class="subtitle">Stratégie complète et calendrier éditorial</div></div></div><div class="badge"><i class="fas fa-chart-line" style="margin-right: 8px;"></i>6 Étapes </div></div>< !-- Main Content --><div class="main-content">< !-- Process Flow --><div class="process-flow"><div class="process-header"><div class="process-title"><i class="fas fa-project-diagram" style="color: #3B82F6;"></i>Processus de création de contenu </div><div style="color: #94a3b8; font-size: 14px;"><i class="fas fa-clock" style="margin-right: 6px;"></i>Durée: 4-6 semaines </div></div><div class="process-steps"><div class="process-step"><div class="step-number">1</div><div class="step-icon blue"><i class="fas fa-lightbulb"></i></div><div class="step-title">Stratégie</div><div class="step-desc">Définir les objectifs</div></div><div class="process-step"><div class="step-number">2</div><div class="step-icon green"><i class="fas fa-calendar-check"></i></div><div class="step-title">Plan</div><div class="step-desc">Planifier le contenu</div></div><div class="process-step"><div class="step-number">3</div><div class="step-icon orange"><i class="fas fa-pen-fancy"></i></div><div class="step-title">Production</div><div class="step-desc">Créer le contenu</div></div><div class="process-step"><div class="step-number">4</div><div class="step-icon purple"><i class="fas fa-share-alt"></i></div><div class="step-title">Diffusion</div><div class="step-desc">Publier et promouvoir</div></div><div class="process-step"><div class="step-number">5</div><div class="step-icon pink"><i class="fas fa-recycle"></i></div><div class="step-title">Réutilisation</div><div class="step-desc">Repurposer le contenu</div></div><div class="process-step"><div class="step-number">6</div><div class="step-icon cyan"><i class="fas fa-chart-bar"></i></div><div class="step-title">Mesure</div><div class="step-desc">Analyser les résultats</div></div></div></div><div class="framework-section"><div class="left-panel">< !-- Calendar Section --><div class="calendar-section"><div class="calendar-header"><div class="calendar-title"><i class="fas fa-calendar" style="color: #10B981;"></i>Calendrier éditorial - Juin 2026 </div><div style="display: flex; align-items: center; gap: 12px;"><button style="background: rgba(255,255,255,0.1); border: none; color: white; padding: 6px 12px; border-radius: 8px; font-size: 12px; cursor: pointer;"><i class="fas fa-chevron-left"></i></button><span style="color: white; font-size: 15px; font-weight: 500;">Juin 2026</span><button style="background: rgba(255,255,255,0.1); border: none; color: white; padding: 6px 12px; border-radius: 8px; font-size: 12px; cursor: pointer;"><i class="fas fa-chevron-right"></i></button></div></div><div class="calendar-grid"><div class="calendar-day"><div class="day-header">Lun</div><div class="day-number">1</div><div class="day-event blue">Article blog</div></div><div class="calendar-day"><div class="day-header">Mar</div><div class="day-number">2</div><div class="day-event green">Social media</div></div><div class="calendar-day"><div class="day-header">Mer</div><div class="day-number">3</div><div class="day-event orange">Newsletter</div></div><div class="calendar-day"><div class="day-header">Jeu</div><div class="day-number">4</div><div class="day-event blue">Webinar</div></div><div class="calendar-day"><div class="day-header">Ven</div><div class="day-number">5</div><div class="day-event green">Case study</div></div><div class="calendar-day"><div class="day-header">Sam</div><div class="day-number">6</div><div></div></div><div class="calendar-day"><div class="day-header">Dim</div><div class="day-number">7</div><div></div></div></div></div>< !-- KPI Section --><div class="kpi-section"><div class="kpi-card"><div class="kpi-header"><div class="kpi-icon blue"><i class="fas fa-file-alt"></i></div><div class="kpi-title">Contenus publiés</div></div><div class="kpi-value"><span class="value-number">24</span><span class="value-unit">/mois</span></div><div class="kpi-change positive"><i class="fas fa-arrow-up"></i>+12%</div></div><div class="kpi-card"><div class="kpi-header"><div class="kpi-icon green"><i class="fas fa-eye"></i></div><div class="kpi-title">Vues totales</div></div><div class="kpi-value"><span class="value-number">45.2K</span><span class="value-unit">views</span></div><div class="kpi-change positive"><i class="fas fa-arrow-up"></i>+8.5%</div></div><div class="kpi-card"><div class="kpi-header"><div class="kpi-icon orange"><i class="fas fa-heart"></i></div><div class="kpi-title">Engagement</div></div><div class="kpi-value"><span class="value-number">6.8%</span><span class="value-unit">rate</span></div><div class="kpi-change positive"><i class="fas fa-arrow-up"></i>+2.3%</div></div><div class="kpi-card"><div class="kpi-header"><div class="kpi-icon purple"><i class="fas fa-share-alt"></i></div><div class="kpi-title">Partages</div></div><div class="kpi-value"><span class="value-number">1.2K</span><span class="value-unit">shares</span></div><div class="kpi-change positive"><i class="fas fa-arrow-up"></i>+15%</div></div></div></div><div class="right-panel"><div class="card-container" style="flex: 1.2;"><div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;"><div style="color: white; font-size: 17px; font-weight: 600;"><i class="fas fa-list" style="color: #3B82F6; margin-right: 10px;"></i>Types de contenu </div><button style="background: rgba(255,255,255,0.1); border: none; color: white; padding: 6px 12px; border-radius: 8px; font-size: 12px; cursor: pointer;"><i class="fas fa-plus"></i></button></div><div class="list-item"><div style="display: flex; align-items: center; gap: 12px;"><div style="width: 10px; height: 10px; border-radius: 50%; background: #3B82F6;"></div><span style="color: white; font-size: 14px;">Articles blog</span></div><span style="color: #94a3b8; font-size: 13px;">8/mois</span></div><div class="list-item"><div style="display: flex; align-items: center; gap: 12px;"><div style="width: 10px; height: 10px; border-radius: 50%; background: #10B981;"></div><span style="color: white; font-size: 14px;">Posts social</span></div><span style="color: #94a3b8; font-size: 13px;">12/mois</span></div><div class="list-item" style="margin-bottom: 0;"><div style="display: flex; align-items: center; gap: 12px;"><div style="width: 10px; height: 10px; border-radius: 50%; background: #F97316;"></div><span style="color: white; font-size: 14px;">Vidéos</span></div><span style="color: #94a3b8; font-size: 13px;">4/mois</span></div></div><div class="card-container" style="flex: 1;"><div style="color: white; font-size: 17px; font-weight: 600; margin-bottom: 20px;"><i class="fas fa-users" style="color: #10B981; margin-right: 10px;"></i>Équipe </div><div style="display: flex; flex-direction: column; gap: 15px;"><div style="display: flex; align-items: center; gap: 12px;"><div style="width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, #3B82F6, #1d4ed8); display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; font-weight: 600;">JD</div><div><div style="color: white; font-size: 14px; font-weight: 500;">John Doe</div><div style="color: #94a3b8; font-size: 12px;">Content Manager</div></div></div><div style="display: flex; align-items: center; gap: 12px;"><div style="width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, #10B981, #059669); display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; font-weight: 600;">AS</div><div><div style="color: white; font-size: 14px; font-weight: 500;">Alice Smith</div><div style="color: #94a3b8; font-size: 12px;">SEO Specialist</div></div></div></div></div></div></div>< !-- Bottom Section --><div class="bottom-section"><div style="display: flex; align-items: center; color: #94a3b8; font-size: 15px;">Progression: <span style="color: white; font-weight: 700; margin-left: 8px;">78%</span><div class="progress-bar"><div class="progress-fill" style="width: 78%;"></div></div><div style="color: #64748b; font-size: 14px;">Dernière mise à jour: Aujourd'hui</div>
+ </div><div style="display: flex; gap: 15px;"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter</button><button class="action-btn primary"><i class="fas fa-play"></i>Démarrer</button></div></div></div></div></div></body></html>

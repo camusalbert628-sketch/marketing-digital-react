@@ -1,0 +1,495 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Tunnel de vente - Schéma</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.title-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    gap: 30px;
+}
+
+.left-panel {
+    flex: 1.25;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel {
+    flex: 0.75;
+    display: flex;
+    flex-direction: column;
+}
+
+.funnel-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.funnel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.funnel-title {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.funnel-body {
+    display: flex;
+    align-items: stretch;
+    gap: 25px;
+    flex: 1;
+}
+
+.funnel-visual {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.funnel-stage {
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+}
+
+.funnel-stage.tofu {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.1));
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    width: 100%;
+}
+
+.funnel-stage.mofu {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.1));
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    width: 85%;
+}
+
+.funnel-stage.bofu {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(249, 115, 22, 0.1));
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    width: 70%;
+}
+
+.stage-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+}
+
+.stage-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.stage-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.stage-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.stage-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.stage-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.stage-title {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.stage-desc {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.stage-stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.stat-value {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.funnel-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 220px;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+}
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.metric-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.metric-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.metric-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.metric-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.metric-title {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.metric-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.value-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.value-unit {
+    font-size: 14px;
+    color: #64748b;
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    flex: 1;
+}
+
+.offer-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.offer-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.offer-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.offer-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.offer-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.offer-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.offer-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.offer-title {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.offer-desc {
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.offer-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.offer-stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.stat-icon {
+    font-size: 11px;
+}
+
+.stat-icon.green {
+    color: #10B981;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+.progress-bar {
+    width: 320px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+    border-radius: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper">< !-- Header --><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-filter"></i></div><div><div class="main-title">Tunnel de vente - Schéma</div><div class="subtitle">Optimisation du parcours client et conversion</div></div></div><div class="badge"><i class="fas fa-chart-line" style="margin-right: 8px;"></i>3 Niveaux </div></div>< !-- Main Content --><div class="main-content"><div class="left-panel"><div class="funnel-container"><div class="funnel-header"><div class="funnel-title"><i class="fas fa-project-diagram" style="color: #3B82F6;"></i>Structure du funnel de conversion </div><div style="color: #94a3b8; font-size: 15px;"><i class="fas fa-clock" style="margin-right: 6px;"></i>Durée moyenne: 45 jours </div></div><div class="funnel-body"><div class="funnel-visual"><div class="funnel-stage tofu"><div class="stage-info"><div class="stage-icon blue"><i class="fas fa-users"></i></div><div class="stage-text"><div class="stage-title">TOFU - Top of Funnel</div><div class="stage-desc">Sensibilisation et acquisition</div></div></div><div class="stage-stats"><div class="stat-item"><div class="stat-value">10,
+000</div><div class="stat-label">Visiteurs</div></div><div class="stat-item"><div class="stat-value">25%</div><div class="stat-label">Conversion</div></div></div></div><div class="funnel-stage mofu"><div class="stage-info"><div class="stage-icon green"><i class="fas fa-heart"></i></div><div class="stage-text"><div class="stage-title">MOFU - Middle of Funnel</div><div class="stage-desc">Engagement et considération</div></div></div><div class="stage-stats"><div class="stat-item"><div class="stat-value">2,
+500</div><div class="stat-label">Leads</div></div><div class="stat-item"><div class="stat-value">40%</div><div class="stat-label">Conversion</div></div></div></div><div class="funnel-stage bofu"><div class="stage-info"><div class="stage-icon orange"><i class="fas fa-shopping-cart"></i></div><div class="stage-text"><div class="stage-title">BOFU - Bottom of Funnel</div><div class="stage-desc">Conversion et vente</div></div></div><div class="stage-stats"><div class="stat-item"><div class="stat-value">1,
+000</div><div class="stat-label">Clients</div></div><div class="stat-item"><div class="stat-value">60%</div><div class="stat-label">Conversion</div></div></div></div></div><div class="funnel-metrics"><div class="metric-card"><div class="metric-header"><div class="metric-icon blue"><i class="fas fa-eye"></i></div><div class="metric-title">Taux d'ouverture</div>
+ </div><div class="metric-value"><span class="value-number">42%</span><span class="value-unit">avg</span></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon green"><i class="fas fa-mouse-pointer"></i></div><div class="metric-title">Taux de clic</div></div><div class="metric-value"><span class="value-number">8.5%</span><span class="value-unit">avg</span></div></div><div class="metric-card"><div class="metric-header"><div class="metric-icon orange"><i class="fas fa-shopping-cart"></i></div><div class="metric-title">Panier moyen</div></div><div class="metric-value"><span class="value-number">€85</span><span class="value-unit">avg</span></div></div></div></div></div></div><div class="right-panel"><div class="offers-grid"><div class="offer-card"><div class="offer-header"><div class="offer-icon blue"><i class="fas fa-gift"></i></div><div class="offer-title">Lead Magnet</div></div><div class="offer-desc">Guide gratuit,
+ebook,
+template</div><div class="offer-stats"><div class="offer-stat"><i class="fas fa-download stat-icon green"></i><span>85% download</span></div><div class="offer-stat"><i class="fas fa-user stat-icon green"></i><span>1,
+200 leads</span></div></div></div><div class="offer-card"><div class="offer-header"><div class="offer-icon green"><i class="fas fa-tag"></i></div><div class="offer-title">Tripwire</div></div><div class="offer-desc">Offre à faible prix (€7-€27)</div><div class="offer-stats"><div class="offer-stat"><i class="fas fa-shopping-cart stat-icon green"></i><span>45% conversion</span></div><div class="offer-stat"><i class="fas fa-dollar-sign stat-icon green"></i><span>€19 avg</span></div></div></div><div class="offer-card"><div class="offer-header"><div class="offer-icon orange"><i class="fas fa-box"></i></div><div class="offer-title">Core Offer</div></div><div class="offer-desc">Produit/service principal</div><div class="offer-stats"><div class="offer-stat"><i class="fas fa-check stat-icon green"></i><span>32% conversion</span></div><div class="offer-stat"><i class="fas fa-dollar-sign stat-icon green"></i><span>€297 avg</span></div></div></div><div class="offer-card"><div class="offer-header"><div class="offer-icon purple"><i class="fas fa-arrow-up"></i></div><div class="offer-title">Upsell</div></div><div class="offer-desc">Offre complémentaire</div><div class="offer-stats"><div class="offer-stat"><i class="fas fa-plus stat-icon green"></i><span>25% uptake</span></div><div class="offer-stat"><i class="fas fa-dollar-sign stat-icon green"></i><span>€147 avg</span></div></div></div></div></div></div>< !-- Bottom Section --><div class="bottom-section"><div class="progress-info"><div>Progression: <span style="color: white; font-weight: 700;">78%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 78%;"></div></div><div style="color: #64748b; font-size: 14px;">Dernière mise à jour: Aujourd'hui</div>
+ </div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter</button><button class="action-btn primary"><i class="fas fa-play"></i>Optimiser</button></div></div></div></div></body></html>

@@ -1,0 +1,377 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>SEMrush - Guide d'utilisation</title>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.title-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #FF6B00, #FF8C00);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    flex: 1;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 235px;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+
+.feature-card.keyword::before {
+    background: linear-gradient(90deg, #3B82F6, #1d4ed8);
+}
+
+.feature-card.domain::before {
+    background: linear-gradient(90deg, #10B981, #059669);
+}
+
+.feature-card.position::before {
+    background: linear-gradient(90deg, #F97316, #ea580c);
+}
+
+.feature-card.audit::before {
+    background: linear-gradient(90deg, #8B5CF6, #7c3aed);
+}
+
+.feature-card.backlink::before {
+    background: linear-gradient(90deg, #EC4899, #db2777);
+}
+
+.feature-card.content::before {
+    background: linear-gradient(90deg, #06B6D4, #0891b2);
+}
+
+.feature-card.topic::before {
+    background: linear-gradient(90deg, #84CC16, #65a30d);
+}
+
+.feature-card.report::before {
+    background: linear-gradient(90deg, #F59E0B, #d97706);
+}
+
+.feature-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.feature-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.feature-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.feature-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.feature-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.feature-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.feature-icon.pink {
+    background: rgba(236, 72, 153, 0.2);
+    color: #EC4899;
+}
+
+.feature-icon.cyan {
+    background: rgba(6, 182, 212, 0.2);
+    color: #06B6D4;
+}
+
+.feature-icon.lime {
+    background: rgba(132, 204, 22, 0.2);
+    color: #84CC16;
+}
+
+.feature-icon.yellow {
+    background: rgba(245, 158, 11, 0.2);
+    color: #F59E0B;
+}
+
+.feature-title {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.feature-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.item-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.item-text {
+    color: #cbd5e1;
+    font-size: 12px;
+    flex: 1;
+}
+
+.item-value {
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.feature-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.feature-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.feature-stat-value {
+    color: white;
+    font-weight: 600;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.progress-bar {
+    width: 350px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+    border-radius: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.semrush-logo {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    padding: 8px 15px;
+    background: linear-gradient(135deg, #FF6B00, #FF8C00);
+    border-radius: 6px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper">< !-- Header --><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-search-dollar"></i></div><div><div class="main-title">SEMrush - Guide d'utilisation</div>
+ <div class="subtitle">Fonctionnalités principales et cas d'usage</div>
+ </div></div><div class="badge"><i class="fas fa-star" style="margin-right: 8px;"></i>8 Outils </div></div>< !-- Main Content --><div class="main-content"><div class="features-grid">< !-- Keyword Magic --><div class="feature-card keyword"><div class="feature-header"><div class="feature-icon blue"><i class="fas fa-magic"></i></div><div class="feature-title">Keyword Magic</div></div><div class="feature-content"><div class="feature-item"><div class="item-icon blue"><i class="fas fa-search"></i></div><div class="item-text">Recherche de mots-clés</div><div class="item-value">2.5M+</div></div><div class="feature-item"><div class="item-icon green"><i class="fas fa-chart-line"></i></div><div class="item-text">Analyse de volume</div><div class="item-value">95%</div></div></div><div class="feature-footer"><div class="feature-stat"><span>Volume:</span><span class="feature-stat-value">1.2M</span></div><div class="feature-stat"><span>KD:</span><span class="feature-stat-value">45</span></div></div></div>< !-- Domain Overview --><div class="feature-card domain"><div class="feature-header"><div class="feature-icon green"><i class="fas fa-globe"></i></div><div class="feature-title">Domain Overview</div></div><div class="feature-content"><div class="feature-item"><div class="item-icon green"><i class="fas fa-chart-pie"></i></div><div class="item-text">Analyse concurrentielle</div><div class="item-value">100%</div></div><div class="feature-item"><div class="item-icon orange"><i class="fas fa-users"></i></div><div class="item-text">Trafic estimé</div><div class="item-value">50K</div></div></div><div class="feature-footer"><div class="feature-stat"><span>Autorité:</span><span class="feature-stat-value">78</span></div><div class="feature-stat"><span>Backlinks:</span><span class="feature-stat-value">2.3K</span></div></div></div>< !-- Position Tracking --><div class="feature-card position"><div class="feature-header"><div class="feature-icon orange"><i class="fas fa-crosshairs"></i></div><div class="feature-title">Position Tracking</div></div><div class="feature-content"><div class="feature-item"><div class="item-icon orange"><i class="fas fa-map-marker-alt"></i></div><div class="item-text">Suivi de positions</div><div class="item-value">24/7</div></div><div class="feature-item"><div class="item-icon purple"><i class="fas fa-bell"></i></div><div class="item-text">Alertes SEO</div><div class="item-value">Actif</div></div></div><div class="feature-footer"><div class="feature-stat"><span>Positions:</span><span class="feature-stat-value">1,
+234</span></div><div class="feature-stat"><span>Top 10:</span><span class="feature-stat-value">156</span></div></div></div>< !-- Site Audit --><div class="feature-card audit"><div class="feature-header"><div class="feature-icon purple"><i class="fas fa-stethoscope"></i></div><div class="feature-title">Site Audit</div></div><div class="feature-content"><div class="feature-item"><div class="item-icon purple"><i class="fas fa-bug"></i></div><div class="item-text">Erreurs techniques</div><div class="item-value">12</div></div><div class="feature-item"><div class="item-icon pink"><i class="fas fa-exclamation-triangle"></i></div><div class="item-text">Warnings</div><div class="item-value">45</div></div></div><div class="feature-footer"><div class="feature-stat"><span>Score:</span><span class="feature-stat-value">92/100</span></div><div class="feature-stat"><span>Issues:</span><span class="feature-stat-value">57</span></div></div></div>< !-- Backlink Analytics --><div class="feature-card backlink"><div class="feature-header"><div class="feature-icon pink"><i class="fas fa-link"></i></div><div class="feature-title">Backlink Analytics</div></div><div class="feature-content"><div class="feature-item"><div class="item-icon pink"><i class="fas fa-external-link-alt"></i></div><div class="item-text">Liens entrants</div><div class="item-value">2.5K</div></div><div class="feature-item"><div class="item-icon cyan"><i class="fas fa-anchor"></i></div><div class="item-text">Ancres texte</div><div class="item-value">850</div></div></div><div class="feature-footer"><div class="feature-stat"><span>Referring:</span><span class="feature-stat-value">1.2K</span></div><div class="feature-stat"><span>Authority:</span><span class="feature-stat-value">65</span></div></div></div>< !-- Content Template --><div class="feature-card content"><div class="feature-header"><div class="feature-icon cyan"><i class="fas fa-file-alt"></i></div><div class="feature-title">Content Template</div></div><div class="feature-content"><div class="feature-item"><div class="item-icon cyan"><i class="fas fa-pen"></i></div><div class="item-text">Optimisation contenu</div><div class="item-value">95%</div></div><div class="feature-item"><div class="item-icon lime"><i class="fas fa-key"></i></div><div class="item-text">Mots-clés</div><div class="item-value">150</div></div></div><div class="feature-footer"><div class="feature-stat"><span>Score:</span><span class="feature-stat-value">88/100</span></div><div class="feature-stat"><span>Readability:</span><span class="feature-stat-value">Good</span></div></div></div>< !-- Topic Research --><div class="feature-card topic"><div class="feature-header"><div class="feature-icon lime"><i class="fas fa-lightbulb"></i></div><div class="feature-title">Topic Research</div></div><div class="feature-content"><div class="feature-item"><div class="item-icon lime"><i class="fas fa-search"></i></div><div class="item-text">Idées de contenu</div><div class="item-value">500+</div></div><div class="feature-item"><div class="item-icon yellow"><i class="fas fa-fire"></i></div><div class="item-text">Tendances</div><div class="item-value">Actif</div></div></div><div class="feature-footer"><div class="feature-stat"><span>Topics:</span><span class="feature-stat-value">1.5K</span></div><div class="feature-stat"><span>Questions:</span><span class="feature-stat-value">890</span></div></div></div>< !-- Rapports --><div class="feature-card report"><div class="feature-header"><div class="feature-icon yellow"><i class="fas fa-file-pdf"></i></div><div class="feature-title">Rapports</div></div><div class="feature-content"><div class="feature-item"><div class="item-icon yellow"><i class="fas fa-chart-bar"></i></div><div class="item-text">Rapports automatisés</div><div class="item-value">Daily</div></div><div class="feature-item"><div class="item-icon blue"><i class="fas fa-download"></i></div><div class="item-text">Export PDF</div><div class="item-value">✓</div></div></div><div class="feature-footer"><div class="feature-stat"><span>Rapports:</span><span class="feature-stat-value">45</span></div><div class="feature-stat"><span>Exportés:</span><span class="feature-stat-value">120</span></div></div></div></div></div>< !-- Bottom Section --><div class="bottom-section"><div class="progress-info"><div>Progression: <span style="color: white; font-weight: 700;">85%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div><div style="color: #64748b; font-size: 13px;">Dernière mise à jour: Aujourd'hui</div>
+ </div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter</button><button class="action-btn primary"><i class="fas fa-play"></i>Démarrer</button></div></div></div></div></body></html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stratégie Digitale - Framework</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #0f172a;
+        overflow: hidden;
+        width: 1280px;
+        height: 720px;
+    }
+
+    .slide-container {
+        width: 1280px;
+        height: 720px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .bg-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        z-index: 1;
+    }
+
+    .grid-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 1;
+    }
+
+    .content-wrapper {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 40px 60px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    .title-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .title-icon {
+        width: 54px;
+        height: 54px;
+        background: linear-gradient(135deg, #2563EB, #1d4ed8);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+    }
+
+    .main-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 2px;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        color: #94a3b8;
+    }
+
+    .badge {
+        background: rgba(249, 115, 22, 0.2);
+        color: #F97316;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .framework-container {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 25px;
+        flex: 1;
+    }
+
+    .left-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .strategy-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 16px;
+        padding: 24px;
+        flex: 1;
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .card-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+    }
+
+    .card-icon.blue { background: rgba(37, 99, 235, 0.2); color: #3B82F6; }
+    .card-icon.green { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+
+    .card-title {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .step-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .step-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 14px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 10px;
+    }
+
+    .step-number {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .step-number.blue { background: #3B82F6; }
+    .step-number.green { background: #10B981; }
+    .step-number.orange { background: #F97316; }
+    .step-number.purple { background: #8B5CF6; }
+
+    .step-text {
+        color: #cbd5e1;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .right-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .process-flow {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 16px;
+        padding: 30px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .flow-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .flow-title {
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .flow-stages {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        position: relative;
+        margin-bottom: 40px;
+    }
+
+    .flow-stage {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .stage-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        margin-bottom: 15px;
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stage-icon.blue { color: #3B82F6; border-color: rgba(59, 130, 246, 0.3); }
+    .stage-icon.green { color: #10B981; border-color: rgba(16, 185, 129, 0.3); }
+    .stage-icon.orange { color: #F97316; border-color: rgba(249, 115, 22, 0.3); }
+    .stage-icon.purple { color: #8B5CF6; border-color: rgba(139, 92, 246, 0.3); }
+    .stage-icon.red { color: #EF4444; border-color: rgba(239, 68, 68, 0.3); }
+    .stage-icon.cyan { color: #06B6D4; border-color: rgba(6, 182, 212, 0.3); }
+
+    .stage-title {
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .stage-desc {
+        color: #94a3b8;
+        font-size: 11px;
+        line-height: 1.4;
+        margin-bottom: 8px;
+        min-height: 30px;
+    }
+
+    .stage-status {
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .stage-status.active { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+    .stage-status.pending { background: rgba(249, 115, 22, 0.1); color: #94a3b8; border: 1px solid rgba(255,255,255,0.05); }
+
+    .flow-connector {
+        position: absolute;
+        top: 25px;
+        left: 50px;
+        right: 50px;
+        height: 2px;
+        background: rgba(255,255,255,0.1);
+        z-index: 1;
+    }
+
+    .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .metric-card {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .metric-value {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .metric-value.blue { color: #3B82F6; }
+    .metric-value.green { color: #10B981; }
+    .metric-value.orange { color: #F97316; }
+    .metric-value.purple { color: #8B5CF6; }
+
+    .metric-label {
+        color: #94a3b8;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .bottom-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 25px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .progress-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: #94a3b8;
+        font-size: 14px;
+    }
+
+    .progress-bar {
+        width: 280px;
+        height: 8px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #3B82F6, #10B981);
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 12px;
+    }
+
+    .action-btn {
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .action-btn.primary { background: #3B82F6; color: white; }
+    .action-btn.secondary { background: rgba(255,255,255,0.1); color: white; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<div class="bg-pattern"></div>
+<div class="grid-lines"></div>
+<div class="content-wrapper">
+<div class="header">
+<div class="title-section">
+<div class="title-icon">
+<i class="fas fa-chess"></i>
+</div>
+<div>
+<div class="main-title">Stratégie Digitale - Framework</div>
+<div class="subtitle">Framework complet pour planifier et exécuter votre stratégie marketing</div>
+</div>
+</div>
+<div class="badge">
+<i class="fas fa-chart-line" style="margin-right: 8px;"></i>
+                Stratégie
+            </div>
+</div>
+<div class="framework-container">
+<div class="left-panel">
+<div class="strategy-card">
+<div class="card-header">
+<div class="card-icon blue">
+<i class="fas fa-search"></i>
+</div>
+<div class="card-title">Diagnostic</div>
+</div>
+<div class="step-list">
+<div class="step-item">
+<div class="step-number blue">1</div>
+<div class="step-text">Analyse du marché</div>
+</div>
+<div class="step-item">
+<div class="step-number green">2</div>
+<div class="step-text">Étude de la concurrence</div>
+</div>
+<div class="step-item">
+<div class="step-number orange">3</div>
+<div class="step-text">Audit digital complet</div>
+</div>
+</div>
+</div>
+<div class="strategy-card">
+<div class="card-header">
+<div class="card-icon green">
+<i class="fas fa-bullseye"></i>
+</div>
+<div class="card-title">Ciblage</div>
+</div>
+<div class="step-list">
+<div class="step-item">
+<div class="step-number blue">1</div>
+<div class="step-text">Définition des personas</div>
+</div>
+<div class="step-item">
+<div class="step-number green">2</div>
+<div class="step-text">Segmentation du marché</div>
+</div>
+<div class="step-item">
+<div class="step-number purple">3</div>
+<div class="step-text">Positionnement</div>
+</div>
+</div>
+</div>
+</div>
+<div class="right-panel">
+<div class="process-flow">
+<div class="flow-header">
+<div class="flow-title">Processus stratégique - 6 étapes</div>
+<div style="color: #94a3b8; font-size: 14px;">
+<i class="fas fa-clock" style="margin-right: 5px;"></i> 12 semaines
+                        </div>
+</div>
+<div class="flow-stages">
+<div class="flow-connector"></div>
+<div class="flow-stage">
+<div class="stage-icon blue"><i class="fas fa-search"></i></div>
+<div class="stage-title">Diagnostic</div>
+<div class="stage-desc">Analyse du marché</div>
+<div class="stage-status active">En cours</div>
+</div>
+<div class="flow-stage">
+<div class="stage-icon green"><i class="fas fa-users"></i></div>
+<div class="stage-title">Ciblage</div>
+<div class="stage-desc">Segmentation</div>
+<div class="stage-status active">En cours</div>
+</div>
+<div class="flow-stage">
+<div class="stage-icon orange"><i class="fas fa-bullseye"></i></div>
+<div class="stage-title">Objectifs</div>
+<div class="stage-desc">SMART/RACE</div>
+<div class="stage-status pending">Planifié</div>
+</div>
+<div class="flow-stage">
+<div class="stage-icon purple"><i class="fas fa-tasks"></i></div>
+<div class="stage-title">Tactiques</div>
+<div class="stage-desc">Canaux d'action</div>
+<div class="stage-status pending">Planifié</div>
+</div>
+<div class="flow-stage">
+<div class="stage-icon red"><i class="fas fa-calendar-alt"></i></div>
+<div class="stage-title">Plan</div>
+<div class="stage-desc">Plan d'action</div>
+<div class="stage-status pending">Planifié</div>
+</div>
+<div class="flow-stage">
+<div class="stage-icon cyan"><i class="fas fa-chart-line"></i></div>
+<div class="stage-title">Mesure</div>
+<div class="stage-desc">KPIs &amp; Analytics</div>
+<div class="stage-status pending">Planifié</div>
+</div>
+</div>
+<div class="metrics-grid">
+<div class="metric-card">
+<div class="metric-value blue">85%</div>
+<div class="metric-label">Complétion</div>
+</div>
+<div class="metric-card">
+<div class="metric-value green">12</div>
+<div class="metric-label">Semaines</div>
+</div>
+<div class="metric-card">
+<div class="metric-value orange">24</div>
+<div class="metric-label">Tâches</div>
+</div>
+<div class="metric-card">
+<div class="metric-value purple">3</div>
+<div class="metric-label">Équipes</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom-section">
+<div class="progress-info">
+<div>Progression: <span style="color: white; font-weight: 600;">45%</span></div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 45%;"></div>
+</div>
+</div>
+<div class="action-buttons">
+<button class="action-btn secondary">
+<i class="fas fa-download" style="margin-right: 8px;"></i> Exporter
+                </button>
+<button class="action-btn primary">
+<i class="fas fa-play" style="margin-right: 8px;"></i> Démarrer
+                </button>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

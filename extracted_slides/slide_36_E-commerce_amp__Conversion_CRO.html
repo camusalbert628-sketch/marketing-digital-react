@@ -1,0 +1,415 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>E-commerce &amp;
+
+Conversion (CRO)</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+    /* Increased padding for better distribution */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    /* Increased margin */
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 30px;
+    /* Increased gap */
+}
+
+.top-section {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+}
+
+.left-panel {
+    flex: 2.2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.optimization-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    height: 100%;
+}
+
+.optimization-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.card-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.card-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.card-icon.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.card-icon.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.card-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.optimization-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.item-text {
+    color: #94a3b8;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-value {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.progress-fill.green {
+    background: #10B981;
+}
+
+.progress-fill.blue {
+    background: #3B82F6;
+}
+
+.progress-fill.orange {
+    background: #F97316;
+}
+
+.metrics-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 300px;
+    /* Fixed height to match grid better */
+}
+
+.metrics-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.metrics-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    flex: 1;
+}
+
+.metric-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.metric-label {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.metric-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.value-number {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+}
+
+.value-unit {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.kpi-section {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+.kpi-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.kpi-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.kpi-icon.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.kpi-icon.blue {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3B82F6;
+}
+
+.kpi-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.kpi-label {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.kpi-value {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper">< !-- Header --><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-shopping-cart"></i></div><div><div class="main-title">E-commerce &amp;
+Conversion (CRO)</div><div class="subtitle">Optimisation du taux de conversion et expérience utilisateur</div></div></div><div class="badge"><i class="fas fa-chart-line" style="margin-right: 8px;"></i>9 Optimisations </div></div>< !-- Main Content --><div class="main-content">< !-- Top Section --><div class="top-section"><div class="left-panel"><div class="optimization-grid">< !-- PDP --><div class="optimization-card"><div class="card-header"><div class="card-icon blue"><i class="fas fa-image"></i></div><div class="card-title">PDP Claire</div></div><div class="card-content"><div class="optimization-item"><div class="item-text"><i class="fas fa-check-circle" style="color: #10B981;"></i>Images haute qualité </div><div class="item-value">+15%</div></div><div class="optimization-item"><div class="item-text"><i class="fas fa-check-circle" style="color: #10B981;"></i>Description détaillée </div><div class="item-value">+12%</div></div><div class="progress-bar"><div class="progress-fill green" style="width: 75%;"></div></div></div></div>< !-- Preuves sociales --><div class="optimization-card"><div class="card-header"><div class="card-icon green"><i class="fas fa-users"></i></div><div class="card-title">Preuves sociales</div></div><div class="card-content"><div class="optimization-item"><div class="item-text"><i class="fas fa-star" style="color: #F97316;"></i>Avis clients </div><div class="item-value">4.8/5</div></div><div class="optimization-item"><div class="item-text"><i class="fas fa-camera" style="color: #F97316;"></i>UGC </div><div class="item-value">+23%</div></div><div class="progress-bar"><div class="progress-fill orange" style="width: 85%;"></div></div></div></div>< !-- Paiement simplifié --><div class="optimization-card"><div class="card-header"><div class="card-icon orange"><i class="fas fa-credit-card"></i></div><div class="card-title">Paiement</div></div><div class="card-content"><div class="optimization-item"><div class="item-text"><i class="fas fa-lock" style="color: #10B981;"></i>Sécurisé </div><div class="item-value">+18%</div></div><div class="optimization-item"><div class="item-text"><i class="fas fa-bolt" style="color: #10B981;"></i>Rapide </div><div class="item-value">-30s</div></div><div class="progress-bar"><div class="progress-fill blue" style="width: 90%;"></div></div></div></div>< !-- Vitesse --><div class="optimization-card"><div class="card-header"><div class="card-icon purple"><i class="fas fa-tachometer-alt"></i></div><div class="card-title">Vitesse</div></div><div class="card-content"><div class="optimization-item"><div class="item-text"><i class="fas fa-clock" style="color: #10B981;"></i>&lt;
+
+2s chargement </div><div class="item-value">+25%</div></div><div class="optimization-item"><div class="item-text"><i class="fas fa-mobile-alt" style="color: #10B981;"></i>Mobile first </div><div class="item-value">+20%</div></div><div class="progress-bar"><div class="progress-fill green" style="width: 95%;"></div></div></div></div>< !-- Recherche interne --><div class="optimization-card"><div class="card-header"><div class="card-icon blue"><i class="fas fa-search"></i></div><div class="card-title">Recherche</div></div><div class="card-content"><div class="optimization-item"><div class="item-text"><i class="fas fa-filter" style="color: #3B82F6;"></i>Filtres avancés </div><div class="item-value">+14%</div></div><div class="optimization-item"><div class="item-text"><i class="fas fa-bolt" style="color: #3B82F6;"></i>Autocomplete </div><div class="item-value">+10%</div></div><div class="progress-bar"><div class="progress-fill blue" style="width: 70%;"></div></div></div></div>< !-- Filtres --><div class="optimization-card"><div class="card-header"><div class="card-icon green"><i class="fas fa-filter"></i></div><div class="card-title">Filtres</div></div><div class="card-content"><div class="optimization-item"><div class="item-text"><i class="fas fa-tags" style="color: #10B981;"></i>Catégories </div><div class="item-value">+16%</div></div><div class="optimization-item"><div class="item-text"><i class="fas fa-dollar-sign" style="color: #10B981;"></i>Prix </div><div class="item-value">+12%</div></div><div class="progress-bar"><div class="progress-fill green" style="width: 80%;"></div></div></div></div></div></div><div class="right-panel"><div class="metrics-card"><div class="metrics-header"><div class="metrics-title"><i class="fas fa-chart-bar" style="color: #3B82F6;"></i>KPIs CRO </div></div><div class="metrics-grid"><div class="metric-item"><div class="metric-label">Taux de conversion</div><div class="metric-value"><span class="value-number">3.2%</span><span class="value-unit">+0.5%</span></div></div><div class="metric-item"><div class="metric-label">Panier moyen</div><div class="metric-value"><span class="value-number">€85</span><span class="value-unit">+12%</span></div></div><div class="metric-item"><div class="metric-label">LTV</div><div class="metric-value"><span class="value-number">€245</span><span class="value-unit">+18%</span></div></div><div class="metric-item"><div class="metric-label">Abandon panier</div><div class="metric-value"><span class="value-number">68%</span><span class="value-unit">-8%</span></div></div></div></div><div class="kpi-section"><div class="kpi-item"><div class="kpi-icon green"><i class="fas fa-check"></i></div><div class="kpi-text"><div class="kpi-label">Tests A/B</div><div class="kpi-value">12 actifs</div></div></div><div class="kpi-item"><div class="kpi-icon blue"><i class="fas fa-eye"></i></div><div class="kpi-text"><div class="kpi-label">Heatmaps</div><div class="kpi-value">5 pages</div></div></div></div></div></div></div>< !-- Bottom Section --><div class="bottom-section"><div style="display: flex; align-items: center; gap: 20px; color: #94a3b8; font-size: 16px;"><div>Progression: <span style="color: white; font-weight: 700;">82%</span></div><div class="progress-bar" style="width: 250px; height: 10px; margin-top: 0;"><div class="progress-fill green" style="width: 82%;"></div></div></div><div class="action-buttons"><button class="action-btn secondary"><i class="fas fa-download"></i>Exporter</button><button class="action-btn primary"><i class="fas fa-play"></i>Lancer</button></div></div></div></div></body></html>

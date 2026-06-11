@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Qu'est-ce que le Marketing Digital ?</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #0f172a;
+        overflow: hidden;
+        width: 1280px;
+        height: 720px;
+    }
+
+    .slide-container {
+        width: 1280px;
+        height: 720px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .bg-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        z-index: 1;
+    }
+
+    .grid-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 1;
+    }
+
+    .content-wrapper {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 40px 60px 40px 60px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    .title-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .title-icon {
+        width: 54px;
+        height: 54px;
+        background: linear-gradient(135deg, #2563EB, #1d4ed8);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+    }
+
+    .main-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 2px;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        color: #94a3b8;
+    }
+
+    .badge {
+        background: rgba(249, 115, 22, 0.2);
+        color: #F97316;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .content-grid {
+        display: grid;
+        grid-template-columns: 1.35fr 0.65fr;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .definition-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 28px;
+        height: 100%;
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+
+    .card-icon.blue { background: rgba(37, 99, 235, 0.2); color: #3B82F6; }
+    .card-icon.green { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+    .card-icon.orange { background: rgba(249, 115, 22, 0.2); color: #F97316; }
+
+    .card-title {
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .definition-text {
+        color: #cbd5e1;
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    .highlight {
+        color: #3B82F6;
+        font-weight: 600;
+    }
+
+    .ecosystem-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+
+    .ecosystem-item {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px;
+        padding: 16px 10px;
+        text-align: center;
+    }
+
+    .ecosystem-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        margin: 0 auto 10px;
+    }
+
+    .ecosystem-icon.blue { background: rgba(37, 99, 235, 0.2); color: #3B82F6; }
+    .ecosystem-icon.green { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+    .ecosystem-icon.orange { background: rgba(249, 115, 22, 0.2); color: #F97316; }
+    .ecosystem-icon.purple { background: rgba(139, 92, 246, 0.2); color: #8B5CF6; }
+
+    .ecosystem-title {
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .ecosystem-desc {
+        color: #94a3b8;
+        font-size: 11px;
+    }
+
+    .journey-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 28px;
+        height: 100%;
+    }
+
+    .journey-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .journey-step {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px 15px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 12px;
+        border-left: 4px solid;
+    }
+
+    .step-number {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 700;
+        color: white;
+    }
+
+    .step-title {
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .step-desc {
+        color: #94a3b8;
+        font-size: 11px;
+    }
+
+    .bottom-section {
+        display: grid;
+        grid-template-columns: 1.35fr 0.65fr;
+        gap: 30px;
+        flex: 1;
+    }
+
+    .bottom-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 24px;
+    }
+
+    .bottom-content {
+        display: flex;
+        gap: 15px;
+    }
+
+    .bottom-item {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 10px;
+    }
+
+    .bottom-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .bottom-text {
+        color: #cbd5e1;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .stats-row {
+        display: flex;
+        gap: 15px;
+    }
+
+    .stat-item {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 12px;
+    }
+
+    .stat-number {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 2px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+        color: #94a3b8;
+    }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<div class="bg-pattern"></div>
+<div class="grid-lines"></div>
+<div class="content-wrapper">
+<div class="header">
+<div class="title-section">
+<div class="title-icon">
+<i class="fas fa-question-circle"></i>
+</div>
+<div>
+<div class="main-title">Qu'est-ce que le Marketing Digital ?</div>
+<div class="subtitle">Définition, écosystème et parcours client</div>
+</div>
+</div>
+<div class="badge">
+<i class="fas fa-lightbulb" style="margin-right: 8px;"></i>
+                Fondamentaux
+            </div>
+</div>
+<div class="content-grid">
+<div class="definition-card">
+<div class="card-header">
+<div class="card-icon blue">
+<i class="fas fa-bullseye"></i>
+</div>
+<div class="card-title">Définition du Marketing Digital</div>
+</div>
+<div class="definition-text">
+                    Le <span class="highlight">marketing digital</span> désigne l'ensemble des techniques et stratégies marketing utilisées sur les canaux numériques pour <span class="highlight">attirer</span>, <span class="highlight">convertir</span> et <span class="highlight">fidéliser</span> des clients. Il englobe toutes les actions menées sur Internet pour promouvoir des produits ou services, mesurer leur performance et optimiser les résultats.
+                </div>
+<div class="ecosystem-grid">
+<div class="ecosystem-item">
+<div class="ecosystem-icon blue"><i class="fas fa-search"></i></div>
+<div class="ecosystem-title">SEO</div>
+<div class="ecosystem-desc">Référencement naturel</div>
+</div>
+<div class="ecosystem-item">
+<div class="ecosystem-icon green"><i class="fas fa-ad"></i></div>
+<div class="ecosystem-title">SEA</div>
+<div class="ecosystem-desc">Publicité payante</div>
+</div>
+<div class="ecosystem-item">
+<div class="ecosystem-icon orange"><i class="fas fa-share-alt"></i></div>
+<div class="ecosystem-title">Social</div>
+<div class="ecosystem-desc">Réseaux sociaux</div>
+</div>
+<div class="ecosystem-item">
+<div class="ecosystem-icon purple"><i class="fas fa-envelope"></i></div>
+<div class="ecosystem-title">Email</div>
+<div class="ecosystem-desc">Marketing direct</div>
+</div>
+<div class="ecosystem-item">
+<div class="ecosystem-icon blue"><i class="fas fa-file-alt"></i></div>
+<div class="ecosystem-title">Content</div>
+<div class="ecosystem-desc">Marketing contenu</div>
+</div>
+<div class="ecosystem-item">
+<div class="ecosystem-icon green"><i class="fas fa-chart-line"></i></div>
+<div class="ecosystem-title">Data</div>
+<div class="ecosystem-desc">Analytics &amp; KPIs</div>
+</div>
+<div class="ecosystem-item">
+<div class="ecosystem-icon orange"><i class="fas fa-percentage"></i></div>
+<div class="ecosystem-title">CRO</div>
+<div class="ecosystem-desc">Optimisation conv.</div>
+</div>
+<div class="ecosystem-item">
+<div class="ecosystem-icon purple"><i class="fas fa-mobile-alt"></i></div>
+<div class="ecosystem-title">Mobile</div>
+<div class="ecosystem-desc">Marketing mobile</div>
+</div>
+</div>
+</div>
+<div class="journey-card">
+<div class="card-header">
+<div class="card-icon green">
+<i class="fas fa-route"></i>
+</div>
+<div class="card-title">Parcours Client</div>
+</div>
+<div class="journey-steps">
+<div class="journey-step" style="border-left-color: #3B82F6;">
+<div class="step-number" style="background: #3B82F6;">1</div>
+<div class="step-content">
+<div class="step-title">Découverte</div>
+<div class="step-desc">Premier contact marque</div>
+</div>
+</div>
+<div class="journey-step" style="border-left-color: #10B981;">
+<div class="step-number" style="background: #10B981;">2</div>
+<div class="step-content">
+<div class="step-title">Considération</div>
+<div class="step-desc">Évaluation des options</div>
+</div>
+</div>
+<div class="journey-step" style="border-left-color: #F97316;">
+<div class="step-number" style="background: #F97316;">3</div>
+<div class="step-content">
+<div class="step-title">Conversion</div>
+<div class="step-desc">Achat ou action</div>
+</div>
+</div>
+<div class="journey-step" style="border-left-color: #8B5CF6;">
+<div class="step-number" style="background: #8B5CF6;">4</div>
+<div class="step-content">
+<div class="step-title">Fidélisation</div>
+<div class="step-desc">Engagement long terme</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom-section">
+<div class="bottom-card">
+<div class="card-header">
+<div class="card-icon blue">
+<i class="fas fa-users"></i>
+</div>
+<div class="card-title">Types de Canaux</div>
+</div>
+<div class="bottom-content">
+<div class="bottom-item">
+<div class="bottom-icon blue"><i class="fas fa-globe"></i></div>
+<div class="bottom-text">Propres</div>
+</div>
+<div class="bottom-item">
+<div class="bottom-icon green"><i class="fas fa-handshake"></i></div>
+<div class="bottom-text">Payants</div>
+</div>
+<div class="bottom-item">
+<div class="bottom-icon orange"><i class="fas fa-user-friends"></i></div>
+<div class="bottom-text">Gagnés</div>
+</div>
+</div>
+</div>
+<div class="bottom-card">
+<div class="card-header">
+<div class="card-icon green">
+<i class="fas fa-chart-bar"></i>
+</div>
+<div class="card-title">Métriques</div>
+</div>
+<div class="stats-row">
+<div class="stat-item">
+<div class="stat-number" style="color: #3B82F6;">2.5%</div>
+<div class="stat-label">Taux conv.</div>
+</div>
+<div class="stat-item">
+<div class="stat-number" style="color: #10B981;">32%</div>
+<div class="stat-label">Rebond</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

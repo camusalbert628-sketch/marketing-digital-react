@@ -1,0 +1,355 @@
+< !DOCTYPE html><html lang="fr"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><title>Objectifs SMART - Exemples</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" /><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+}
+
+.main-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #94a3b8;
+}
+
+.badge {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.table-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.table-title {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.table-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn.primary {
+    background: #3B82F6;
+    color: white;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.smart-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr 1.2fr 1.5fr;
+    align-items: center;
+    padding: 20px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.table-row.header {
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: white;
+    border-bottom: none;
+}
+
+.table-cell {
+    color: #cbd5e1;
+    font-size: 15px;
+}
+
+.table-cell.header-cell {
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.objective-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.objective-title {
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.objective-desc {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.kpi-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.kpi-badge.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.kpi-badge.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.kpi-badge.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.kpi-badge.purple {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8B5CF6;
+}
+
+.target-value {
+    font-weight: 700;
+    color: white;
+    font-size: 16px;
+}
+
+.progress-bar {
+    height: 6px;
+    width: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+
+.progress-fill.green {
+    background: #10B981;
+}
+
+.progress-fill.blue {
+    background: #3B82F6;
+}
+
+.progress-fill.orange {
+    background: #F97316;
+}
+
+.deadline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #cbd5e1;
+    font-size: 15px;
+}
+
+.deadline i {
+    color: #F97316;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-badge.active {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.status-badge.pending {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.status-badge.completed {
+    background: rgba(37, 99, 235, 0.2);
+    color: #3B82F6;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+.stats-grid {
+    display: flex;
+    gap: 25px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-value {
+    color: white;
+    font-weight: 700;
+}
+
+</style></head><body><div class="slide-container"><div class="bg-pattern"></div><div class="grid-lines"></div><div class="content-wrapper"><div class="header"><div class="title-section"><div class="title-icon"><i class="fas fa-bullseye"></i></div><div><div class="main-title">Objectifs SMART - Exemples</div><div class="subtitle">Tableau d'objectifs mesurables et traçables</div>
+ </div></div><div class="badge"><i class="fas fa-chart-line" style="margin-right: 8px;"></i>8 objectifs </div></div><div class="main-content"><div class="table-container"><div class="table-header"><div class="table-title">Liste des objectifs SMART</div><div class="table-actions"><button class="action-btn secondary"><i class="fas fa-filter"></i>Filtrer</button><button class="action-btn primary"><i class="fas fa-plus"></i>Ajouter</button></div></div><div class="smart-table"><div class="table-row header"><div class="table-cell header-cell">Objectif</div><div class="table-cell header-cell">KPI</div><div class="table-cell header-cell">Cible</div><div class="table-cell header-cell">Échéance</div><div class="table-cell header-cell">Hypothèses</div></div><div class="table-row"><div class="table-cell"><div class="objective-cell"><div class="objective-title">Augmenter le trafic organique</div><div class="objective-desc">Optimisation SEO et contenu</div></div></div><div class="table-cell"><div class="kpi-badge green"><i class="fas fa-chart-line"></i>+30%</div></div><div class="table-cell"><div class="target-value">+30%</div><div class="progress-bar"><div class="progress-fill green" style="width: 75%;"></div></div></div><div class="table-cell"><div class="deadline"><i class="fas fa-calendar"></i>6 mois</div></div><div class="table-cell"><div class="status-badge active"><i class="fas fa-check-circle"></i>En cours</div></div></div><div class="table-row"><div class="table-cell"><div class="objective-cell"><div class="objective-title">Réduire le CPL</div><div class="objective-desc">Optimisation des campagnes ads</div></div></div><div class="table-cell"><div class="kpi-badge blue"><i class="fas fa-euro-sign"></i>&lt;
+8€</div></div><div class="table-cell"><div class="target-value">&lt;
+
+8€</div><div class="progress-bar"><div class="progress-fill blue" style="width: 60%;"></div></div></div><div class="table-cell"><div class="deadline"><i class="fas fa-calendar"></i>90 jours</div></div><div class="table-cell"><div class="status-badge pending"><i class="fas fa-clock"></i>En attente</div></div></div><div class="table-row"><div class="table-cell"><div class="objective-cell"><div class="objective-title">Augmenter le taux d'activation</div>
+ <div class="objective-desc">Amélioration onboarding</div></div></div><div class="table-cell"><div class="kpi-badge orange"><i class="fas fa-percentage"></i>+15%</div></div><div class="table-cell"><div class="target-value">+15%</div><div class="progress-bar"><div class="progress-fill orange" style="width: 45%;"></div></div></div><div class="table-cell"><div class="deadline"><i class="fas fa-calendar"></i>Q3 2026</div></div><div class="table-cell"><div class="status-badge active"><i class="fas fa-check-circle"></i>En cours</div></div></div><div class="table-row" style="border-bottom: none;"><div class="table-cell"><div class="objective-cell"><div class="objective-title">Augmenter le taux de conversion</div><div class="objective-desc">Optimisation landing pages</div></div></div><div class="table-cell"><div class="kpi-badge purple"><i class="fas fa-shopping-cart"></i>+25%</div></div><div class="table-cell"><div class="target-value">+25%</div><div class="progress-bar"><div class="progress-fill green" style="width: 80%;"></div></div></div><div class="table-cell"><div class="deadline"><i class="fas fa-calendar"></i>3 mois</div></div><div class="table-cell"><div class="status-badge completed"><i class="fas fa-check-circle"></i>Terminé</div></div></div></div></div><div class="bottom-section"><div class="progress-info"><div>Progression globale: <span style="color: white; font-weight: 700;">68%</span></div><div class="stats-grid"><div class="stat-item"><i class="fas fa-check-circle" style="color: #10B981;"></i><span class="stat-value">6/8</span><span>complétés</span></div><div class="stat-item"><i class="fas fa-clock" style="color: #3B82F6;"></i><span class="stat-value">45</span><span>jours restants</span></div></div></div><div style="color: #64748b; font-size: 13px;">Dernière mise à jour: Aujourd'hui</div>
+ </div></div></div></div></body></html>
