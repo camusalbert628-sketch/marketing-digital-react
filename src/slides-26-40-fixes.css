@@ -1193,3 +1193,20 @@
 #root .slide-36 [class*="-item"]:not(.toast-icon):hover {
   background: #f1f5f9 !important;
 }
+
+/* ── Slide 29 : Retirer le rectangle blanc / bordures derrière la ligne de statistiques ── */
+#root .slide-29 .stats-row {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: 20px !important;
+}
+
+#root .slide-29 .stat-item {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 8px !important;
+}
+
